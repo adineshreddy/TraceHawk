@@ -1,7 +1,16 @@
 name: TraceHawk Kubernetes deployment and recovery
 on:
   push:
+    branches: [main]
+    paths-ignore:
+      - 'README.md'
+      - 'PROJECT_PLAN.md'
+      - 'docs/phase-6/**'
   pull_request:
+    paths-ignore:
+      - 'README.md'
+      - 'PROJECT_PLAN.md'
+      - 'docs/phase-6/**'
 permissions:
   contents: read
 jobs:

@@ -83,6 +83,35 @@ def load_images():
     ).stdout.strip()
     target = "linux/" + {"aarch64": "arm64", "x86_64": "amd64"}[arch]
     for image in sorted(set(v["image"] for v in services.values())):
+        if "@sha256:" in image:
+            # Classic Docker exports can rebuild a platform manifest and discard
+            # the pinned multi-platform index. Pull in containerd by the exact
+            # registry digest instead of assigning that digest to different bytes.
+            repository = image.split("@")[0].split(":")[0]
+            canonical = image
+            if "/" not in repository:
+                canonical = "docker.io/library/" + image
+            elif "." not in repository.split("/")[0]:
+                canonical = "docker.io/" + image
+            run(
+                [
+                    "docker",
+                    "exec",
+                    NODE,
+                    "ctr",
+                    "-n",
+                    "k8s.io",
+                    "images",
+                    "pull",
+                    "--platform",
+                    target,
+                    canonical,
+                ],
+                stdout=subprocess.DEVNULL,
+                timeout=300,
+            )
+            print("Pulled pinned", image.split("@")[0], flush=True)
+            continue
         if subprocess.run(
             ["docker", "image", "inspect", image],
             stdout=subprocess.DEVNULL,
@@ -146,29 +175,6 @@ def load_images():
                     ],
                     stdout=subprocess.DEVNULL,
                 )
-        if "@" in image:
-            digest = image.split("@")[1]
-            sources = [r.split()[0] for r in rows if r.split()[2] == digest]
-            assert sources, "Imported manifest digest differs from pin"
-            repo = image.split("@")[0].rsplit(":", 1)[0]
-            if "/" not in repo:
-                repo = "library/" + repo
-            run(
-                [
-                    "docker",
-                    "exec",
-                    NODE,
-                    "ctr",
-                    "-n",
-                    "k8s.io",
-                    "images",
-                    "tag",
-                    "--force",
-                    sources[0],
-                    "docker.io/" + repo + "@" + digest,
-                ],
-                stdout=subprocess.DEVNULL,
-            )
         print("Loaded", image.split("@")[0], flush=True)
 
 
