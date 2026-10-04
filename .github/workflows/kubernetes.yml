@@ -1,0 +1,51 @@
+name: TraceHawk Kubernetes deployment and recovery
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  kubernetes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: services/console/package-lock.json
+      - name: Pinned client and verification dependencies
+        run: |
+          mkdir -p tmp/bin
+          curl -fsSL https://dl.k8s.io/release/v1.35.0/bin/linux/amd64/kubectl -o tmp/bin/kubectl
+          echo 'a2e984a18a0c063279d692533031c1eff93a262afcc0afdc517375432d060989  tmp/bin/kubectl' | sha256sum -c -
+          chmod 755 tmp/bin/kubectl
+          echo "$PWD/tmp/bin" >> "$GITHUB_PATH"
+          python -m venv .venv
+          .venv/bin/python -m pip install --require-hashes -r services/backend/requirements.lock
+          .venv/bin/python -m pip install -r contracts/requirements-phase0.lock.txt
+          python tools/setup_dev.py
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm --prefix services/console ci --ignore-scripts --no-audit --no-fund
+      - name: Verify deployment inputs and build the same application images
+        run: |
+          .venv/bin/python tools/check_kubernetes.py
+          .venv/bin/python tools/kubernetes.py up
+      - name: Replay, enforced isolation, pod restart and cluster recreation
+        run: .venv/bin/python tools/verify_kubernetes.py --recreate
+      - name: Kubernetes-backed monitoring and Chromium rehearsal
+        run: |
+          .venv/bin/python tools/verify_kubernetes_monitoring.py
+          .venv/bin/python tools/verify_kubernetes_browser.py
+      - name: Retain verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kubernetes-verification
+          path: docs/phase-5/*.json
+      - name: Remove only the dedicated test cluster
+        if: always()
+        run: .venv/bin/python tools/kubernetes.py down

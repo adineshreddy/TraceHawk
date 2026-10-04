@@ -1,0 +1,19 @@
+{
+  "scenario_id": "heldout-denied",
+  "split": "held-out",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packet construction; no network transmission. Pinned Zeek 8.0.10.",
+  "generator_seed": 4122,
+  "time_start_us": 1791028800000000,
+  "time_end_us": 1791029100000000,
+  "folder": "evaluation/corpus/heldout-denied",
+  "source_ip": "192.0.2.82",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "bd5f341664cc01ae7ff579be7f4fd6bfc17764bd468a88908fa9223da04b7c20",
+  "log_hashes": {
+    "conn": "3fd19e53fc003690fc749219d70fdcc409e20bcc1d69349880d867b10f401185",
+    "dns": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "total": 39
+}

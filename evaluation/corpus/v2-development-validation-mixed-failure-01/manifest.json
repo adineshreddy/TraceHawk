@@ -1,0 +1,19 @@
+{
+  "scenario_id": "v2-development-validation-mixed-failure-01",
+  "split": "development-validation",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packets; pinned Zeek 8.0.10; no network transmission.",
+  "generator_seed": 81045,
+  "time_start_us": 1791115200000000,
+  "time_end_us": 1791115500000000,
+  "folder": "evaluation/corpus/v2-development-validation-mixed-failure-01",
+  "source_ip": "203.0.113.65",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "b11bc976c804487911fbcd6420e4e552ac6d63432a7baed9a0f6b757771d82ea",
+  "log_hashes": {
+    "conn": "dd56b1fa924f4bab6f6e129a5bebd9fa57471d45e1ced7daffe9d7752694e022",
+    "dns": "1525090ce85bd25cd2163c89c0275d805847ee43b02ecf1da8e73245d7dbe175"
+  },
+  "total": 148
+}

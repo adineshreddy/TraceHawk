@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tracehawk.local/schemas/suppression.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "suppression_id",
+    "scope_id",
+    "detector_id",
+    "source_ip",
+    "destination_ip",
+    "reason",
+    "created_by",
+    "created_at_us",
+    "expires_at_us"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "suppression_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "scope_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "detector_id": {
+      "enum": [
+        "vertical_tcp_scan",
+        "failed_tcp_connections",
+        "dns_nxdomain_burst",
+        "known_indicator"
+      ]
+    },
+    "source_ip": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "ipv4"
+        },
+        {
+          "type": "string",
+          "format": "ipv6"
+        }
+      ]
+    },
+    "destination_ip": {
+      "anyOf": [
+        {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "ipv4"
+            },
+            {
+              "type": "string",
+              "format": "ipv6"
+            }
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "created_at_us": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "expires_at_us": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "checks": [
+    "authenticated summary",
+    "actual rule/model/benchmark tables",
+    "explicit unsupported detector and failed capacity target",
+    "desktop and mobile layout",
+    "analyst summary access",
+    "three completed real replay visibility samples"
+  ],
+  "visibility_samples": [
+    {
+      "repeat": 0,
+      "creation_to_visible_s": 1.930267,
+      "first_api_observation_to_visible_s": 1.82
+    },
+    {
+      "repeat": 1,
+      "creation_to_visible_s": 2.442464,
+      "first_api_observation_to_visible_s": 2.324
+    },
+    {
+      "repeat": 2,
+      "creation_to_visible_s": 2.33128,
+      "first_api_observation_to_visible_s": 2.306
+    }
+  ],
+  "max_creation_to_visible_s": 2.442464,
+  "three_second_target_met": true,
+  "measurement_note": "Wall-clock alert creation is before transaction commit; includes commit, API polling (100ms), console polling (2s), scheduling and cross-container clock uncertainty. Three controlled samples do not establish a percentile or production SLA.",
+  "page_errors": []
+}

@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "two_consumers_three_partitions": true,
+    "stale_epoch_and_owner_fenced": true,
+    "rebalance_and_sigkill_state_matches_reference": true,
+    "database_outage_paused_readiness_live_process": true,
+    "database_outage_state_matches_reference": true,
+    "broker_outage_state_matches_reference": true,
+    "intake_pauses_without_consumers_and_resumes": true,
+    "durable_quarantine_delivery_review_and_recovery": true,
+    "outbox_ack_before_checkpoint_duplicates_identified": {
+      "target_occurrences": 2,
+      "unique_updates": 2123,
+      "deduplicated_latest_status": "acknowledged"
+    },
+    "prometheus_live_scrapes": {
+      "scrape_targets": 4,
+      "pipeline_ready_metric": true
+    }
+  },
+  "runs": {
+    "reference": "51ab681324867982485088f2",
+    "rebalance_crash": "3f556a7e4495b1916622dae5",
+    "database_outage": "1a80443a6e8e96d89be71145",
+    "broker_outage": "21e3abe4c2359ccc75cb7f42",
+    "backpressure": "96329ea1f01fb892e5777506"
+  },
+  "status": "passed",
+  "limits": "Small controlled replay; single broker/database; no high-availability or load claim."
+}

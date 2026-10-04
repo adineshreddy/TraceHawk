@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "run_id": "f2764eff444c6efd236fb431",
+  "crash_point": "Kafka acknowledged record before source checkpoint",
+  "persisted_events_after_ack": 1,
+  "source_checkpoint": 0,
+  "final_unique_events": 108,
+  "alerts": 1,
+  "evidence": 24
+}

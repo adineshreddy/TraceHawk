@@ -1,0 +1,19 @@
+{
+  "scenario_id": "v2-held-out-fast-scan-01",
+  "split": "held-out",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packets; pinned Zeek 8.0.10; no network transmission.",
+  "generator_seed": 81071,
+  "time_start_us": 1791115200000000,
+  "time_end_us": 1791115500000000,
+  "folder": "evaluation/corpus/v2-held-out-fast-scan-01",
+  "source_ip": "203.0.113.91",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "f584d1e197cf240c62f425dc7c1bf7be0e1bf1bf9a8c0307ab79f6f2bdc13af3",
+  "log_hashes": {
+    "conn": "73ff925abc4ab3e08cbac1d3ed661e62c33f276b818511608bb001843744238e",
+    "dns": "97e4af6373a53394ef4aff3fd2b61796781f3e152a87b6e3629a3596dc5db163"
+  },
+  "total": 171
+}

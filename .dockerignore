@@ -1,0 +1,7 @@
+.venv
+.env
+tmp
+**/node_modules
+**/__pycache__
+.git
+docs/evidence

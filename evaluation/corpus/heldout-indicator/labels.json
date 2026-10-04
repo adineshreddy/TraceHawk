@@ -1,0 +1,21 @@
+{
+  "episodes": [
+    {
+      "detector_id": "known_indicator",
+      "source_ip": "192.0.2.85",
+      "destination_ip": "192.0.2.20",
+      "start_us": 1791028801000000,
+      "end_us": 1791028801020000
+    },
+    {
+      "detector_id": "known_indicator",
+      "source_ip": "192.0.2.85",
+      "destination_ip": null,
+      "start_us": 1791028803000000,
+      "end_us": 1791028803000000
+    }
+  ],
+  "policies": [],
+  "context": "indicator",
+  "benign_explanation": null
+}

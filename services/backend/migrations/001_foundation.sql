@@ -1,0 +1,18 @@
+CREATE TABLE users(username text PRIMARY KEY, password_hash text NOT NULL, role text NOT NULL CHECK(role IN ('analyst','operator')), workspace text NOT NULL DEFAULT 'local');
+CREATE TABLE sessions(token_hash text PRIMARY KEY, username text NOT NULL REFERENCES users, csrf_token text NOT NULL, expires_at timestamptz NOT NULL);
+CREATE TABLE rule_versions(version text PRIMARY KEY, body jsonb NOT NULL, created_by text NOT NULL, created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE runs(run_id text PRIMARY KEY, scope_id text UNIQUE NOT NULL, workspace text NOT NULL, scenario_id text NOT NULL, rule_version text NOT NULL REFERENCES rule_versions, status text NOT NULL CHECK(status IN ('queued','preparing','replaying','finalizing','completed','cancelled','failed')), speed int NOT NULL CHECK(speed IN (1,5,10)), metadata jsonb NOT NULL, generation bigint NOT NULL DEFAULT 0, next_index int NOT NULL DEFAULT 0, total_records int NOT NULL, source_offsets jsonb NOT NULL DEFAULT '[null,null,null]', lease_until timestamptz, created_at timestamptz NOT NULL DEFAULT now(), error jsonb);
+CREATE UNIQUE INDEX one_active_replay ON runs((true)) WHERE status IN ('queued','preparing','replaying','finalizing');
+CREATE TABLE partition_checkpoints(partition int PRIMARY KEY CHECK(partition BETWEEN 0 AND 2), next_offset bigint NOT NULL DEFAULT 0, ownership_epoch bigint NOT NULL DEFAULT 0);
+INSERT INTO partition_checkpoints(partition) VALUES(0),(1),(2);
+CREATE TABLE run_partitions(run_id text REFERENCES runs, partition int NOT NULL, max_time_us bigint, watermark_us bigint, next_window_end_us bigint, last_data_offset bigint, completed_generation bigint, PRIMARY KEY(run_id,partition));
+CREATE TABLE events(event_id text PRIMARY KEY, run_id text NOT NULL REFERENCES runs, partition int NOT NULL, broker_offset bigint NOT NULL, event_time_us bigint NOT NULL, source_ip inet NOT NULL, destination_ip inet NOT NULL, destination_port int NOT NULL, event_kind text NOT NULL, protocol text NOT NULL, eligible boolean NOT NULL, body jsonb NOT NULL);
+CREATE INDEX event_windows ON events(run_id,partition,event_time_us) WHERE eligible;
+CREATE INDEX event_source_time ON events(run_id,source_ip,event_time_us);
+CREATE TABLE alerts(alert_id text PRIMARY KEY, run_id text NOT NULL REFERENCES runs, body jsonb NOT NULL, revision bigint NOT NULL DEFAULT 1);
+CREATE TABLE alert_evidence(alert_id text REFERENCES alerts ON DELETE CASCADE, event_id text REFERENCES events, PRIMARY KEY(alert_id,event_id));
+CREATE TABLE outbox(update_id text PRIMARY KEY, alert_id text REFERENCES alerts, body jsonb NOT NULL, delivered_at timestamptz);
+CREATE TABLE audit_events(id bigserial PRIMARY KEY, run_id text REFERENCES runs, actor text NOT NULL, action text NOT NULL, details jsonb NOT NULL, created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE deadletters(partition int NOT NULL, broker_offset bigint NOT NULL, reason text NOT NULL, PRIMARY KEY(partition,broker_offset));
+CREATE TABLE component_health(component text PRIMARY KEY, updated_at timestamptz NOT NULL DEFAULT now(), status text NOT NULL, details jsonb NOT NULL DEFAULT '{}');
+CREATE TABLE login_limits(identity text PRIMARY KEY, failures int NOT NULL, reset_at timestamptz NOT NULL);

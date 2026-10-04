@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "resources": 51,
+  "checks": [
+    "rendered manifest drift",
+    "same Compose images",
+    "no checked-in Secret values",
+    "internal services",
+    "retained local volumes",
+    "Calico vendor integrity and image pins"
+  ]
+}

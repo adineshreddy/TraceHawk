@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tracehawk.local/schemas/rules.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "version",
+    "window_seconds",
+    "step_seconds",
+    "lateness_seconds",
+    "episode_bucket_seconds",
+    "vertical_tcp_scan",
+    "failed_tcp_connections",
+    "dns_nxdomain_burst",
+    "known_indicator"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "window_seconds": {
+      "const": 60
+    },
+    "step_seconds": {
+      "const": 10
+    },
+    "lateness_seconds": {
+      "const": 30
+    },
+    "episode_bucket_seconds": {
+      "const": 300
+    },
+    "vertical_tcp_scan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "min_distinct_ports",
+        "severity"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "min_distinct_ports": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 65535
+        },
+        "severity": {
+          "enum": [
+            "medium",
+            "high"
+          ]
+        }
+      }
+    },
+    "failed_tcp_connections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "min_attempts",
+        "min_failure_ratio",
+        "failure_states",
+        "severity"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "min_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "min_failure_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "failure_states": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "S0",
+              "REJ"
+            ]
+          }
+        },
+        "severity": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      }
+    },
+    "dns_nxdomain_burst": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "min_responses",
+        "min_nxdomain_ratio",
+        "severity"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "min_responses": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "min_nxdomain_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "severity": {
+          "enum": [
+            "medium",
+            "high"
+          ]
+        }
+      }
+    },
+    "known_indicator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "indicator_version",
+        "severity"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "indicator_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "severity": {
+          "enum": [
+            "medium",
+            "high"
+          ]
+        }
+      }
+    }
+  }
+}

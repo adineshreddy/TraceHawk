@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "event_id": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "scope_id": "demo-phase0",
+  "sensor_id": "zeek-offline",
+  "run_id": "phase0-v1",
+  "event_kind": "dns",
+  "event_time_us": 1791028840000000,
+  "original_timestamp_us": 1791028840000000,
+  "ingested_at_us": 1791028860000000,
+  "published_at_us": 1791028860001000,
+  "time_basis": "dns_transaction_start",
+  "source_ip": "192.0.2.10",
+  "destination_ip": "192.0.2.20",
+  "source_port": 40000,
+  "destination_port": 53,
+  "protocol": "udp",
+  "zeek_uid": "fixture-uid",
+  "provenance": {
+    "log_kind": "dns",
+    "source_generation_id": "phase0-conn-v1",
+    "record_offset": 0,
+    "zeek_version": "8.0.10",
+    "capture_id": "phase0-controlled-network-v1",
+    "input_mode": "controlled_pcap"
+  },
+  "connection": null,
+  "dns": {
+    "query": "host0.example.test",
+    "rcode": 3,
+    "rcode_name": "NXDOMAIN",
+    "qtype": 1,
+    "trans_id": 1000,
+    "answers": []
+  }
+}

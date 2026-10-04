@@ -1,0 +1,6 @@
+{
+  "episodes": [],
+  "policies": [],
+  "context": "outage",
+  "benign_explanation": "Rejected retries to one service during an authorized maintenance outage."
+}

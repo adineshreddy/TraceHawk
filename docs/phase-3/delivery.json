@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "checked_retained_records": {
+    "alert_updates": 1375,
+    "quarantines": 2
+  },
+  "checks": [
+    "alert schema and deterministic update identity",
+    "latest update routes by alert ID",
+    "dead-letter identity and committed input fingerprint",
+    "operational records exclude raw payloads"
+  ]
+}

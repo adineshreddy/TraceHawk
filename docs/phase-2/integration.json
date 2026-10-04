@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "controlled_run": "9bd9ca774cc18357aab3e07a",
+  "events": 108,
+  "alerts_by_detector": {
+    "vertical_tcp_scan": 1,
+    "failed_tcp_connections": 1,
+    "dns_nxdomain_burst": 1,
+    "known_indicator": 3
+  },
+  "benign_run": "3eff9e9a99cd7aa2cc687a1f",
+  "benign_alerts": 0,
+  "suppressed_run": "3e67ac52807e2190efbed7ee",
+  "suppressed_alerts": 1,
+  "visible_unsuppressed_alerts": 5,
+  "checks": [
+    "measured window snapshots and timelines",
+    "exact indicator versions and canonicalization",
+    "immutable rule creation and run snapshot",
+    "filtered persisted alerts",
+    "stable alert/event pagination",
+    "host investigation",
+    "unknown duration preservation",
+    "operator-only suppression and indicator changes",
+    "outsider operator cannot read hosts/events/suppressions or create another workspace policy",
+    "no retroactive suppression",
+    "suppressed evidence retained"
+  ]
+}

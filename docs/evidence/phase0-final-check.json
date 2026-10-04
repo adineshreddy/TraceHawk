@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "local_markdown_links": "valid",
+  "deterministic_pcap_bytes": true,
+  "remaining_application_work": "Phase 1 and later; no detector implementation or performance claim."
+}

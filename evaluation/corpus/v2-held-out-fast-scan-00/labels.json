@@ -1,0 +1,14 @@
+{
+  "context": "fast-scan",
+  "policies": [],
+  "benign_explanation": null,
+  "episodes": [
+    {
+      "detector_id": "vertical_tcp_scan",
+      "source_ip": "203.0.113.90",
+      "destination_ip": "198.51.100.22",
+      "start_us": 1791115265000000,
+      "end_us": 1791115285920000
+    }
+  ]
+}

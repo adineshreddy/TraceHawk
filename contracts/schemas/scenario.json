@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tracehawk.local/schemas/scenario.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "scenario_id",
+    "input_mode",
+    "capture_file",
+    "capture_sha256",
+    "packet_count",
+    "generator",
+    "license",
+    "provenance",
+    "time_start_us",
+    "time_end_us",
+    "expected_telemetry",
+    "ground_truth",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scenario_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "input_mode": {
+      "enum": [
+        "controlled_pcap",
+        "public_pcap",
+        "zeek_fixture",
+        "synthetic_fixture"
+      ]
+    },
+    "capture_file": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "capture_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "packet_count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "generator": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "provenance": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "time_start_us": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "time_end_us": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "expected_telemetry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "connection_records",
+        "dns_records",
+        "tcp_rejected",
+        "tcp_unanswered",
+        "tcp_normal",
+        "dns_nxdomain"
+      ],
+      "properties": {
+        "connection_records": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "dns_records": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "tcp_rejected": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "tcp_unanswered": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "tcp_normal": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "dns_nxdomain": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      }
+    },
+    "ground_truth": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "family",
+          "source_ip"
+        ],
+        "properties": {
+          "family": {
+            "enum": [
+              "vertical_tcp_scan",
+              "failed_tcp_connections",
+              "dns_nxdomain_burst",
+              "known_indicator"
+            ]
+          },
+          "source_ip": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "ipv4"
+              },
+              {
+                "type": "string",
+                "format": "ipv6"
+              }
+            ]
+          },
+          "destination_ip": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "ipv4"
+              },
+              {
+                "type": "string",
+                "format": "ipv6"
+              }
+            ]
+          },
+          "distinct_ports": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "attempts": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "failure_ratio": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "completed_responses": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "nxdomain_ratio": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024
+      }
+    }
+  }
+}

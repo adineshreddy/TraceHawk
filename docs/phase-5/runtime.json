@@ -1,0 +1,115 @@
+{
+  "status": "passed",
+  "host": "macOS / ARM64 / Apple M5 / 16 GiB",
+  "kubernetes": "v1.35.0",
+  "container_runtime": "containerd://2.2.0",
+  "kind": "v0.31.0",
+  "calico": "v3.33.0",
+  "dedicated_node_memory_limit_bytes": 4294967296,
+  "after_test_snapshot": {
+    "CPUPerc": "31.38%",
+    "MemUsage": "2.039GiB / 4GiB"
+  },
+  "pods": [
+    {
+      "name": "api-b7d6bccb9-jnc59",
+      "images": [
+        "tracehawk-backend:phase4"
+      ],
+      "restart_counts": [
+        0
+      ]
+    },
+    {
+      "name": "collector-77cc4697ff-g5q64",
+      "images": [
+        "tracehawk-collector:phase4"
+      ],
+      "restart_counts": [
+        0
+      ]
+    },
+    {
+      "name": "console-76c985b466-b9g24",
+      "images": [
+        "tracehawk-console:phase5"
+      ],
+      "restart_counts": [
+        0
+      ]
+    },
+    {
+      "name": "detector-8955575b6-gfj9p",
+      "images": [
+        "tracehawk-backend:phase4"
+      ],
+      "restart_counts": [
+        0
+      ]
+    },
+    {
+      "name": "detector-b-6c5fd575c6-8mkgp",
+      "images": [
+        "tracehawk-backend:phase4"
+      ],
+      "restart_counts": [
+        0
+      ]
+    },
+    {
+      "name": "grafana-7db66d4c98-scntn",
+      "images": [
+        "grafana/grafana:12.2.0@sha256:74144189b38447facf737dfd0f3906e42e0776212bf575dc3334c3609183adf7"
+      ],
+      "restart_counts": [
+        0
+      ]
+    },
+    {
+      "name": "kafka-0",
+      "images": [
+        "apache/kafka:4.3.0@sha256:0be4c9eb3565733612d2836d65636fd611a219ebcf5b4162e5ac259ea0ecb907"
+      ],
+      "restart_counts": [
+        0
+      ]
+    },
+    {
+      "name": "postgres-0",
+      "images": [
+        "postgres:17-alpine@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24"
+      ],
+      "restart_counts": [
+        0
+      ]
+    },
+    {
+      "name": "prometheus-fdcfd857d-h2kws",
+      "images": [
+        "prom/prometheus:v3.5.0@sha256:63805ebb8d2b3920190daf1cb14a60871b16fd38bed42b857a3182bc621f4996"
+      ],
+      "restart_counts": [
+        0
+      ]
+    },
+    {
+      "name": "publisher-cf7dc664b-nvp4r",
+      "images": [
+        "tracehawk-backend:phase4"
+      ],
+      "restart_counts": [
+        0
+      ]
+    },
+    {
+      "name": "topics-xg5kx",
+      "images": [
+        "apache/kafka:4.3.0@sha256:0be4c9eb3565733612d2836d65636fd611a219ebcf5b4162e5ac259ea0ecb907"
+      ],
+      "restart_counts": [
+        0
+      ]
+    }
+  ],
+  "note": "After-test resource snapshot, not a load/capacity benchmark."
+}

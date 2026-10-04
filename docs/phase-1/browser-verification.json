@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "browser": "Chromium / Playwright 1.63.0",
+  "checks": [
+    "login",
+    "replay through real Go/Kafka/Python/PostgreSQL pipeline",
+    "108 events / 24 evidence rows",
+    "acknowledge with audit reason",
+    "HTML-like source text escaped",
+    "session and disposition survive refresh",
+    "mobile layout without document overflow",
+    "logout",
+    "analyst replay disabled"
+  ],
+  "screenshots": [
+    "overview.png",
+    "investigation.png",
+    "mobile-investigation.png"
+  ],
+  "page_errors": []
+}

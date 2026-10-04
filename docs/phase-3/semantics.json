@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "checks": [
+    "exact and below count/ratio thresholds, numeric DNS code 3.0; null/OTH/UDP excluded from classified denominators",
+    "ordered/on-time reordered events yield identical bucket metrics, evidence counts and windows; completion idempotent",
+    "watermark equality retained with exclusion reason; indicator matching still applies",
+    "exact DNS matching without suffix expansion; null response remains unknown",
+    "suppression validity [start,expiry), same-scope exact source/destination; decision uses contributing event time",
+    "201 unique contributing events retain exact totals while alert evidence IDs cap at 200"
+  ],
+  "test_data": "synthetic records and checkpoint changes rolled back"
+}

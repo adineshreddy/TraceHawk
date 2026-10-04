@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "node": "v25.6.1",
+  "packages": {
+    "@playwright/test": "1.63.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.2"
+  },
+  "limits": [
+    "Minimal TSX bundle only; no full application typecheck.",
+    "Container Node 24 production build remains Phase 1."
+  ]
+}

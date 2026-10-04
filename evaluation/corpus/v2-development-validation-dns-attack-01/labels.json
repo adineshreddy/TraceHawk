@@ -1,0 +1,14 @@
+{
+  "context": "dns-attack",
+  "policies": [],
+  "benign_explanation": null,
+  "episodes": [
+    {
+      "detector_id": "dns_nxdomain_burst",
+      "source_ip": "203.0.113.79",
+      "destination_ip": null,
+      "start_us": 1791115300000000,
+      "end_us": 1791115321840000
+    }
+  ]
+}

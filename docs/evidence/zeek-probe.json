@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "zeek_image": "zeek/zeek:8.0.10@sha256:73e80e9cd23ff71fd28d158e9a9af5c7b2b0ef5d4036af61521827531347c0e3",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--cap-drop",
+    "ALL",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "-v",
+    "/Users/dinesh/TraceHawk/scenarios/phase0:/input:ro",
+    "-v",
+    "/Users/dinesh/TraceHawk/scenarios/phase0/zeek:/output",
+    "-w",
+    "/output",
+    "zeek/zeek:8.0.10@sha256:73e80e9cd23ff71fd28d158e9a9af5c7b2b0ef5d4036af61521827531347c0e3",
+    "zeek",
+    "-r",
+    "/input/controlled-network.pcap",
+    "LogAscii::use_json=T"
+  ],
+  "connection_records": 68,
+  "dns_records": 40,
+  "tcp_states": {
+    "REJ": 24,
+    "S0": 3,
+    "SF": 1
+  },
+  "dns_response_codes": {
+    "NXDOMAIN": 32,
+    "NOERROR": 8
+  },
+  "missing_duration_records": 3,
+  "dns_connection_uids_linked": true,
+  "log_hashes": {
+    "conn.log": "ce92dd6356ed11e2fc4c4055be03fccb2fef2731b9f93edf2b948080530e5f43",
+    "packet_filter.log": "bfdb4f868d93f70b1ad1263ca045f6f51e0cc220093c82d7fd7618b065a3061b",
+    "dns.log": "5ba1c2416ac8712f18270edd00dc922d465116d1fce1f8a72e3058ae8296f83a"
+  },
+  "limitations": [
+    "Zeek UIDs are generated per processing run; derived logs may have different hashes when regenerated.",
+    "Connection ts+duration is an activity-end approximation, not log emission time."
+  ]
+}

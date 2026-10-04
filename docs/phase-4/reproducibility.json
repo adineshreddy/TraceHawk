@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "reports": {
+    "rules": {
+      "before_sha256": "06c091e6a96cf6504fd0a733e4d9c31e05fe8c52ccd445f1c85d3b36eb30fe23",
+      "regenerated_sha256": "06c091e6a96cf6504fd0a733e4d9c31e05fe8c52ccd445f1c85d3b36eb30fe23",
+      "byte_identical": true
+    },
+    "ml": {
+      "before_sha256": "2e07b92e2d517c739a00909ec4f2e12ffbbd22d6c869f46cc1f64ab519308945",
+      "regenerated_sha256": "2e07b92e2d517c739a00909ec4f2e12ffbbd22d6c869f46cc1f64ab519308945",
+      "byte_identical": true
+    }
+  },
+  "note": "Frozen normalization, SQL evaluation and seeded ML reports regenerate byte-for-byte. Live benchmark timings vary by host/run."
+}

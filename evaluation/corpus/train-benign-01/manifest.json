@@ -1,0 +1,19 @@
+{
+  "scenario_id": "train-benign-01",
+  "split": "development-train",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packet construction; no network transmission. Pinned Zeek 8.0.10.",
+  "generator_seed": 4101,
+  "time_start_us": 1791028800000000,
+  "time_end_us": 1791029100000000,
+  "folder": "evaluation/corpus/train-benign-01",
+  "source_ip": "192.0.2.61",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "a5b98bded8d07b4bc5d34fdcf5bceb8cf791cc5438ccfdfa4d974d8a92cdfcd3",
+  "log_hashes": {
+    "conn": "1230d6a1fdfa1ae2c17260a5e17d1a75d754999a2237b3ce1ed0c7787ba2aeee",
+    "dns": "25298333ee568fd1a13e9158365a803791c23dc7f77cbc7b5d257680bdde3022"
+  },
+  "total": 49
+}

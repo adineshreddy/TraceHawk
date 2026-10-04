@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "rehearsals": [
+    {
+      "repeat": 0,
+      "controlled": {
+        "scenario": "phase0-controlled-network-v1",
+        "run_id": "29cbc38032804aa26df5822f",
+        "events": 108,
+        "actionable_alerts": 6,
+        "suppressed": 0
+      },
+      "benign": {
+        "scenario": "benign-network-v1",
+        "run_id": "aa28112abdbb739a14bc1c7c",
+        "events": 17,
+        "actionable_alerts": 0,
+        "suppressed": 0
+      },
+      "authorized": {
+        "scenario": "phase0-controlled-network-v1",
+        "run_id": "6cd6e14c6db88bcade241bb6",
+        "events": 108,
+        "actionable_alerts": 5,
+        "suppressed": 1
+      },
+      "mobile_overflow": false
+    },
+    {
+      "repeat": 1,
+      "controlled": {
+        "scenario": "phase0-controlled-network-v1",
+        "run_id": "af17e6d5f94932de5435ab51",
+        "events": 108,
+        "actionable_alerts": 6,
+        "suppressed": 0
+      },
+      "benign": {
+        "scenario": "benign-network-v1",
+        "run_id": "4c539b4f1e0b48079d3364e7",
+        "events": 17,
+        "actionable_alerts": 0,
+        "suppressed": 0
+      },
+      "authorized": {
+        "scenario": "phase0-controlled-network-v1",
+        "run_id": "549a9122ef291ab02cab95f5",
+        "events": 108,
+        "actionable_alerts": 5,
+        "suppressed": 1
+      },
+      "mobile_overflow": false
+    }
+  ],
+  "page_errors": [],
+  "video": "tracehawk-demo.webm",
+  "video_note": "Silent automated Chromium walkthrough of actual local services. Authentication occurs before recording. Each rehearsal starts fresh replay scopes; existing database history is preserved."
+}

@@ -1,0 +1,19 @@
+{
+  "scenario_id": "v2-development-train-busy-dns-03",
+  "split": "development-train",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packets; pinned Zeek 8.0.10; no network transmission.",
+  "generator_seed": 81011,
+  "time_start_us": 1791115200000000,
+  "time_end_us": 1791115500000000,
+  "folder": "evaluation/corpus/v2-development-train-busy-dns-03",
+  "source_ip": "203.0.113.31",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "fab033084577df66c9c04c289217f971d933f4392e4c321c9e23bb5c441a03ea",
+  "log_hashes": {
+    "conn": "21d3929dab8fb4a846f5face4b5a55c15bf2a284e65f955e07815fbd789fc3a9",
+    "dns": "d3a09f08edaa532ba24c90604aa25e69d31024f8515d387f551cd2887f325f12"
+  },
+  "total": 317
+}

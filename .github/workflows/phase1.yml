@@ -1,0 +1,93 @@
+name: TraceHawk detection, investigation and recovery
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.26.0'
+          cache-dependency-path: services/collector/go.sum
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: services/console/package-lock.json
+      - name: Locked dependencies and contract checks
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install --require-hashes -r services/backend/requirements.lock
+          .venv/bin/python -m pip install -r contracts/requirements-phase0.lock.txt
+          .venv/bin/python tools/validate_contracts.py
+          go -C tools/compatibility run ./cmd/contracts
+          go -C services/collector test ./...
+          APP_ROOT="$PWD" PYTHONPATH=services/backend .venv/bin/python -m pytest services/backend/tests -q
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm --prefix services/console ci --ignore-scripts --no-audit --no-fund
+          npm --prefix services/console run build
+      - name: Start isolated local stack
+        run: |
+          python tools/setup_dev.py
+          docker compose build
+          docker compose up -d --wait --wait-timeout 180
+      - name: API, restart, transaction and collector crash checks
+        run: |
+          .venv/bin/python tools/verify_phase1.py
+          docker compose exec -T api python - < tools/verify_transactions.py > docs/phase-1/transaction-verification.json
+          .venv/bin/python tools/verify_collector_recovery.py
+      - name: Phase 2 detectors and investigation
+        run: |
+          python tools/verify_phase2_migrations.py
+          .venv/bin/python tools/verify_phase2.py
+          docker compose exec -T api python - < tools/verify_phase2_semantics.py > docs/phase-2/semantics.json
+      - name: Phase 3 distributed recovery and monitoring
+        run: |
+          .venv/bin/python tools/verify_phase3.py
+          docker compose exec -T api python - < tools/verify_phase3_backpressure.py > docs/phase-3/backpressure.json
+          docker compose exec -T api python - < tools/verify_phase3_delivery.py > docs/phase-3/delivery.json
+          python tools/doctor.py
+      - name: Frozen Phase 4 evaluation
+        run: |
+          .venv/bin/python -m pip install --require-hashes -r evaluation/requirements.lock
+          .venv/bin/python tools/prepare_evaluation.py
+          .venv/bin/python tools/run_evaluation.py
+          .venv/bin/python tools/evaluate_ml.py
+          .venv/bin/python tools/render_evaluation_report.py
+          docker compose build api
+          docker compose up -d --wait --wait-timeout 180 api detector detector-b publisher
+          .venv/bin/python tools/verify_phase4.py
+      - name: Frozen ML v2 experiment
+        run: |
+          .venv/bin/python tools/prepare_ml_v2.py
+          .venv/bin/python tools/run_ml_v2_rules.py
+          .venv/bin/python tools/evaluate_ml_v2.py
+          .venv/bin/python tools/render_ml_v2_report.py
+      - name: Chromium rehearsals
+        run: |
+          tools/verify_browser.sh phase1
+          tools/verify_browser.sh phase2
+          tools/verify_browser.sh phase3
+          tools/verify_browser.sh phase4
+          tools/verify_browser.sh phase6
+      - name: Retain pipeline and demo evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-verification
+          path: |
+            docs/phase-*/*.json
+            docs/phase-6/*.png
+            docs/phase-6/*.webm
+            evaluation/reports/*.json
+            evaluation/experiments/ml-v2/*.json
+      - name: Stop this project's stack
+        if: always()
+        run: docker compose --project-name tracehawk down --volumes

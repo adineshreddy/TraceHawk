@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "version": "phase2-fictional-v1",
+  "provenance": "Original fictional development indicators that deliberately match the controlled capture. Not a threat feed or evidence of malicious infrastructure.",
+  "entries": [
+    {
+      "kind": "ip",
+      "value": "192.0.2.20",
+      "description": "Fictional destination used by the controlled port-scan fixture"
+    },
+    {
+      "kind": "domain",
+      "value": "host0.example.test",
+      "description": "Fictional exact DNS query in the controlled NXDOMAIN fixture"
+    }
+  ]
+}

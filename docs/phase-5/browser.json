@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "runtime": "Kubernetes v1.35.0 / kind; actual loopback port-forward",
+  "checks": [
+    "authenticated real replay with six persisted alerts",
+    "both detector workers visible",
+    "packaged evaluation page",
+    "mobile width"
+  ],
+  "page_errors": []
+}

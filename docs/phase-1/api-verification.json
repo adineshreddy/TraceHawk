@@ -1,0 +1,29 @@
+{
+  "scan": {
+    "run_id": "6a199fbb407cac421d92581c",
+    "events": 108,
+    "alerts": 1,
+    "distinct_ports": 24,
+    "evidence": 24
+  },
+  "workspace_isolation": "authenticated outsider cannot read local runs, scope overview, alert list or evidence",
+  "benign": {
+    "run_id": "103ae4c25859bed753283596",
+    "events": 17,
+    "alerts": 0
+  },
+  "detector_restart": {
+    "run_id": "ad53e8fcdf383590d3d393ee",
+    "partial_events_at_restart": 10,
+    "final_events": 108,
+    "alerts": 1,
+    "evidence": 24
+  },
+  "cancellation": {
+    "run_id": "0c2b0056fbae1aa7886e1b34",
+    "status": "cancelled",
+    "partial_evidence_retained": 1,
+    "pipeline_status": "ready"
+  },
+  "security": "anonymous, operator/analyst, origin, CSRF, body limit, unknown scopes, active-run uniqueness, logout passed"
+}

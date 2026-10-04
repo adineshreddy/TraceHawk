@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "captures": 82,
+  "canonical_events": 18943,
+  "backend_tests_passed": 15,
+  "go_tests_passed": true,
+  "normalization_regenerated": true,
+  "rules_models_reports_byte_identical": true,
+  "v1_preserved": true,
+  "default_enabled": false,
+  "remote_ci_executed": false,
+  "artifact_score_parity": {
+    "retrained-baseline": 2.7755575615628914e-16,
+    "temporal-v2": 3.3306690738754696e-16
+  },
+  "reproducible_files": {
+    "evaluation/experiments/ml-v2/rules.json": "93a60bbb619b7f737fbfb530bb90628e28664be2b64c53fdb016f9a0ca37fe89",
+    "evaluation/experiments/ml-v2/report.json": "4c5e2ccc6186ab9c041ea3fc85200b112f562653635df0b8f3cbb1bb86012435",
+    "evaluation/experiments/ml-v2/retrained-baseline.json": "cf2e3fc58943e1bae0644b69b0b570a2713af83ded42d0402859c6f8a80ff4fa",
+    "evaluation/experiments/ml-v2/temporal-v2.json": "912b822f3314fd4d09941627a9355c25fab0d6ad8693eff0de07cf4694b0ea9a",
+    "evaluation/experiments/ml-v2/REPORT.md": "d927a3e6192a5e63491e7c9b9d9be2fc7be60b91a32dea5eccff695915263a7f"
+  }
+}

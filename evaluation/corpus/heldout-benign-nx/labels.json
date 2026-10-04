@@ -1,0 +1,6 @@
+{
+  "episodes": [],
+  "policies": [],
+  "context": "benign-nx",
+  "benign_explanation": "Legitimate mistyped/stale DNS cache refresh; many NXDOMAIN responses."
+}

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "screens": 7,
+  "desktop": "1440x1050",
+  "mobile": "390x844",
+  "page_errors": [],
+  "limitations": [
+    "Static design navigation only; no application behavior tested."
+  ]
+}

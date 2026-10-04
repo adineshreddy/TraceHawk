@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "checks": [
+    "frozen corpus/protocol hashes",
+    "summary evidence hashes",
+    "exported model hash",
+    "anonymous denied",
+    "operator/analyst response parity against public contract",
+    "offline model disabled"
+  ]
+}

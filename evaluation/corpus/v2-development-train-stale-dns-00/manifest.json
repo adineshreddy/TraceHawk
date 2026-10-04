@@ -1,0 +1,19 @@
+{
+  "scenario_id": "v2-development-train-stale-dns-00",
+  "split": "development-train",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packets; pinned Zeek 8.0.10; no network transmission.",
+  "generator_seed": 81032,
+  "time_start_us": 1791115200000000,
+  "time_end_us": 1791115500000000,
+  "folder": "evaluation/corpus/v2-development-train-stale-dns-00",
+  "source_ip": "203.0.113.52",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "9b0ef6de9a4dec09e0457c574be5407335550fc8d5954c0f447a3e5c1f837f04",
+  "log_hashes": {
+    "conn": "881b0e97434c1392f58647f7c37333265df352517a82130087573ae9905c1070",
+    "dns": "15a233b75d867e34d0c39fd72a12416cec9e18db4cee945072b56508bdb24f8b"
+  },
+  "total": 309
+}

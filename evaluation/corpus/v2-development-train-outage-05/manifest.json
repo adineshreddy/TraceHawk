@@ -1,0 +1,19 @@
+{
+  "scenario_id": "v2-development-train-outage-05",
+  "split": "development-train",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packets; pinned Zeek 8.0.10; no network transmission.",
+  "generator_seed": 81029,
+  "time_start_us": 1791115200000000,
+  "time_end_us": 1791115500000000,
+  "folder": "evaluation/corpus/v2-development-train-outage-05",
+  "source_ip": "203.0.113.49",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "a644927556c2511ea589593af91873836ece7e281356d1b1fc378a9a55ffa520",
+  "log_hashes": {
+    "conn": "bb40e66dc249af4632e96bbe8d0840c59f22fac9c835be61c527fecebebd52e0",
+    "dns": "6dfb15b1d9d3c4bdfba62cd8c9eaf725605d0e29cf3509b4501f3821293b0dca"
+  },
+  "total": 204
+}

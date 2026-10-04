@@ -1,0 +1,19 @@
+{
+  "scenario_id": "v2-development-train-web-00",
+  "split": "development-train",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packets; pinned Zeek 8.0.10; no network transmission.",
+  "generator_seed": 81000,
+  "time_start_us": 1791115200000000,
+  "time_end_us": 1791115500000000,
+  "folder": "evaluation/corpus/v2-development-train-web-00",
+  "source_ip": "203.0.113.20",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "f2caab5db3d35d729fcc1e496fd400685a7b5528b5ecff369965989aceb87846",
+  "log_hashes": {
+    "conn": "79fcb721f4e3374f28139ae970d66d44a8e1d74fff3603334fc8367efddb7617",
+    "dns": "0f9732206a18a787197488e22acdd9f2108d60c9329131d70fa32b5928e924c5"
+  },
+  "total": 156
+}

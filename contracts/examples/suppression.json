@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "suppression_id": "allow-scanner-v1",
+  "scope_id": "demo-phase0",
+  "detector_id": "vertical_tcp_scan",
+  "source_ip": "192.0.2.10",
+  "destination_ip": "192.0.2.20",
+  "reason": "Explicitly authorized development scenario",
+  "created_by": "operator",
+  "created_at_us": 1791028800000000,
+  "expires_at_us": 1791032400000000
+}

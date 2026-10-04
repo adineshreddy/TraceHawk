@@ -1,0 +1,13 @@
+{
+  "context": "authorized",
+  "policies": [
+    {
+      "detector_id": "vertical_tcp_scan",
+      "source_ip": "203.0.113.100",
+      "destination_ip": "198.51.100.22",
+      "reason": "Authorized inventory, declared before scoring."
+    }
+  ],
+  "benign_explanation": null,
+  "episodes": []
+}

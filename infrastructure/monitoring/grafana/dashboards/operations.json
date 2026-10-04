@@ -1,0 +1,237 @@
+{
+  "uid": "tracehawk-operations",
+  "title": "TraceHawk Operations",
+  "schemaVersion": 41,
+  "version": 1,
+  "refresh": "5s",
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "tags": [
+    "tracehawk",
+    "replay"
+  ],
+  "panels": [
+    {
+      "id": 1,
+      "title": "Pipeline readiness",
+      "type": "stat",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "tracehawk-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "tracehawk_pipeline_ready",
+          "legendFormat": "{{instance}} {{__name__}}"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Worker readiness",
+      "type": "stat",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "tracehawk-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "tracehawk_worker_ready",
+          "legendFormat": "{{instance}} {{__name__}}"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Assigned partitions",
+      "type": "stat",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "tracehawk-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "tracehawk_assigned_partitions",
+          "legendFormat": "{{instance}} {{__name__}}"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Event lag by worker",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "tracehawk-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "tracehawk_partition_lag",
+          "legendFormat": "{{instance}} {{__name__}}"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Processed records / second",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "tracehawk-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "rate(tracehawk_processed_records_total[1m])",
+          "legendFormat": "{{instance}} {{__name__}}"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Pending alert updates",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "tracehawk-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "tracehawk_pending_alert_updates",
+          "legendFormat": "{{instance}} {{__name__}}"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Quarantine pending delivery / review",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "tracehawk-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 24,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "{__name__=~\"tracehawk_pending_deadletters|tracehawk_unreviewed_deadletters\"}",
+          "legendFormat": "{{instance}} {{__name__}}"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Recovery and delivery errors",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "tracehawk-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 24,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "{__name__=~\"tracehawk_recovery_errors_total|tracehawk_delivery_errors_total\"}",
+          "legendFormat": "{{instance}} {{__name__}}"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Consumer assignments",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "tracehawk-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 32,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "tracehawk_rebalances_total",
+          "legendFormat": "{{instance}} {{__name__}}"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Delivered alert updates / second",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "tracehawk-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 32,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "rate(tracehawk_delivered_alert_updates_total[1m])",
+          "legendFormat": "{{instance}} {{__name__}}"
+        }
+      ]
+    }
+  ]
+}

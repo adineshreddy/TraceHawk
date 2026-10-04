@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s
+  scrape_timeout: 3s
+scrape_configs:
+  - job_name: tracehawk
+    static_configs:
+      - targets: ['detector:9100', 'detector-b:9100', 'publisher:9100', 'collector:9100']

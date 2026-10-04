@@ -1,0 +1,19 @@
+{
+  "scenario_id": "v2-development-validation-dns-attack-01",
+  "split": "development-validation",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packets; pinned Zeek 8.0.10; no network transmission.",
+  "generator_seed": 81059,
+  "time_start_us": 1791115200000000,
+  "time_end_us": 1791115500000000,
+  "folder": "evaluation/corpus/v2-development-validation-dns-attack-01",
+  "source_ip": "203.0.113.79",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "59fed8e66846e6fd1bc7c0e7be77878d3c3735b2d13c9914343477c841ee6011",
+  "log_hashes": {
+    "conn": "b9792beee4147b7e3f791fdf3443a88edaf1075432dca9c0f1d730560fda4d48",
+    "dns": "1d5d40683381c4eae05f444eb100b38b38d1f26ea5138d3c4e8b5ad7425170fd"
+  },
+  "total": 326
+}

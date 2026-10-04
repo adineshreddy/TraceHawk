@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "hardening": {
+    "restricted_containers_checked": 12,
+    "services_cluster_internal": true,
+    "workload_secret_rbac_denied": true,
+    "serviceaccount_token_unmounted": true
+  },
+  "network": {
+    "api_to_database_allowed": true,
+    "api_to_kafka_denied": true,
+    "console_to_database_denied": true,
+    "foreign_namespace_spoofed_console_to_api_denied": true,
+    "enforcement": "Calico v3.33.0, real connection attempts"
+  },
+  "dns_resolution_asserted_before_denial": true
+}

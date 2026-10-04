@@ -1,0 +1,9 @@
+apiVersion: 1
+datasources:
+  - name: TraceHawk Prometheus
+    uid: tracehawk-prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+    editable: false

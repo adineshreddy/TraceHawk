@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "checks": [
+    "real worker and ownership tables",
+    "reviewed quarantine visible",
+    "mobile operations layout",
+    "analyst operations hidden",
+    "authenticated Grafana provisioned dashboard"
+  ],
+  "grafana_panels": 10
+}

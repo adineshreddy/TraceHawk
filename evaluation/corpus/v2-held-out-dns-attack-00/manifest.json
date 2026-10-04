@@ -1,0 +1,19 @@
+{
+  "scenario_id": "v2-held-out-dns-attack-00",
+  "split": "held-out",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packets; pinned Zeek 8.0.10; no network transmission.",
+  "generator_seed": 81078,
+  "time_start_us": 1791115200000000,
+  "time_end_us": 1791115500000000,
+  "folder": "evaluation/corpus/v2-held-out-dns-attack-00",
+  "source_ip": "203.0.113.98",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "9501d698ff21b9ae3252e09a106781de5679fae97dba85489878f86914f24d71",
+  "log_hashes": {
+    "conn": "7f94df0f686321ecf3ff9d33a90052f91cec28afdc28cf0813e00b0d7950ce14",
+    "dns": "1e479d9628b2af797dce9859a84809cdbc52f982416c5ca854dbe4d0c9f9a0d8"
+  },
+  "total": 305
+}

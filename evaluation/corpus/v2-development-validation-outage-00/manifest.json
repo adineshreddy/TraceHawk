@@ -1,0 +1,19 @@
+{
+  "scenario_id": "v2-development-validation-outage-00",
+  "split": "development-validation",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packets; pinned Zeek 8.0.10; no network transmission.",
+  "generator_seed": 81046,
+  "time_start_us": 1791115200000000,
+  "time_end_us": 1791115500000000,
+  "folder": "evaluation/corpus/v2-development-validation-outage-00",
+  "source_ip": "203.0.113.66",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "509ce4cf3642cf61bad389b81de241573e9e1639b77b885595551941f0f49a9f",
+  "log_hashes": {
+    "conn": "b04f509002034dc37742a2c0058ae0881b719bc9654048b6091083b95c4c87a3",
+    "dns": "1df7706d1f19fdb1a9f76740ccf61384327bfc96070b1a8febc877f1c38dc22c"
+  },
+  "total": 218
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "control_kind": "replay_partition_complete",
+  "scope_id": "demo-phase0",
+  "run_id": "phase0-v1",
+  "producer_generation": 1,
+  "partition": 0,
+  "last_data_offset": 10,
+  "final_watermark_us": 1791028920000000,
+  "manifest_sha256": "2820e90175074d2961bf1876bba8fbf128d69df9cd44c1ba27462bffe42eb15c"
+}

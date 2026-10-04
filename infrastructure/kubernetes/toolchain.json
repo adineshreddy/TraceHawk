@@ -1,0 +1,11 @@
+{
+  "kind_version": "v0.31.0",
+  "kind_binary_sha256": {
+    "kind-darwin-arm64": "88bf554fe9da6311c9f8c2d082613c002911a476f6b5090e9420b35d84e70c5c",
+    "kind-darwin-amd64": "a8b3cf77b2ad77aec5bf710d1a2589d9117576132af812885cad41e9dede4d4e",
+    "kind-linux-arm64": "8e1014e87c34901cc422a1445866835d1e666f2a61301c27e722bdeab5a1f7e4",
+    "kind-linux-amd64": "eb244cbafcc157dff60cf68693c14c9a75c4e6e6fedaf9cd71c58117cb93e3fa"
+  },
+  "node_image": "kindest/node:v1.35.0@sha256:452d707d4862f52530247495d180205e029056831160e22870e37e3f6c1ac31f",
+  "calico_version": "v3.33.0"
+}

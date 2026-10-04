@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "phase": 4,
+  "checks": {
+    "python_unit_tests": 13,
+    "schemas": 7,
+    "schema_cases": 28,
+    "go_collector_tests": true,
+    "go_schema_parity": true,
+    "container_frontend_build": true,
+    "fresh_migrations_001_through_004": true,
+    "receipt_atomicity_and_duplicate_identity": true,
+    "phase2_integration": true,
+    "phase3_distributed_recovery_rerun": true,
+    "frozen_rule_and_ml_reproduction": true,
+    "evaluation_api_auth_and_contract": true,
+    "chromium_desktop_mobile_and_visibility": true
+  },
+  "engineering_target_met": false,
+  "ml_runtime_enabled": false,
+  "note": "Verification success does not imply capacity target success. Detailed measured failures remain in evaluation reports. Remote CI has not been run."
+}

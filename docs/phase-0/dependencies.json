@@ -1,0 +1,218 @@
+{
+  "checked_on": "2026-10-03",
+  "images": {
+    "zeek": {
+      "tag": "zeek/zeek:8.0.10",
+      "digest": "zeek/zeek@sha256:73e80e9cd23ff71fd28d158e9a9af5c7b2b0ef5d4036af61521827531347c0e3",
+      "architecture": "arm64",
+      "status": "executed offline PCAP on ARM64"
+    },
+    "kafka": {
+      "tag": "apache/kafka:4.3.0",
+      "digest": "apache/kafka@sha256:0be4c9eb3565733612d2836d65636fd611a219ebcf5b4162e5ac259ea0ecb907",
+      "architecture": "arm64",
+      "status": "Go/Python broker probe passed on ARM64"
+    },
+    "python": {
+      "tag": "python:3.13.16-slim-bookworm@sha256:5024f48ba9441d4b13a95d3945abc6365538e3a31109833367a1923523c6efed",
+      "digest": "python@sha256:5024f48ba9441d4b13a95d3945abc6365538e3a31109833367a1923523c6efed",
+      "architecture": "arm64",
+      "status": "runtime imports and Kafka probe passed on ARM64"
+    },
+    "postgres": {
+      "tag": "postgres:17-alpine",
+      "digest": "postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24",
+      "architecture": "arm64",
+      "status": "locally_available",
+      "resolved_version": "17.11-alpine"
+    },
+    "prometheus": {
+      "tag": "prom/prometheus:v3.13.3",
+      "digest": "prom/prometheus@sha256:6976aa8a60fec930796ce5772b8d12da7a318a5daa8d40d69c5c7819a05eeed7",
+      "architecture": "arm64",
+      "status": "locally_available"
+    },
+    "grafana": {
+      "tag": "grafana/grafana:13.2.3",
+      "digest": "grafana/grafana@sha256:b28bae15e219c998fb0e0424ed724930cc61b1f61fb404d47c862f9a23f9e572",
+      "architecture": "arm64",
+      "status": "locally_available"
+    },
+    "node": {
+      "tag": "node:24-bookworm-slim",
+      "digest": "node@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6",
+      "architecture": "arm64",
+      "resolved_version": "24-bookworm-slim",
+      "status": "registry_manifest_verified; image runtime not yet executed"
+    },
+    "go": {
+      "tag": "golang:1.26.0-bookworm",
+      "digest": "golang@sha256:2a0ba12e116687098780d3ce700f9ce3cb340783779646aafbabed748fa6677c",
+      "architecture": "arm64",
+      "resolved_version": "1.26.0-bookworm",
+      "status": "registry_manifest_verified; image runtime not yet executed"
+    },
+    "playwright": {
+      "tag": "mcr.microsoft.com/playwright:v1.63.0-noble",
+      "digest": "mcr.microsoft.com/playwright@sha256:eff16c30e6f3f4af0a03fa4b706120d5e9b0891c344a27d64559aff5900a4a27",
+      "architecture": "arm64",
+      "status": "Chromium wireframe tests executed"
+    }
+  },
+  "registry_packages": {
+    "franz-go": {
+      "Version": "v1.22.1",
+      "source": "https://proxy.golang.org/github.com/twmb/franz-go/@latest"
+    },
+    "confluent-kafka": {
+      "version": "2.15.1",
+      "requires_python": ">=3.8",
+      "license": null,
+      "arm_wheels": [
+        "confluent_kafka-2.15.1-cp313-cp313-macosx_13_0_arm64.whl",
+        "confluent_kafka-2.15.1-cp313-cp313-manylinux_2_28_aarch64.whl"
+      ],
+      "source": "https://pypi.org/pypi/confluent-kafka/json"
+    },
+    "jsonschema": {
+      "version": "4.26.0",
+      "requires_python": ">=3.10",
+      "license": "MIT",
+      "arm_wheels": [],
+      "source": "https://pypi.org/pypi/jsonschema/json"
+    },
+    "scapy": {
+      "version": "2.8.0",
+      "requires_python": "<4,>=3.7",
+      "license": "GPL-2.0-only",
+      "arm_wheels": [],
+      "source": "https://pypi.org/pypi/scapy/json"
+    },
+    "fastapi": {
+      "version": "0.142.2",
+      "requires_python": ">=3.10",
+      "license": "MIT",
+      "arm_wheels": [],
+      "source": "https://pypi.org/pypi/fastapi/json"
+    },
+    "pydantic": {
+      "version": "2.13.5",
+      "requires_python": ">=3.9",
+      "license": "MIT",
+      "arm_wheels": [],
+      "source": "https://pypi.org/pypi/pydantic/json"
+    },
+    "sqlalchemy": {
+      "version": "2.1.3",
+      "requires_python": ">=3.11",
+      "license": "MIT",
+      "arm_wheels": [
+        "sqlalchemy-2.1.3-cp313-cp313-macosx_11_0_arm64.whl",
+        "sqlalchemy-2.1.3-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+        "sqlalchemy-2.1.3-cp313-cp313-musllinux_1_2_aarch64.whl",
+        "sqlalchemy-2.1.3-cp313-cp313-win_arm64.whl"
+      ],
+      "source": "https://pypi.org/pypi/sqlalchemy/json"
+    },
+    "alembic": {
+      "version": "1.20.0",
+      "requires_python": ">=3.10",
+      "license": "MIT",
+      "arm_wheels": [],
+      "source": "https://pypi.org/pypi/alembic/json"
+    },
+    "psycopg": {
+      "version": "3.3.6",
+      "requires_python": ">=3.10",
+      "license": "LGPL-3.0-only",
+      "arm_wheels": [],
+      "source": "https://pypi.org/pypi/psycopg/json"
+    },
+    "pytest": {
+      "version": "9.1.1",
+      "requires_python": ">=3.10",
+      "license": "MIT",
+      "arm_wheels": [],
+      "source": "https://pypi.org/pypi/pytest/json"
+    },
+    "prometheus-client": {
+      "version": "0.26.0",
+      "requires_python": ">=3.9",
+      "license": "Apache-2.0 AND BSD-2-Clause",
+      "arm_wheels": [],
+      "source": "https://pypi.org/pypi/prometheus-client/json"
+    },
+    "react": {
+      "version": "19.3.0",
+      "license": "MIT",
+      "engines": {
+        "node": ">=0.10.0"
+      },
+      "source": "https://registry.npmjs.org/react/latest"
+    },
+    "vite": {
+      "version": "8.3.2",
+      "license": "MIT",
+      "engines": {
+        "node": "^20.19.0 || >=22.12.0"
+      },
+      "source": "https://registry.npmjs.org/vite/latest"
+    },
+    "typescript": {
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=16.20.0"
+      },
+      "source": "https://registry.npmjs.org/typescript/latest"
+    },
+    "@playwright/test": {
+      "version": "1.63.0",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=20"
+      },
+      "source": "https://registry.npmjs.org/@playwright/test/latest"
+    }
+  },
+  "go_schema_validator": {
+    "version": "v6.0.3",
+    "license": "Apache-2.0"
+  },
+  "limitations": [
+    "Top-level Python pins are smoke-tested; full deployment transitive lock is Phase 1.",
+    "Frontend pins will be checked by a build probe, not a production console.",
+    "kind is not required until Phase 5."
+  ],
+  "frontend": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "vite": "8.3.2",
+    "typescript": "7.0.2",
+    "playwright": "1.63.0",
+    "host_build": "passed on Node 25.6.1; container Node 24 build remains Phase 1"
+  },
+  "licenses": {
+    "zeek": "BSD-3-Clause",
+    "apache-kafka": "Apache-2.0",
+    "franz-go": "BSD-3-Clause",
+    "confluent-kafka-python": "Apache-2.0",
+    "jsonschema-go": "Apache-2.0",
+    "jsonschema-python": "MIT",
+    "scapy": "GPL-2.0-only (development fixture generation)",
+    "fastapi": "MIT",
+    "pydantic": "MIT",
+    "sqlalchemy": "MIT",
+    "alembic": "MIT",
+    "psycopg": "LGPL-3.0-only",
+    "react": "MIT",
+    "react-dom": "MIT",
+    "vite": "MIT",
+    "typescript": "Apache-2.0",
+    "playwright": "Apache-2.0",
+    "prometheus": "Apache-2.0",
+    "grafana": "AGPL-3.0-only",
+    "postgresql": "PostgreSQL"
+  },
+  "limits": "License inventory covers principal components; transitive license inventory/SBOM and production dependency locks are Phase 1/5 tasks. No referenced project implementation code was copied."
+}

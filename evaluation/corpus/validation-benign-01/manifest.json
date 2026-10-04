@@ -1,0 +1,19 @@
+{
+  "scenario_id": "validation-benign-01",
+  "split": "development-validation",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packet construction; no network transmission. Pinned Zeek 8.0.10.",
+  "generator_seed": 4111,
+  "time_start_us": 1791028800000000,
+  "time_end_us": 1791029100000000,
+  "folder": "evaluation/corpus/validation-benign-01",
+  "source_ip": "192.0.2.71",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "ec0b0006e2d44eb69dbf41e7ab5ae39f4a47b70d1057771d3ebb4bf1c15e37a4",
+  "log_hashes": {
+    "conn": "39fb3ac2a0e9f853ae8254e7838c682c784bfd0f9100cc6d091cc824b573cbe5",
+    "dns": "ea6180408a2e64ce58bdd1560e189ad0dd1accff33bcb75e32e4553cb31c6b5f"
+  },
+  "total": 79
+}

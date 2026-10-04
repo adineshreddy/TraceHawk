@@ -1,0 +1,14 @@
+{
+  "episodes": [
+    {
+      "detector_id": "vertical_tcp_scan",
+      "source_ip": "192.0.2.74",
+      "destination_ip": "198.51.100.22",
+      "start_us": 1791028801000000,
+      "end_us": 1791028828740000
+    }
+  ],
+  "policies": [],
+  "context": "scan",
+  "benign_explanation": null
+}

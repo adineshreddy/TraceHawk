@@ -1,0 +1,14 @@
+{
+  "episodes": [
+    {
+      "detector_id": "failed_tcp_connections",
+      "source_ip": "192.0.2.82",
+      "destination_ip": "198.51.100.22",
+      "start_us": 1791028801000000,
+      "end_us": 1791028833940000
+    }
+  ],
+  "policies": [],
+  "context": "denied",
+  "benign_explanation": null
+}

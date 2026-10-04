@@ -1,0 +1,1268 @@
+{
+  "status": "passed",
+  "artifact_sha256": "9b65008f107bf5453359b38cc61a9f80dfa3730135471d540877692a137475e3",
+  "artifact_score_parity_max_abs_error": 7.216449660063518e-16,
+  "train_windows": 50,
+  "validation_windows": 30,
+  "held_out_windows": 60,
+  "threshold": 0.6560767957781615,
+  "validation_benign_window_false_positives": 0,
+  "source_episode_metrics": {
+    "rules": {
+      "tp": 4,
+      "fp": 2,
+      "fn": 2,
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666
+    },
+    "ml": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 5,
+      "precision": 0.5,
+      "recall": 0.16666666666666666
+    },
+    "combined": {
+      "tp": 4,
+      "fp": 2,
+      "fn": 2,
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666
+    }
+  },
+  "new_true_positive_captures": [],
+  "new_false_positive_captures": [],
+  "missed_captures": {
+    "rules": [
+      "heldout-horizontal",
+      "heldout-slow-scan"
+    ],
+    "ml": [
+      "heldout-denied",
+      "heldout-fast-scan",
+      "heldout-horizontal",
+      "heldout-indicator",
+      "heldout-slow-scan"
+    ],
+    "combined": [
+      "heldout-horizontal",
+      "heldout-slow-scan"
+    ]
+  },
+  "recommendation": "keep offline; insufficient representative evidence for production promotion",
+  "default_enabled": false,
+  "features": [
+    "connections",
+    "distinct_destinations",
+    "distinct_tcp_ports",
+    "failure_ratio",
+    "completed_dns",
+    "nxdomain_ratio",
+    "outgoing_bytes",
+    "missing_tcp_ratio",
+    "missing_dns_ratio"
+  ],
+  "held_out_scores": [
+    {
+      "capture": "heldout-web",
+      "source_ip": "192.0.2.76",
+      "window_start_us": 1791028800000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        52,
+        2,
+        2,
+        0.0,
+        46,
+        0.021739130434782608,
+        1610,
+        0,
+        0
+      ],
+      "score": 0.580515002129829,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-web",
+      "source_ip": "192.0.2.76",
+      "window_start_us": 1791028860000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        2,
+        1,
+        0,
+        0,
+        2,
+        0.0,
+        70,
+        1,
+        0
+      ],
+      "score": 0.5926093932684549,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-web",
+      "source_ip": "192.0.2.76",
+      "window_start_us": 1791028920000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-web",
+      "source_ip": "192.0.2.76",
+      "window_start_us": 1791028980000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-web",
+      "source_ip": "192.0.2.76",
+      "window_start_us": 1791029040000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-busy-dns",
+      "source_ip": "192.0.2.77",
+      "window_start_us": 1791028800000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        135,
+        2,
+        2,
+        0.0,
+        120,
+        0.03333333333333333,
+        4200,
+        0,
+        0
+      ],
+      "score": 0.5915102952947163,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-busy-dns",
+      "source_ip": "192.0.2.77",
+      "window_start_us": 1791028860000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-busy-dns",
+      "source_ip": "192.0.2.77",
+      "window_start_us": 1791028920000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-busy-dns",
+      "source_ip": "192.0.2.77",
+      "window_start_us": 1791028980000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-busy-dns",
+      "source_ip": "192.0.2.77",
+      "window_start_us": 1791029040000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-outage",
+      "source_ip": "192.0.2.78",
+      "window_start_us": 1791028800000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        47,
+        1,
+        1,
+        1.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5551357221080613,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-outage",
+      "source_ip": "192.0.2.78",
+      "window_start_us": 1791028860000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-outage",
+      "source_ip": "192.0.2.78",
+      "window_start_us": 1791028920000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-outage",
+      "source_ip": "192.0.2.78",
+      "window_start_us": 1791028980000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-outage",
+      "source_ip": "192.0.2.78",
+      "window_start_us": 1791029040000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-authorized",
+      "source_ip": "192.0.2.79",
+      "window_start_us": 1791028800000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        53,
+        1,
+        53,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.564992395399585,
+      "flagged": false,
+      "policy_excluded": true
+    },
+    {
+      "capture": "heldout-authorized",
+      "source_ip": "192.0.2.79",
+      "window_start_us": 1791028860000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": true
+    },
+    {
+      "capture": "heldout-authorized",
+      "source_ip": "192.0.2.79",
+      "window_start_us": 1791028920000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": true
+    },
+    {
+      "capture": "heldout-authorized",
+      "source_ip": "192.0.2.79",
+      "window_start_us": 1791028980000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": true
+    },
+    {
+      "capture": "heldout-authorized",
+      "source_ip": "192.0.2.79",
+      "window_start_us": 1791029040000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": true
+    },
+    {
+      "capture": "heldout-fast-scan",
+      "source_ip": "192.0.2.80",
+      "window_start_us": 1791028800000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        61,
+        1,
+        61,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.564992395399585,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-fast-scan",
+      "source_ip": "192.0.2.80",
+      "window_start_us": 1791028860000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-fast-scan",
+      "source_ip": "192.0.2.80",
+      "window_start_us": 1791028920000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-fast-scan",
+      "source_ip": "192.0.2.80",
+      "window_start_us": 1791028980000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-fast-scan",
+      "source_ip": "192.0.2.80",
+      "window_start_us": 1791029040000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-slow-scan",
+      "source_ip": "192.0.2.81",
+      "window_start_us": 1791028800000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        8,
+        1,
+        8,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5397893107840431,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-slow-scan",
+      "source_ip": "192.0.2.81",
+      "window_start_us": 1791028860000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        8,
+        1,
+        8,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5397893107840431,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-slow-scan",
+      "source_ip": "192.0.2.81",
+      "window_start_us": 1791028920000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-slow-scan",
+      "source_ip": "192.0.2.81",
+      "window_start_us": 1791028980000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-slow-scan",
+      "source_ip": "192.0.2.81",
+      "window_start_us": 1791029040000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-denied",
+      "source_ip": "192.0.2.82",
+      "window_start_us": 1791028800000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        38,
+        1,
+        1,
+        1.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5551357221080613,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-denied",
+      "source_ip": "192.0.2.82",
+      "window_start_us": 1791028860000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-denied",
+      "source_ip": "192.0.2.82",
+      "window_start_us": 1791028920000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-denied",
+      "source_ip": "192.0.2.82",
+      "window_start_us": 1791028980000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-denied",
+      "source_ip": "192.0.2.82",
+      "window_start_us": 1791029040000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-dns-attack",
+      "source_ip": "192.0.2.83",
+      "window_start_us": 1791028800000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        104,
+        2,
+        2,
+        0.0,
+        93,
+        0.8602150537634409,
+        3255,
+        0,
+        0
+      ],
+      "score": 0.6731261477207392,
+      "flagged": true,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-dns-attack",
+      "source_ip": "192.0.2.83",
+      "window_start_us": 1791028860000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-dns-attack",
+      "source_ip": "192.0.2.83",
+      "window_start_us": 1791028920000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-dns-attack",
+      "source_ip": "192.0.2.83",
+      "window_start_us": 1791028980000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-dns-attack",
+      "source_ip": "192.0.2.83",
+      "window_start_us": 1791029040000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-benign-nx",
+      "source_ip": "192.0.2.84",
+      "window_start_us": 1791028800000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        85,
+        2,
+        2,
+        0.0,
+        76,
+        0.8552631578947368,
+        2660,
+        0,
+        0
+      ],
+      "score": 0.6731261477207392,
+      "flagged": true,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-benign-nx",
+      "source_ip": "192.0.2.84",
+      "window_start_us": 1791028860000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-benign-nx",
+      "source_ip": "192.0.2.84",
+      "window_start_us": 1791028920000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-benign-nx",
+      "source_ip": "192.0.2.84",
+      "window_start_us": 1791028980000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-benign-nx",
+      "source_ip": "192.0.2.84",
+      "window_start_us": 1791029040000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-indicator",
+      "source_ip": "192.0.2.85",
+      "window_start_us": 1791028800000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        2,
+        2,
+        1,
+        0.0,
+        1,
+        0.0,
+        36,
+        0,
+        0
+      ],
+      "score": 0.576701365293444,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-indicator",
+      "source_ip": "192.0.2.85",
+      "window_start_us": 1791028860000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-indicator",
+      "source_ip": "192.0.2.85",
+      "window_start_us": 1791028920000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-indicator",
+      "source_ip": "192.0.2.85",
+      "window_start_us": 1791028980000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-indicator",
+      "source_ip": "192.0.2.85",
+      "window_start_us": 1791029040000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-near-indicator",
+      "source_ip": "192.0.2.86",
+      "window_start_us": 1791028800000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        3,
+        2,
+        1,
+        0.0,
+        2,
+        0.0,
+        89,
+        0,
+        0
+      ],
+      "score": 0.5962598730791034,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-near-indicator",
+      "source_ip": "192.0.2.86",
+      "window_start_us": 1791028860000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-near-indicator",
+      "source_ip": "192.0.2.86",
+      "window_start_us": 1791028920000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-near-indicator",
+      "source_ip": "192.0.2.86",
+      "window_start_us": 1791028980000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-near-indicator",
+      "source_ip": "192.0.2.86",
+      "window_start_us": 1791029040000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-horizontal",
+      "source_ip": "192.0.2.87",
+      "window_start_us": 1791028800000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        41,
+        41,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5759786764091722,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-horizontal",
+      "source_ip": "192.0.2.87",
+      "window_start_us": 1791028860000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-horizontal",
+      "source_ip": "192.0.2.87",
+      "window_start_us": 1791028920000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-horizontal",
+      "source_ip": "192.0.2.87",
+      "window_start_us": 1791028980000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "score": 0.44353386971838027,
+      "flagged": false,
+      "policy_excluded": false
+    },
+    {
+      "capture": "heldout-horizontal",
+      "source_ip": "192.0.2.87",
+      "window_start_us": 1791029040000000,
+      "bucket_start_us": 1791028800000000,
+      "values": [
+        1,
+        1,
+        1,
+        0.0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "score": 0.5016854692022684,
+      "flagged": false,
+      "policy_excluded": false
+    }
+  ],
+  "scope": "Generic suspicious-source episodes, including unsupported horizontal scan. Anomaly scores are not probabilities or family attribution."
+}

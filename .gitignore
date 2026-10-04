@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+tmp/
+.env
+node_modules/
+.DS_Store
+*.log
+!scenarios/phase0/zeek/*.log
+!scenarios/phase1-benign/zeek/*.log
+services/console/dist/
+services/collector/collector
+.pytest_cache/
+
+!evaluation/corpus/**/zeek/conn.log
+!evaluation/corpus/**/zeek/dns.log

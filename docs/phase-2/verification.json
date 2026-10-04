@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "public_openapi_operations": 24,
+  "python_unit_tests": 10,
+  "phase1_regressions": [
+    "replay and benign baseline",
+    "partial-window restart",
+    "ACK-before-checkpoint collector crash",
+    "atomic transaction rollback",
+    "scope/role/origin/CSRF/cancellation",
+    "Chromium scan workflow"
+  ],
+  "phase2_reports": [
+    "integration.json",
+    "semantics.json",
+    "browser.json",
+    "migrations.json"
+  ],
+  "host_platform": "macOS ARM64 / Linux ARM64 containers",
+  "github_ci": "configured; remote execution not performed",
+  "limitations": [
+    "offline fixtures",
+    "one detector process",
+    "fictional default indicators",
+    "no accuracy/throughput claims"
+  ]
+}

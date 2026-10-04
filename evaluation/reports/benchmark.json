@@ -1,0 +1,5610 @@
+{
+  "status": "passed",
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "processor": "arm",
+    "hardware": {
+      "model": "Mac17,2",
+      "physical_memory_bytes": 17179869184,
+      "cpu": "Apple M5"
+    }
+  },
+  "scope": "Real Kafka/PostgreSQL detector pipeline; synthetic generator bypasses Go source replay and HTTP admission; bounded inputs; monitoring on. Short trials are not sustained-capacity estimates.",
+  "engineering_target": {
+    "rate": 500,
+    "seconds": 600,
+    "completed": false,
+    "early_stop_reason": "acknowledged backlog reached configured bound",
+    "actually_published_s": 27.651028553998913
+  },
+  "recovery_final_effect_parity": true,
+  "trials": [
+    {
+      "status": "passed",
+      "run_id": "benchmark-493dc84ee6c14c298b7cf9cf63090318",
+      "config": {
+        "rate": 40,
+        "seconds": 12,
+        "hosts": 1,
+        "pattern": "benign",
+        "workers": 1,
+        "repeat": 0,
+        "seed": 7
+      },
+      "input_mode": "synthetic_fixture",
+      "planned": 480,
+      "attempted": 480,
+      "kafka_acknowledged": 480,
+      "unique_persisted": 480,
+      "publication_s": 11.97601846300131,
+      "total_to_completion_s": 12.494961297001282,
+      "drain_after_publication_s": 0.5067675840000447,
+      "acknowledged_events_per_s": 40.080098530484996,
+      "durable_events_per_s_including_drain": 38.415485137612805,
+      "peak_acknowledged_backlog": 17,
+      "target_completed": true,
+      "early_stop_reason": null,
+      "warmup_s": 2,
+      "ingestion_to_durable_observation": {
+        "samples": 400,
+        "p50_s": 0.2759,
+        "p95_s": 0.501592,
+        "p99_s": 0.526251
+      },
+      "ingestion_to_insertion_lower_bound": {
+        "samples": 400,
+        "p50_s": 0.007617,
+        "p95_s": 0.013047,
+        "p99_s": 0.06963
+      },
+      "durable_alerts": 0,
+      "alert_effects": [],
+      "content_sha256": "01ccc1b8c003559c64b522ad040142c5df094a4001a05c688d625244d314bbf6",
+      "samples": [
+        {
+          "elapsed_s": 0.002,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 0.526,
+          "acknowledged": 21,
+          "persisted": 4,
+          "backlog": 17
+        },
+        {
+          "elapsed_s": 1.052,
+          "acknowledged": 42,
+          "persisted": 42,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.578,
+          "acknowledged": 63,
+          "persisted": 63,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.102,
+          "acknowledged": 84,
+          "persisted": 84,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.627,
+          "acknowledged": 105,
+          "persisted": 105,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.152,
+          "acknowledged": 126,
+          "persisted": 126,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.677,
+          "acknowledged": 147,
+          "persisted": 147,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.202,
+          "acknowledged": 168,
+          "persisted": 168,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.727,
+          "acknowledged": 189,
+          "persisted": 189,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.252,
+          "acknowledged": 210,
+          "persisted": 210,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.776,
+          "acknowledged": 231,
+          "persisted": 231,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.302,
+          "acknowledged": 252,
+          "persisted": 252,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.828,
+          "acknowledged": 273,
+          "persisted": 273,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.352,
+          "acknowledged": 294,
+          "persisted": 294,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.877,
+          "acknowledged": 315,
+          "persisted": 315,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.402,
+          "acknowledged": 336,
+          "persisted": 336,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.928,
+          "acknowledged": 357,
+          "persisted": 357,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.452,
+          "acknowledged": 378,
+          "persisted": 378,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.977,
+          "acknowledged": 399,
+          "persisted": 399,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.502,
+          "acknowledged": 420,
+          "persisted": 420,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.027,
+          "acknowledged": 441,
+          "persisted": 441,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.552,
+          "acknowledged": 462,
+          "persisted": 459,
+          "backlog": 3
+        },
+        {
+          "elapsed_s": 11.978,
+          "acknowledged": 480,
+          "persisted": 479,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 11.989,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 12.491,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        }
+      ],
+      "monitoring": "on",
+      "measurement_note": "Durable latency includes up to ~0.5s observer polling plus query scheduling; insertion clock is not commit time. Kafka controls excluded from event counters.",
+      "resources": [
+        {
+          "elapsed_s": 2.1150830411352217,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.25%",
+              "MemUsage": "30.49MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.15%",
+              "MemUsage": "10.59MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "5.44%",
+              "MemUsage": "30.11MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.72%",
+              "MemUsage": "76.94MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "7.88%",
+              "MemUsage": "26.36MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.28%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.10%",
+              "MemUsage": "31.53MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "8.71%",
+              "MemUsage": "88.17MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "4.14%",
+              "MemUsage": "519.5MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 6.204774791141972,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.39%",
+              "MemUsage": "30.49MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.04%",
+              "MemUsage": "10.59MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "5.27%",
+              "MemUsage": "30.61MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.49%",
+              "MemUsage": "76.74MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "5.28%",
+              "MemUsage": "26.37MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.14%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.07%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "6.94%",
+              "MemUsage": "88.48MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "3.20%",
+              "MemUsage": "519.5MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 10.297718791058287,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.30%",
+              "MemUsage": "30.49MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.06%",
+              "MemUsage": "10.6MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "6.03%",
+              "MemUsage": "30.11MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.94%",
+              "MemUsage": "77.04MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.07%",
+              "MemUsage": "26.36MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.17%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.16%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "8.02%",
+              "MemUsage": "88.91MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "10.70%",
+              "MemUsage": "527.9MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 14.01821095799096,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.59%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.08%",
+              "MemUsage": "10.61MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "4.70%",
+              "MemUsage": "30.12MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "0.78%",
+              "MemUsage": "49.88MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.36MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.15%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "4.78%",
+              "MemUsage": "86.82MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "1.00%",
+              "MemUsage": "527.8MiB / 768MiB"
+            }
+          ]
+        }
+      ],
+      "injected_fault": null
+    },
+    {
+      "status": "passed",
+      "run_id": "benchmark-091bc3b2f5e045178100158adaf3c41c",
+      "config": {
+        "rate": 40,
+        "seconds": 12,
+        "hosts": 1,
+        "pattern": "benign",
+        "workers": 1,
+        "repeat": 1,
+        "seed": 7
+      },
+      "input_mode": "synthetic_fixture",
+      "planned": 480,
+      "attempted": 480,
+      "kafka_acknowledged": 480,
+      "unique_persisted": 480,
+      "publication_s": 11.976540880999892,
+      "total_to_completion_s": 12.502026340000157,
+      "drain_after_publication_s": 0.5172102079995966,
+      "acknowledged_events_per_s": 40.0783502322856,
+      "durable_events_per_s_including_drain": 38.393776092459746,
+      "peak_acknowledged_backlog": 16,
+      "target_completed": true,
+      "early_stop_reason": null,
+      "warmup_s": 2,
+      "ingestion_to_durable_observation": {
+        "samples": 400,
+        "p50_s": 0.276153,
+        "p95_s": 0.523156,
+        "p99_s": 0.527068
+      },
+      "ingestion_to_insertion_lower_bound": {
+        "samples": 400,
+        "p50_s": 0.007827,
+        "p95_s": 0.010984,
+        "p99_s": 0.038441
+      },
+      "durable_alerts": 0,
+      "alert_effects": [],
+      "content_sha256": "01ccc1b8c003559c64b522ad040142c5df094a4001a05c688d625244d314bbf6",
+      "samples": [
+        {
+          "elapsed_s": 0.002,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 0.526,
+          "acknowledged": 21,
+          "persisted": 5,
+          "backlog": 16
+        },
+        {
+          "elapsed_s": 1.028,
+          "acknowledged": 41,
+          "persisted": 41,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.552,
+          "acknowledged": 62,
+          "persisted": 62,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.078,
+          "acknowledged": 83,
+          "persisted": 83,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.602,
+          "acknowledged": 104,
+          "persisted": 104,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.127,
+          "acknowledged": 125,
+          "persisted": 125,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.652,
+          "acknowledged": 146,
+          "persisted": 146,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.177,
+          "acknowledged": 167,
+          "persisted": 167,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.702,
+          "acknowledged": 188,
+          "persisted": 188,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.228,
+          "acknowledged": 209,
+          "persisted": 209,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.751,
+          "acknowledged": 230,
+          "persisted": 229,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 6.254,
+          "acknowledged": 250,
+          "persisted": 250,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.776,
+          "acknowledged": 271,
+          "persisted": 271,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.303,
+          "acknowledged": 292,
+          "persisted": 292,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.827,
+          "acknowledged": 313,
+          "persisted": 312,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 8.351,
+          "acknowledged": 334,
+          "persisted": 334,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.877,
+          "acknowledged": 355,
+          "persisted": 355,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.403,
+          "acknowledged": 376,
+          "persisted": 376,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.928,
+          "acknowledged": 397,
+          "persisted": 395,
+          "backlog": 2
+        },
+        {
+          "elapsed_s": 10.451,
+          "acknowledged": 418,
+          "persisted": 418,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.976,
+          "acknowledged": 439,
+          "persisted": 439,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.501,
+          "acknowledged": 460,
+          "persisted": 460,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.977,
+          "acknowledged": 480,
+          "persisted": 479,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 11.985,
+          "acknowledged": 480,
+          "persisted": 479,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 12.492,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        }
+      ],
+      "monitoring": "on",
+      "measurement_note": "Durable latency includes up to ~0.5s observer polling plus query scheduling; insertion clock is not commit time. Kafka controls excluded from event counters.",
+      "resources": [
+        {
+          "elapsed_s": 2.018984084017575,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.33%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.05%",
+              "MemUsage": "10.61MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "5.34%",
+              "MemUsage": "30.12MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.57%",
+              "MemUsage": "76.72MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "1.04%",
+              "MemUsage": "27.89MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.21%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.09%",
+              "MemUsage": "31.53MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "7.34%",
+              "MemUsage": "89.29MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "26.75%",
+              "MemUsage": "521MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 6.1422422921750695,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.23%",
+              "MemUsage": "30.49MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.07%",
+              "MemUsage": "10.62MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "6.88%",
+              "MemUsage": "30.37MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "2.06%",
+              "MemUsage": "76.77MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.36MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.24%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.38%",
+              "MemUsage": "31.53MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "10.84%",
+              "MemUsage": "89.78MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "4.96%",
+              "MemUsage": "519.6MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 9.847601500106975,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.01%",
+              "MemUsage": "30.49MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "1.42%",
+              "MemUsage": "10.64MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "10.94%",
+              "MemUsage": "30.16MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.62%",
+              "MemUsage": "76.81MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.36MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.17%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "8.10%",
+              "MemUsage": "90.07MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "3.93%",
+              "MemUsage": "519.6MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 13.939217125065625,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "6.86%",
+              "MemUsage": "30.49MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "1.32%",
+              "MemUsage": "10.7MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "0.11%",
+              "MemUsage": "30.12MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "6.60%",
+              "MemUsage": "49.9MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.01%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.28%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "4.53%",
+              "MemUsage": "87.88MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "1.53%",
+              "MemUsage": "519.6MiB / 768MiB"
+            }
+          ]
+        }
+      ],
+      "injected_fault": null
+    },
+    {
+      "status": "passed",
+      "run_id": "benchmark-7b9cd7a696d948d69a69af87be79a0a5",
+      "config": {
+        "rate": 40,
+        "seconds": 12,
+        "hosts": 32,
+        "pattern": "benign",
+        "workers": 1,
+        "repeat": 0,
+        "seed": 7
+      },
+      "input_mode": "synthetic_fixture",
+      "planned": 480,
+      "attempted": 480,
+      "kafka_acknowledged": 480,
+      "unique_persisted": 480,
+      "publication_s": 11.976062796999031,
+      "total_to_completion_s": 12.49835792200065,
+      "drain_after_publication_s": 0.5158882920004544,
+      "acknowledged_events_per_s": 40.079950158601264,
+      "durable_events_per_s_including_drain": 38.40504512637328,
+      "peak_acknowledged_backlog": 3,
+      "target_completed": true,
+      "early_stop_reason": null,
+      "warmup_s": 2,
+      "ingestion_to_durable_observation": {
+        "samples": 400,
+        "p50_s": 0.275858,
+        "p95_s": 0.502528,
+        "p99_s": 0.526255
+      },
+      "ingestion_to_insertion_lower_bound": {
+        "samples": 400,
+        "p50_s": 0.007626,
+        "p95_s": 0.010008,
+        "p99_s": 0.056883
+      },
+      "durable_alerts": 0,
+      "alert_effects": [],
+      "content_sha256": "c2ff19c9da9ff5d51a89bd3abd55148456ad4634305e7da34f2ab75e74908254",
+      "samples": [
+        {
+          "elapsed_s": 0.002,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 0.504,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.027,
+          "acknowledged": 41,
+          "persisted": 41,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.539,
+          "acknowledged": 61,
+          "persisted": 58,
+          "backlog": 3
+        },
+        {
+          "elapsed_s": 2.052,
+          "acknowledged": 82,
+          "persisted": 82,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.577,
+          "acknowledged": 103,
+          "persisted": 103,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.101,
+          "acknowledged": 124,
+          "persisted": 124,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.602,
+          "acknowledged": 144,
+          "persisted": 144,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.127,
+          "acknowledged": 165,
+          "persisted": 165,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.651,
+          "acknowledged": 186,
+          "persisted": 186,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.154,
+          "acknowledged": 206,
+          "persisted": 206,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.677,
+          "acknowledged": 227,
+          "persisted": 227,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.202,
+          "acknowledged": 248,
+          "persisted": 248,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.728,
+          "acknowledged": 269,
+          "persisted": 269,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.253,
+          "acknowledged": 290,
+          "persisted": 290,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.776,
+          "acknowledged": 311,
+          "persisted": 311,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.301,
+          "acknowledged": 332,
+          "persisted": 332,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.827,
+          "acknowledged": 353,
+          "persisted": 352,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 9.352,
+          "acknowledged": 374,
+          "persisted": 374,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.876,
+          "acknowledged": 395,
+          "persisted": 395,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.401,
+          "acknowledged": 416,
+          "persisted": 416,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.903,
+          "acknowledged": 436,
+          "persisted": 435,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 11.427,
+          "acknowledged": 457,
+          "persisted": 457,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.952,
+          "acknowledged": 478,
+          "persisted": 478,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.977,
+          "acknowledged": 480,
+          "persisted": 479,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 11.983,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 12.486,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        }
+      ],
+      "monitoring": "on",
+      "measurement_note": "Durable latency includes up to ~0.5s observer polling plus query scheduling; insertion clock is not commit time. Kafka controls excluded from event counters.",
+      "resources": [
+        {
+          "elapsed_s": 2.028847167035565,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.62%",
+              "MemUsage": "30.52MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.04%",
+              "MemUsage": "10.66MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "11.40%",
+              "MemUsage": "30.38MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "3.49%",
+              "MemUsage": "76.74MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.61%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.90%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "13.29%",
+              "MemUsage": "90.37MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "14.85%",
+              "MemUsage": "519.6MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 5.87352504208684,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.38%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "1.32%",
+              "MemUsage": "10.66MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "9.59%",
+              "MemUsage": "30.13MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.38%",
+              "MemUsage": "76.79MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.30%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "6.90%",
+              "MemUsage": "90.65MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "7.00%",
+              "MemUsage": "524.1MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 9.964379417011514,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "6.22%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.06%",
+              "MemUsage": "10.66MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "6.20%",
+              "MemUsage": "30.13MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "6.82%",
+              "MemUsage": "76.84MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "6.18%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.17%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.01%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "8.61%",
+              "MemUsage": "90.99MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "25.71%",
+              "MemUsage": "522.1MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 14.05578829208389,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.31%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.09%",
+              "MemUsage": "10.67MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "0.13%",
+              "MemUsage": "30.13MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "8.99%",
+              "MemUsage": "50.01MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.19%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.04%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "4.62%",
+              "MemUsage": "89MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "0.88%",
+              "MemUsage": "521.6MiB / 768MiB"
+            }
+          ]
+        }
+      ],
+      "injected_fault": null
+    },
+    {
+      "status": "passed",
+      "run_id": "benchmark-20b1cbea54fe46e5867c5cf76d2329d3",
+      "config": {
+        "rate": 40,
+        "seconds": 12,
+        "hosts": 32,
+        "pattern": "benign",
+        "workers": 1,
+        "repeat": 1,
+        "seed": 7
+      },
+      "input_mode": "synthetic_fixture",
+      "planned": 480,
+      "attempted": 480,
+      "kafka_acknowledged": 480,
+      "unique_persisted": 480,
+      "publication_s": 11.975644755999383,
+      "total_to_completion_s": 12.502470505998645,
+      "drain_after_publication_s": 0.5166220419996534,
+      "acknowledged_events_per_s": 40.08134925341173,
+      "durable_events_per_s_including_drain": 38.392412105247324,
+      "peak_acknowledged_backlog": 1,
+      "target_completed": true,
+      "early_stop_reason": null,
+      "warmup_s": 2,
+      "ingestion_to_durable_observation": {
+        "samples": 400,
+        "p50_s": 0.275592,
+        "p95_s": 0.501796,
+        "p99_s": 0.526391
+      },
+      "ingestion_to_insertion_lower_bound": {
+        "samples": 400,
+        "p50_s": 0.007734,
+        "p95_s": 0.013797,
+        "p99_s": 0.066082
+      },
+      "durable_alerts": 0,
+      "alert_effects": [],
+      "content_sha256": "c2ff19c9da9ff5d51a89bd3abd55148456ad4634305e7da34f2ab75e74908254",
+      "samples": [
+        {
+          "elapsed_s": 0.002,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 0.505,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.027,
+          "acknowledged": 41,
+          "persisted": 41,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.552,
+          "acknowledged": 62,
+          "persisted": 62,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.076,
+          "acknowledged": 83,
+          "persisted": 83,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.603,
+          "acknowledged": 104,
+          "persisted": 104,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.126,
+          "acknowledged": 125,
+          "persisted": 125,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.629,
+          "acknowledged": 145,
+          "persisted": 145,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.152,
+          "acknowledged": 166,
+          "persisted": 166,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.676,
+          "acknowledged": 187,
+          "persisted": 187,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.201,
+          "acknowledged": 208,
+          "persisted": 208,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.727,
+          "acknowledged": 229,
+          "persisted": 229,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.252,
+          "acknowledged": 250,
+          "persisted": 250,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.776,
+          "acknowledged": 271,
+          "persisted": 271,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.302,
+          "acknowledged": 292,
+          "persisted": 292,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.827,
+          "acknowledged": 313,
+          "persisted": 313,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.351,
+          "acknowledged": 334,
+          "persisted": 334,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.877,
+          "acknowledged": 355,
+          "persisted": 355,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.404,
+          "acknowledged": 376,
+          "persisted": 376,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.927,
+          "acknowledged": 397,
+          "persisted": 397,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.452,
+          "acknowledged": 418,
+          "persisted": 418,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.976,
+          "acknowledged": 439,
+          "persisted": 439,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.501,
+          "acknowledged": 460,
+          "persisted": 460,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.977,
+          "acknowledged": 480,
+          "persisted": 479,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 11.987,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 12.492,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        }
+      ],
+      "monitoring": "on",
+      "measurement_note": "Durable latency includes up to ~0.5s observer polling plus query scheduling; insertion clock is not commit time. Kafka controls excluded from event counters.",
+      "resources": [
+        {
+          "elapsed_s": 2.019315083976835,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.42%",
+              "MemUsage": "30.51MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.83%",
+              "MemUsage": "10.68MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "10.52%",
+              "MemUsage": "30.39MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.53%",
+              "MemUsage": "76.77MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.14%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "7.08%",
+              "MemUsage": "93.36MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "3.32%",
+              "MemUsage": "521.9MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 6.136235499987379,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "8.04%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.14%",
+              "MemUsage": "10.68MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "11.16%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "9.47%",
+              "MemUsage": "76.83MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.01%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "1.34%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "14.04%",
+              "MemUsage": "91.71MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "136.88%",
+              "MemUsage": "607.9MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 10.270073249936104,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.01%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.12%",
+              "MemUsage": "10.69MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "6.06%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.52%",
+              "MemUsage": "76.87MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.10%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.23%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.10%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "7.66%",
+              "MemUsage": "92.19MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "3.45%",
+              "MemUsage": "521.9MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 14.369608291890472,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.16%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.04%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "0.24%",
+              "MemUsage": "30.13MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "0.59%",
+              "MemUsage": "49.95MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.27%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.13%",
+              "MemUsage": "31.53MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "4.99%",
+              "MemUsage": "90.03MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "1.27%",
+              "MemUsage": "521.6MiB / 768MiB"
+            }
+          ]
+        }
+      ],
+      "injected_fault": null
+    },
+    {
+      "status": "passed",
+      "run_id": "benchmark-60994c3f87bb4247b95669e13bcaf3d7",
+      "config": {
+        "rate": 40,
+        "seconds": 12,
+        "hosts": 1,
+        "pattern": "benign",
+        "workers": 2,
+        "repeat": 0,
+        "seed": 7
+      },
+      "input_mode": "synthetic_fixture",
+      "planned": 480,
+      "attempted": 480,
+      "kafka_acknowledged": 480,
+      "unique_persisted": 480,
+      "publication_s": 11.976354214000821,
+      "total_to_completion_s": 12.488320964001105,
+      "drain_after_publication_s": 0.5046258749989647,
+      "acknowledged_events_per_s": 40.078974905306445,
+      "durable_events_per_s_including_drain": 38.43591155157289,
+      "peak_acknowledged_backlog": 13,
+      "target_completed": true,
+      "early_stop_reason": null,
+      "warmup_s": 2,
+      "ingestion_to_durable_observation": {
+        "samples": 400,
+        "p50_s": 0.275714,
+        "p95_s": 0.501843,
+        "p99_s": 0.527115
+      },
+      "ingestion_to_insertion_lower_bound": {
+        "samples": 400,
+        "p50_s": 0.007585,
+        "p95_s": 0.011863,
+        "p99_s": 0.03583
+      },
+      "durable_alerts": 0,
+      "alert_effects": [],
+      "content_sha256": "01ccc1b8c003559c64b522ad040142c5df094a4001a05c688d625244d314bbf6",
+      "samples": [
+        {
+          "elapsed_s": 0.002,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 0.526,
+          "acknowledged": 21,
+          "persisted": 8,
+          "backlog": 13
+        },
+        {
+          "elapsed_s": 1.027,
+          "acknowledged": 41,
+          "persisted": 41,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.552,
+          "acknowledged": 62,
+          "persisted": 62,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.077,
+          "acknowledged": 83,
+          "persisted": 83,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.579,
+          "acknowledged": 103,
+          "persisted": 103,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.102,
+          "acknowledged": 124,
+          "persisted": 124,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.628,
+          "acknowledged": 145,
+          "persisted": 145,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.128,
+          "acknowledged": 165,
+          "persisted": 165,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.653,
+          "acknowledged": 186,
+          "persisted": 186,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.177,
+          "acknowledged": 207,
+          "persisted": 207,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.677,
+          "acknowledged": 227,
+          "persisted": 227,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.203,
+          "acknowledged": 248,
+          "persisted": 248,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.727,
+          "acknowledged": 269,
+          "persisted": 269,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.252,
+          "acknowledged": 290,
+          "persisted": 290,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.778,
+          "acknowledged": 311,
+          "persisted": 311,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.304,
+          "acknowledged": 332,
+          "persisted": 330,
+          "backlog": 2
+        },
+        {
+          "elapsed_s": 8.827,
+          "acknowledged": 353,
+          "persisted": 353,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.351,
+          "acknowledged": 374,
+          "persisted": 374,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.852,
+          "acknowledged": 394,
+          "persisted": 394,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.353,
+          "acknowledged": 414,
+          "persisted": 414,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.879,
+          "acknowledged": 435,
+          "persisted": 435,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.402,
+          "acknowledged": 456,
+          "persisted": 456,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.927,
+          "acknowledged": 477,
+          "persisted": 477,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.977,
+          "acknowledged": 480,
+          "persisted": 479,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 11.984,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 12.486,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        }
+      ],
+      "monitoring": "on",
+      "measurement_note": "Durable latency includes up to ~0.5s observer polling plus query scheduling; insertion clock is not commit time. Kafka controls excluded from event counters.",
+      "resources": [
+        {
+          "elapsed_s": 2.1598864998668432,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.19%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.07%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "4.93%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "3.09%",
+              "MemUsage": "38.5MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.45%",
+              "MemUsage": "76.79MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.18%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.42%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "7.62%",
+              "MemUsage": "94.04MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "101.95%",
+              "MemUsage": "612.8MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 5.68163870787248,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "6.68%",
+              "MemUsage": "30.49MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "1.63%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "5.44%",
+              "MemUsage": "30.39MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "0.17%",
+              "MemUsage": "29.41MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "6.76%",
+              "MemUsage": "76.84MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.21%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "7.30%",
+              "MemUsage": "94.51MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "4.15%",
+              "MemUsage": "521.7MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 9.788766541983932,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.29%",
+              "MemUsage": "30.49MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.03%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "5.09%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "0.20%",
+              "MemUsage": "29.41MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.41%",
+              "MemUsage": "76.89MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.20%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.08%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "8.10%",
+              "MemUsage": "94.98MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "4.18%",
+              "MemUsage": "522.4MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 13.904677666956559,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.66%",
+              "MemUsage": "30.49MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.19%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "0.27%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "0.10%",
+              "MemUsage": "29.42MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "0.55%",
+              "MemUsage": "49.99MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.26%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.09%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "3.78%",
+              "MemUsage": "93.17MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "2.12%",
+              "MemUsage": "521.7MiB / 768MiB"
+            }
+          ]
+        }
+      ],
+      "injected_fault": null
+    },
+    {
+      "status": "passed",
+      "run_id": "benchmark-d2b07f7acb444f8c96c3d144f9630ce0",
+      "config": {
+        "rate": 40,
+        "seconds": 12,
+        "hosts": 1,
+        "pattern": "benign",
+        "workers": 2,
+        "repeat": 1,
+        "seed": 7
+      },
+      "input_mode": "synthetic_fixture",
+      "planned": 480,
+      "attempted": 480,
+      "kafka_acknowledged": 480,
+      "unique_persisted": 480,
+      "publication_s": 11.976804922000156,
+      "total_to_completion_s": 12.504175505000603,
+      "drain_after_publication_s": 0.5141559159983444,
+      "acknowledged_events_per_s": 40.077466663775205,
+      "durable_events_per_s_including_drain": 38.38717713199411,
+      "peak_acknowledged_backlog": 12,
+      "target_completed": true,
+      "early_stop_reason": null,
+      "warmup_s": 2,
+      "ingestion_to_durable_observation": {
+        "samples": 400,
+        "p50_s": 0.275946,
+        "p95_s": 0.503036,
+        "p99_s": 0.526988
+      },
+      "ingestion_to_insertion_lower_bound": {
+        "samples": 400,
+        "p50_s": 0.007603,
+        "p95_s": 0.009649,
+        "p99_s": 0.027643
+      },
+      "durable_alerts": 0,
+      "alert_effects": [],
+      "content_sha256": "01ccc1b8c003559c64b522ad040142c5df094a4001a05c688d625244d314bbf6",
+      "samples": [
+        {
+          "elapsed_s": 0.002,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 0.527,
+          "acknowledged": 21,
+          "persisted": 9,
+          "backlog": 12
+        },
+        {
+          "elapsed_s": 1.052,
+          "acknowledged": 42,
+          "persisted": 42,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.578,
+          "acknowledged": 63,
+          "persisted": 63,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.102,
+          "acknowledged": 84,
+          "persisted": 84,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.627,
+          "acknowledged": 105,
+          "persisted": 105,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.153,
+          "acknowledged": 126,
+          "persisted": 126,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.677,
+          "acknowledged": 147,
+          "persisted": 147,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.203,
+          "acknowledged": 168,
+          "persisted": 168,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.705,
+          "acknowledged": 188,
+          "persisted": 188,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.227,
+          "acknowledged": 209,
+          "persisted": 209,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.728,
+          "acknowledged": 229,
+          "persisted": 229,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.254,
+          "acknowledged": 250,
+          "persisted": 250,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.777,
+          "acknowledged": 271,
+          "persisted": 271,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.303,
+          "acknowledged": 292,
+          "persisted": 292,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.828,
+          "acknowledged": 313,
+          "persisted": 313,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.352,
+          "acknowledged": 334,
+          "persisted": 334,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.877,
+          "acknowledged": 355,
+          "persisted": 355,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.406,
+          "acknowledged": 376,
+          "persisted": 376,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.927,
+          "acknowledged": 397,
+          "persisted": 396,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 10.452,
+          "acknowledged": 418,
+          "persisted": 418,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.98,
+          "acknowledged": 439,
+          "persisted": 439,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.502,
+          "acknowledged": 460,
+          "persisted": 460,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.978,
+          "acknowledged": 480,
+          "persisted": 478,
+          "backlog": 2
+        },
+        {
+          "elapsed_s": 11.991,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 12.496,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        }
+      ],
+      "monitoring": "on",
+      "measurement_note": "Durable latency includes up to ~0.5s observer polling plus query scheduling; insertion clock is not commit time. Kafka controls excluded from event counters.",
+      "resources": [
+        {
+          "elapsed_s": 2.031207332853228,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "6.69%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "1.31%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "5.44%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "0.07%",
+              "MemUsage": "29.42MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "7.26%",
+              "MemUsage": "76.82MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.02%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.20%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "8.45%",
+              "MemUsage": "95.64MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "4.18%",
+              "MemUsage": "521.7MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 6.127237415872514,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.03%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.10%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "5.61%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "0.15%",
+              "MemUsage": "29.42MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.56%",
+              "MemUsage": "76.86MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "6.05%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.22%",
+              "MemUsage": "136.2MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "8.86%",
+              "MemUsage": "96.18MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "4.25%",
+              "MemUsage": "521.7MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 10.22632929100655,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.52%",
+              "MemUsage": "30.49MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.10%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "6.63%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "0.09%",
+              "MemUsage": "29.42MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.77%",
+              "MemUsage": "76.91MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "3.77%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.06%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "8.39%",
+              "MemUsage": "96.33MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "122.74%",
+              "MemUsage": "611.8MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 14.363109290832654,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.62%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.12%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "0.24%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "4.98%",
+              "MemUsage": "29.42MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "0.69%",
+              "MemUsage": "50.02MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.29%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "4.01%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "6.52%",
+              "MemUsage": "94.28MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "3.11%",
+              "MemUsage": "521.7MiB / 768MiB"
+            }
+          ]
+        }
+      ],
+      "injected_fault": null
+    },
+    {
+      "status": "passed",
+      "run_id": "benchmark-9605efd7cc8244c8b699f47f576748fe",
+      "config": {
+        "rate": 40,
+        "seconds": 12,
+        "hosts": 32,
+        "pattern": "benign",
+        "workers": 2,
+        "repeat": 0,
+        "seed": 7
+      },
+      "input_mode": "synthetic_fixture",
+      "planned": 480,
+      "attempted": 480,
+      "kafka_acknowledged": 480,
+      "unique_persisted": 480,
+      "publication_s": 11.97621096399962,
+      "total_to_completion_s": 12.49057667300076,
+      "drain_after_publication_s": 0.5087362499998562,
+      "acknowledged_events_per_s": 40.07945429843175,
+      "durable_events_per_s_including_drain": 38.428970300270684,
+      "peak_acknowledged_backlog": 20,
+      "target_completed": true,
+      "early_stop_reason": null,
+      "warmup_s": 2,
+      "ingestion_to_durable_observation": {
+        "samples": 400,
+        "p50_s": 0.275307,
+        "p95_s": 0.50191,
+        "p99_s": 0.526868
+      },
+      "ingestion_to_insertion_lower_bound": {
+        "samples": 400,
+        "p50_s": 0.007743,
+        "p95_s": 0.009812,
+        "p99_s": 0.034616
+      },
+      "durable_alerts": 0,
+      "alert_effects": [],
+      "content_sha256": "c2ff19c9da9ff5d51a89bd3abd55148456ad4634305e7da34f2ab75e74908254",
+      "samples": [
+        {
+          "elapsed_s": 0.003,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 0.527,
+          "acknowledged": 21,
+          "persisted": 1,
+          "backlog": 20
+        },
+        {
+          "elapsed_s": 1.052,
+          "acknowledged": 42,
+          "persisted": 42,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.578,
+          "acknowledged": 63,
+          "persisted": 63,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.103,
+          "acknowledged": 84,
+          "persisted": 84,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.628,
+          "acknowledged": 105,
+          "persisted": 105,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.153,
+          "acknowledged": 126,
+          "persisted": 126,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.677,
+          "acknowledged": 147,
+          "persisted": 147,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.202,
+          "acknowledged": 168,
+          "persisted": 168,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.727,
+          "acknowledged": 189,
+          "persisted": 189,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.252,
+          "acknowledged": 210,
+          "persisted": 210,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.777,
+          "acknowledged": 231,
+          "persisted": 231,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.302,
+          "acknowledged": 252,
+          "persisted": 252,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.827,
+          "acknowledged": 273,
+          "persisted": 273,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.352,
+          "acknowledged": 294,
+          "persisted": 294,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.877,
+          "acknowledged": 315,
+          "persisted": 315,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.402,
+          "acknowledged": 336,
+          "persisted": 336,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.928,
+          "acknowledged": 357,
+          "persisted": 357,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.451,
+          "acknowledged": 378,
+          "persisted": 378,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.978,
+          "acknowledged": 399,
+          "persisted": 399,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.503,
+          "acknowledged": 420,
+          "persisted": 420,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.028,
+          "acknowledged": 441,
+          "persisted": 441,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.552,
+          "acknowledged": 462,
+          "persisted": 462,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.977,
+          "acknowledged": 480,
+          "persisted": 479,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 11.982,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 12.484,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        }
+      ],
+      "monitoring": "on",
+      "measurement_note": "Durable latency includes up to ~0.5s observer polling plus query scheduling; insertion clock is not commit time. Kafka controls excluded from event counters.",
+      "resources": [
+        {
+          "elapsed_s": 2.0347064591478556,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.12%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.04%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "4.13%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "1.89%",
+              "MemUsage": "29.43MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.64%",
+              "MemUsage": "76.86MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "8.95%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.19%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "7.44%",
+              "MemUsage": "97.71MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "6.30%",
+              "MemUsage": "523.1MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 6.156574292108417,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.07%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.06%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "4.03%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "2.14%",
+              "MemUsage": "29.44MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.77%",
+              "MemUsage": "76.9MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.26%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.03%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "6.84%",
+              "MemUsage": "97.85MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "23.33%",
+              "MemUsage": "554.8MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 10.24424304207787,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.01%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.12%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "3.79%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "6.54%",
+              "MemUsage": "29.44MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.62%",
+              "MemUsage": "76.96MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.44MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.16%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.12%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "6.43%",
+              "MemUsage": "98.32MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "7.92%",
+              "MemUsage": "522MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 14.336259459145367,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.55%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.04%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "1.14%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "0.32%",
+              "MemUsage": "29.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "0.83%",
+              "MemUsage": "50.03MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.01%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.19%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.50%",
+              "MemUsage": "31.54MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "3.72%",
+              "MemUsage": "96.4MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "1.56%",
+              "MemUsage": "521.7MiB / 768MiB"
+            }
+          ]
+        }
+      ],
+      "injected_fault": null
+    },
+    {
+      "status": "passed",
+      "run_id": "benchmark-49288ddc535a4b62919ceaa27e53edc4",
+      "config": {
+        "rate": 40,
+        "seconds": 12,
+        "hosts": 32,
+        "pattern": "benign",
+        "workers": 2,
+        "repeat": 1,
+        "seed": 7
+      },
+      "input_mode": "synthetic_fixture",
+      "planned": 480,
+      "attempted": 480,
+      "kafka_acknowledged": 480,
+      "unique_persisted": 480,
+      "publication_s": 11.976392839000255,
+      "total_to_completion_s": 12.492630089000158,
+      "drain_after_publication_s": 0.5078127090000635,
+      "acknowledged_events_per_s": 40.07884564682237,
+      "durable_events_per_s_including_drain": 38.42265372306534,
+      "peak_acknowledged_backlog": 17,
+      "target_completed": true,
+      "early_stop_reason": null,
+      "warmup_s": 2,
+      "ingestion_to_durable_observation": {
+        "samples": 400,
+        "p50_s": 0.275602,
+        "p95_s": 0.501138,
+        "p99_s": 0.526072
+      },
+      "ingestion_to_insertion_lower_bound": {
+        "samples": 400,
+        "p50_s": 0.007789,
+        "p95_s": 0.010565,
+        "p99_s": 0.071939
+      },
+      "durable_alerts": 0,
+      "alert_effects": [],
+      "content_sha256": "c2ff19c9da9ff5d51a89bd3abd55148456ad4634305e7da34f2ab75e74908254",
+      "samples": [
+        {
+          "elapsed_s": 0.002,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 0.526,
+          "acknowledged": 21,
+          "persisted": 4,
+          "backlog": 17
+        },
+        {
+          "elapsed_s": 1.053,
+          "acknowledged": 42,
+          "persisted": 42,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.578,
+          "acknowledged": 63,
+          "persisted": 63,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.103,
+          "acknowledged": 84,
+          "persisted": 84,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.627,
+          "acknowledged": 105,
+          "persisted": 105,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.151,
+          "acknowledged": 126,
+          "persisted": 126,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.652,
+          "acknowledged": 146,
+          "persisted": 146,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.177,
+          "acknowledged": 167,
+          "persisted": 167,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.702,
+          "acknowledged": 188,
+          "persisted": 188,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.227,
+          "acknowledged": 209,
+          "persisted": 209,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.752,
+          "acknowledged": 230,
+          "persisted": 230,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.277,
+          "acknowledged": 251,
+          "persisted": 251,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.801,
+          "acknowledged": 272,
+          "persisted": 272,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.327,
+          "acknowledged": 293,
+          "persisted": 293,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.852,
+          "acknowledged": 314,
+          "persisted": 314,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.377,
+          "acknowledged": 335,
+          "persisted": 335,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.902,
+          "acknowledged": 356,
+          "persisted": 356,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.427,
+          "acknowledged": 377,
+          "persisted": 377,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.952,
+          "acknowledged": 398,
+          "persisted": 398,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.477,
+          "acknowledged": 419,
+          "persisted": 419,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.001,
+          "acknowledged": 440,
+          "persisted": 440,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.528,
+          "acknowledged": 461,
+          "persisted": 461,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.977,
+          "acknowledged": 480,
+          "persisted": 479,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 11.986,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 12.488,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        }
+      ],
+      "monitoring": "on",
+      "measurement_note": "Durable latency includes up to ~0.5s observer polling plus query scheduling; insertion clock is not commit time. Kafka controls excluded from event counters.",
+      "resources": [
+        {
+          "elapsed_s": 2.0505030408967286,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.45%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.04%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "4.06%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "2.29%",
+              "MemUsage": "29.51MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.72%",
+              "MemUsage": "76.88MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.62%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.02%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "8.22%",
+              "MemUsage": "99.25MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "3.76%",
+              "MemUsage": "521.7MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 6.331377208000049,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.07%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.11%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "4.05%",
+              "MemUsage": "30.39MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "1.62%",
+              "MemUsage": "29.51MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.41%",
+              "MemUsage": "76.92MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.52%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.08%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "7.37%",
+              "MemUsage": "99.36MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "4.43%",
+              "MemUsage": "521.8MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 10.454073874978349,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "0.95%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.06%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "3.95%",
+              "MemUsage": "30.39MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "6.23%",
+              "MemUsage": "29.51MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.36%",
+              "MemUsage": "76.98MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "1.69%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.08%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "8.12%",
+              "MemUsage": "100MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "3.31%",
+              "MemUsage": "521.8MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 14.534798207925633,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "5.15%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.05%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "6.42%",
+              "MemUsage": "30.22MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "0.15%",
+              "MemUsage": "29.6MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "5.94%",
+              "MemUsage": "50.07MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.18%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.30%",
+              "MemUsage": "31.53MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "2.76%",
+              "MemUsage": "97.91MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "97.20%",
+              "MemUsage": "521.7MiB / 768MiB"
+            }
+          ]
+        }
+      ],
+      "injected_fault": null
+    },
+    {
+      "status": "passed",
+      "run_id": "benchmark-188b96780cd74b39ba755d40528907bf",
+      "config": {
+        "rate": 40,
+        "seconds": 12,
+        "hosts": 4,
+        "pattern": "scan",
+        "workers": 2,
+        "seed": 17
+      },
+      "input_mode": "synthetic_fixture",
+      "planned": 480,
+      "attempted": 480,
+      "kafka_acknowledged": 480,
+      "unique_persisted": 480,
+      "publication_s": 11.97632313000031,
+      "total_to_completion_s": 12.491992172001119,
+      "drain_after_publication_s": 0.5088212499995279,
+      "acknowledged_events_per_s": 40.07907892845804,
+      "durable_events_per_s_including_drain": 38.42461581715094,
+      "peak_acknowledged_backlog": 17,
+      "target_completed": true,
+      "early_stop_reason": null,
+      "warmup_s": 2,
+      "ingestion_to_durable_observation": {
+        "samples": 400,
+        "p50_s": 0.276368,
+        "p95_s": 0.516961,
+        "p99_s": 0.52716
+      },
+      "ingestion_to_insertion_lower_bound": {
+        "samples": 400,
+        "p50_s": 0.007798,
+        "p95_s": 0.010118,
+        "p99_s": 0.057521
+      },
+      "durable_alerts": 4,
+      "alert_effects": [
+        {
+          "detector": "vertical_tcp_scan",
+          "source": "192.0.2.100",
+          "observed": {
+            "distinct_ports": 32
+          },
+          "evidence_count": 120
+        },
+        {
+          "detector": "vertical_tcp_scan",
+          "source": "192.0.2.101",
+          "observed": {
+            "distinct_ports": 32
+          },
+          "evidence_count": 120
+        },
+        {
+          "detector": "vertical_tcp_scan",
+          "source": "192.0.2.102",
+          "observed": {
+            "distinct_ports": 32
+          },
+          "evidence_count": 120
+        },
+        {
+          "detector": "vertical_tcp_scan",
+          "source": "192.0.2.103",
+          "observed": {
+            "distinct_ports": 32
+          },
+          "evidence_count": 120
+        }
+      ],
+      "content_sha256": "d685b2088f7b5c2a9fda99edef3e2d94c1d0b24a084f1aa7c5f2d0ce460bbd27",
+      "samples": [
+        {
+          "elapsed_s": 0.002,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 0.526,
+          "acknowledged": 21,
+          "persisted": 4,
+          "backlog": 17
+        },
+        {
+          "elapsed_s": 1.055,
+          "acknowledged": 42,
+          "persisted": 42,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.577,
+          "acknowledged": 63,
+          "persisted": 63,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.102,
+          "acknowledged": 84,
+          "persisted": 84,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.628,
+          "acknowledged": 105,
+          "persisted": 105,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.153,
+          "acknowledged": 126,
+          "persisted": 126,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.678,
+          "acknowledged": 147,
+          "persisted": 147,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.202,
+          "acknowledged": 168,
+          "persisted": 168,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.726,
+          "acknowledged": 189,
+          "persisted": 189,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.252,
+          "acknowledged": 210,
+          "persisted": 210,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 5.776,
+          "acknowledged": 231,
+          "persisted": 231,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.301,
+          "acknowledged": 252,
+          "persisted": 252,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 6.826,
+          "acknowledged": 273,
+          "persisted": 273,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.352,
+          "acknowledged": 294,
+          "persisted": 294,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 7.878,
+          "acknowledged": 315,
+          "persisted": 315,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 8.412,
+          "acknowledged": 333,
+          "persisted": 332,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 8.929,
+          "acknowledged": 357,
+          "persisted": 357,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.452,
+          "acknowledged": 378,
+          "persisted": 378,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 9.976,
+          "acknowledged": 399,
+          "persisted": 399,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.502,
+          "acknowledged": 420,
+          "persisted": 420,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.028,
+          "acknowledged": 441,
+          "persisted": 441,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.552,
+          "acknowledged": 462,
+          "persisted": 462,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.977,
+          "acknowledged": 480,
+          "persisted": 479,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 11.984,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 12.485,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        }
+      ],
+      "monitoring": "on",
+      "measurement_note": "Durable latency includes up to ~0.5s observer polling plus query scheduling; insertion clock is not commit time. Kafka controls excluded from event counters.",
+      "resources": [
+        {
+          "elapsed_s": 2.0369724999181926,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "0.92%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.29%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "4.42%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "1.73%",
+              "MemUsage": "29.61MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.41%",
+              "MemUsage": "76.92MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.23%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.08%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "6.97%",
+              "MemUsage": "100.4MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "5.35%",
+              "MemUsage": "523MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 6.154461500002071,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.31%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.07%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "8.34%",
+              "MemUsage": "30.16MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "1.29%",
+              "MemUsage": "29.61MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "2.02%",
+              "MemUsage": "76.96MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "2.95%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "1.62%",
+              "MemUsage": "31.53MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "8.21%",
+              "MemUsage": "100.6MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "3.37%",
+              "MemUsage": "521.8MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 10.231263833120465,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "5.79%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.06%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "8.99%",
+              "MemUsage": "30.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "1.55%",
+              "MemUsage": "29.61MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "6.70%",
+              "MemUsage": "76.99MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.19%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.51%",
+              "MemUsage": "31.53MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "11.48%",
+              "MemUsage": "101MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "49.82%",
+              "MemUsage": "577MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 14.345278542023152,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "6.58%",
+              "MemUsage": "38.57MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "5.32%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "0.81%",
+              "MemUsage": "30.18MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "0.52%",
+              "MemUsage": "29.64MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "7.88%",
+              "MemUsage": "58.88MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.03%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.31%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "5.52%",
+              "MemUsage": "99.88MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "2.83%",
+              "MemUsage": "521.8MiB / 768MiB"
+            }
+          ]
+        }
+      ],
+      "injected_fault": null
+    },
+    {
+      "status": "passed",
+      "run_id": "benchmark-65b87595c0544d6095cfd5cbcd0e67f7",
+      "config": {
+        "rate": 40,
+        "seconds": 12,
+        "hosts": 4,
+        "pattern": "scan",
+        "workers": 2,
+        "seed": 17
+      },
+      "input_mode": "synthetic_fixture",
+      "planned": 480,
+      "attempted": 480,
+      "kafka_acknowledged": 480,
+      "unique_persisted": 480,
+      "publication_s": 11.977957921999405,
+      "total_to_completion_s": 12.492330171999129,
+      "drain_after_publication_s": 0.5062999999991007,
+      "acknowledged_events_per_s": 40.07360880091292,
+      "durable_events_per_s_including_drain": 38.42357617763687,
+      "peak_acknowledged_backlog": 178,
+      "target_completed": true,
+      "early_stop_reason": null,
+      "warmup_s": 2,
+      "ingestion_to_durable_observation": {
+        "samples": 400,
+        "p50_s": 0.526064,
+        "p95_s": 5.948457,
+        "p99_s": 6.525653
+      },
+      "ingestion_to_insertion_lower_bound": {
+        "samples": 400,
+        "p50_s": 0.131991,
+        "p95_s": 5.787271,
+        "p99_s": 6.290999
+      },
+      "durable_alerts": 4,
+      "alert_effects": [
+        {
+          "detector": "vertical_tcp_scan",
+          "source": "192.0.2.100",
+          "observed": {
+            "distinct_ports": 32
+          },
+          "evidence_count": 120
+        },
+        {
+          "detector": "vertical_tcp_scan",
+          "source": "192.0.2.101",
+          "observed": {
+            "distinct_ports": 32
+          },
+          "evidence_count": 120
+        },
+        {
+          "detector": "vertical_tcp_scan",
+          "source": "192.0.2.102",
+          "observed": {
+            "distinct_ports": 32
+          },
+          "evidence_count": 120
+        },
+        {
+          "detector": "vertical_tcp_scan",
+          "source": "192.0.2.103",
+          "observed": {
+            "distinct_ports": 32
+          },
+          "evidence_count": 120
+        }
+      ],
+      "content_sha256": "d685b2088f7b5c2a9fda99edef3e2d94c1d0b24a084f1aa7c5f2d0ce460bbd27",
+      "samples": [
+        {
+          "elapsed_s": 0.002,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 0.504,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.027,
+          "acknowledged": 41,
+          "persisted": 41,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.528,
+          "acknowledged": 61,
+          "persisted": 61,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.053,
+          "acknowledged": 82,
+          "persisted": 82,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.579,
+          "acknowledged": 103,
+          "persisted": 103,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.102,
+          "acknowledged": 124,
+          "persisted": 118,
+          "backlog": 6
+        },
+        {
+          "elapsed_s": 3.605,
+          "acknowledged": 144,
+          "persisted": 123,
+          "backlog": 21
+        },
+        {
+          "elapsed_s": 4.127,
+          "acknowledged": 165,
+          "persisted": 128,
+          "backlog": 37
+        },
+        {
+          "elapsed_s": 4.653,
+          "acknowledged": 186,
+          "persisted": 133,
+          "backlog": 53
+        },
+        {
+          "elapsed_s": 5.179,
+          "acknowledged": 207,
+          "persisted": 138,
+          "backlog": 69
+        },
+        {
+          "elapsed_s": 5.703,
+          "acknowledged": 228,
+          "persisted": 144,
+          "backlog": 84
+        },
+        {
+          "elapsed_s": 6.228,
+          "acknowledged": 249,
+          "persisted": 149,
+          "backlog": 100
+        },
+        {
+          "elapsed_s": 6.754,
+          "acknowledged": 270,
+          "persisted": 154,
+          "backlog": 116
+        },
+        {
+          "elapsed_s": 7.277,
+          "acknowledged": 291,
+          "persisted": 159,
+          "backlog": 132
+        },
+        {
+          "elapsed_s": 7.801,
+          "acknowledged": 312,
+          "persisted": 165,
+          "backlog": 147
+        },
+        {
+          "elapsed_s": 8.302,
+          "acknowledged": 332,
+          "persisted": 170,
+          "backlog": 162
+        },
+        {
+          "elapsed_s": 8.826,
+          "acknowledged": 353,
+          "persisted": 175,
+          "backlog": 178
+        },
+        {
+          "elapsed_s": 9.352,
+          "acknowledged": 374,
+          "persisted": 215,
+          "backlog": 159
+        },
+        {
+          "elapsed_s": 9.879,
+          "acknowledged": 395,
+          "persisted": 395,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.402,
+          "acknowledged": 416,
+          "persisted": 416,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 10.928,
+          "acknowledged": 437,
+          "persisted": 437,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.453,
+          "acknowledged": 458,
+          "persisted": 458,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.978,
+          "acknowledged": 479,
+          "persisted": 479,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 11.978,
+          "acknowledged": 480,
+          "persisted": 479,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 11.986,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 12.488,
+          "acknowledged": 480,
+          "persisted": 480,
+          "backlog": 0
+        }
+      ],
+      "monitoring": "on",
+      "measurement_note": "Durable latency includes up to ~0.5s observer polling plus query scheduling; insertion clock is not commit time. Kafka controls excluded from event counters.",
+      "resources": [
+        {
+          "elapsed_s": 2.064262874890119,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.27%",
+              "MemUsage": "30.51MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.14%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "3.70%",
+              "MemUsage": "30.19MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "6.15%",
+              "MemUsage": "29.89MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.56%",
+              "MemUsage": "76.93MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "2.20%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.11%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "8.18%",
+              "MemUsage": "102.5MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "4.60%",
+              "MemUsage": "521.8MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 6.1484914580360055,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "2.16%",
+              "MemUsage": "30.52MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.09%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "2.82%",
+              "MemUsage": "29.64MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "2.09%",
+              "MemUsage": "76.96MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.02%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.22%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "1.04%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "5.41%",
+              "MemUsage": "98.73MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "3.21%",
+              "MemUsage": "521.8MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 11.240827957866713,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "5.91%",
+              "MemUsage": "30.52MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "1.03%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "1.69%",
+              "MemUsage": "29.64MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "6.88%",
+              "MemUsage": "77.32MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.03%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.16%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "16.53%",
+              "MemUsage": "99.28MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "6.71%",
+              "MemUsage": "521.8MiB / 768MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "3.39%",
+              "MemUsage": "29.41MiB / 256MiB"
+            }
+          ]
+        }
+      ],
+      "injected_fault": "SIGKILL detector at t\u22483s; start after \u22483s"
+    },
+    {
+      "status": "passed",
+      "run_id": "benchmark-0d2056769c8743a68a0e16b0d9cf2a56",
+      "config": {
+        "rate": 500,
+        "seconds": 600,
+        "hosts": 32,
+        "pattern": "benign",
+        "workers": 2,
+        "seed": 31,
+        "max_backlog": 3000
+      },
+      "input_mode": "synthetic_fixture",
+      "planned": 300000,
+      "attempted": 13825,
+      "kafka_acknowledged": 13825,
+      "unique_persisted": 13825,
+      "publication_s": 27.651028553998913,
+      "total_to_completion_s": 41.7782841850003,
+      "drain_after_publication_s": 14.115329173000646,
+      "acknowledged_events_per_s": 499.9814011620417,
+      "durable_events_per_s_including_drain": 330.91354203970883,
+      "peak_acknowledged_backlog": 3070,
+      "target_completed": false,
+      "early_stop_reason": "acknowledged backlog reached configured bound",
+      "warmup_s": 2,
+      "ingestion_to_durable_observation": {
+        "samples": 12825,
+        "p50_s": 1.789175,
+        "p95_s": 12.879149,
+        "p99_s": 14.021344
+      },
+      "ingestion_to_insertion_lower_bound": {
+        "samples": 12825,
+        "p50_s": 1.568373,
+        "p95_s": 12.581497,
+        "p99_s": 13.755856
+      },
+      "durable_alerts": 0,
+      "alert_effects": [],
+      "content_sha256": "6e621661853d25a7625165c5405af08ea3ba39185b0d5e2ccd3aa391a5b7ed60",
+      "samples": [
+        {
+          "elapsed_s": 0.002,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 0.504,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.008,
+          "acknowledged": 499,
+          "persisted": 381,
+          "backlog": 118
+        },
+        {
+          "elapsed_s": 1.512,
+          "acknowledged": 752,
+          "persisted": 741,
+          "backlog": 11
+        },
+        {
+          "elapsed_s": 2.014,
+          "acknowledged": 1005,
+          "persisted": 1003,
+          "backlog": 2
+        },
+        {
+          "elapsed_s": 2.516,
+          "acknowledged": 1255,
+          "persisted": 1254,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 3.018,
+          "acknowledged": 1506,
+          "persisted": 1505,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 3.52,
+          "acknowledged": 1756,
+          "persisted": 1756,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.022,
+          "acknowledged": 2007,
+          "persisted": 2007,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 4.524,
+          "acknowledged": 2259,
+          "persisted": 2258,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 5.027,
+          "acknowledged": 2509,
+          "persisted": 2494,
+          "backlog": 15
+        },
+        {
+          "elapsed_s": 5.528,
+          "acknowledged": 2761,
+          "persisted": 2760,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 6.031,
+          "acknowledged": 3013,
+          "persisted": 3010,
+          "backlog": 3
+        },
+        {
+          "elapsed_s": 6.532,
+          "acknowledged": 3263,
+          "persisted": 3261,
+          "backlog": 2
+        },
+        {
+          "elapsed_s": 7.034,
+          "acknowledged": 3514,
+          "persisted": 3507,
+          "backlog": 7
+        },
+        {
+          "elapsed_s": 7.538,
+          "acknowledged": 3766,
+          "persisted": 3743,
+          "backlog": 23
+        },
+        {
+          "elapsed_s": 8.04,
+          "acknowledged": 4017,
+          "persisted": 4006,
+          "backlog": 11
+        },
+        {
+          "elapsed_s": 8.542,
+          "acknowledged": 4268,
+          "persisted": 4249,
+          "backlog": 19
+        },
+        {
+          "elapsed_s": 9.045,
+          "acknowledged": 4518,
+          "persisted": 4467,
+          "backlog": 51
+        },
+        {
+          "elapsed_s": 9.548,
+          "acknowledged": 4771,
+          "persisted": 4684,
+          "backlog": 87
+        },
+        {
+          "elapsed_s": 10.051,
+          "acknowledged": 5023,
+          "persisted": 4856,
+          "backlog": 167
+        },
+        {
+          "elapsed_s": 10.569,
+          "acknowledged": 5271,
+          "persisted": 5027,
+          "backlog": 244
+        },
+        {
+          "elapsed_s": 11.072,
+          "acknowledged": 5535,
+          "persisted": 5180,
+          "backlog": 355
+        },
+        {
+          "elapsed_s": 11.576,
+          "acknowledged": 5783,
+          "persisted": 5413,
+          "backlog": 370
+        },
+        {
+          "elapsed_s": 12.079,
+          "acknowledged": 6035,
+          "persisted": 5632,
+          "backlog": 403
+        },
+        {
+          "elapsed_s": 12.582,
+          "acknowledged": 6287,
+          "persisted": 5845,
+          "backlog": 442
+        },
+        {
+          "elapsed_s": 13.084,
+          "acknowledged": 6538,
+          "persisted": 6062,
+          "backlog": 476
+        },
+        {
+          "elapsed_s": 13.587,
+          "acknowledged": 6790,
+          "persisted": 6270,
+          "backlog": 520
+        },
+        {
+          "elapsed_s": 14.09,
+          "acknowledged": 7043,
+          "persisted": 6491,
+          "backlog": 552
+        },
+        {
+          "elapsed_s": 14.592,
+          "acknowledged": 7292,
+          "persisted": 6715,
+          "backlog": 577
+        },
+        {
+          "elapsed_s": 15.094,
+          "acknowledged": 7543,
+          "persisted": 6925,
+          "backlog": 618
+        },
+        {
+          "elapsed_s": 15.597,
+          "acknowledged": 7795,
+          "persisted": 7128,
+          "backlog": 667
+        },
+        {
+          "elapsed_s": 16.098,
+          "acknowledged": 8022,
+          "persisted": 7247,
+          "backlog": 775
+        },
+        {
+          "elapsed_s": 16.6,
+          "acknowledged": 8298,
+          "persisted": 7433,
+          "backlog": 865
+        },
+        {
+          "elapsed_s": 17.102,
+          "acknowledged": 8547,
+          "persisted": 7618,
+          "backlog": 929
+        },
+        {
+          "elapsed_s": 17.604,
+          "acknowledged": 8799,
+          "persisted": 7799,
+          "backlog": 1000
+        },
+        {
+          "elapsed_s": 18.106,
+          "acknowledged": 9050,
+          "persisted": 8005,
+          "backlog": 1045
+        },
+        {
+          "elapsed_s": 18.608,
+          "acknowledged": 9300,
+          "persisted": 8192,
+          "backlog": 1108
+        },
+        {
+          "elapsed_s": 19.111,
+          "acknowledged": 9552,
+          "persisted": 8334,
+          "backlog": 1218
+        },
+        {
+          "elapsed_s": 19.618,
+          "acknowledged": 9805,
+          "persisted": 8408,
+          "backlog": 1397
+        },
+        {
+          "elapsed_s": 20.12,
+          "acknowledged": 10057,
+          "persisted": 8578,
+          "backlog": 1479
+        },
+        {
+          "elapsed_s": 20.622,
+          "acknowledged": 10307,
+          "persisted": 8763,
+          "backlog": 1544
+        },
+        {
+          "elapsed_s": 21.124,
+          "acknowledged": 10559,
+          "persisted": 8888,
+          "backlog": 1671
+        },
+        {
+          "elapsed_s": 21.626,
+          "acknowledged": 10810,
+          "persisted": 9033,
+          "backlog": 1777
+        },
+        {
+          "elapsed_s": 22.128,
+          "acknowledged": 11060,
+          "persisted": 9192,
+          "backlog": 1868
+        },
+        {
+          "elapsed_s": 22.63,
+          "acknowledged": 11312,
+          "persisted": 9321,
+          "backlog": 1991
+        },
+        {
+          "elapsed_s": 23.132,
+          "acknowledged": 11562,
+          "persisted": 9472,
+          "backlog": 2090
+        },
+        {
+          "elapsed_s": 23.634,
+          "acknowledged": 11813,
+          "persisted": 9627,
+          "backlog": 2186
+        },
+        {
+          "elapsed_s": 24.136,
+          "acknowledged": 12066,
+          "persisted": 9787,
+          "backlog": 2279
+        },
+        {
+          "elapsed_s": 24.638,
+          "acknowledged": 12315,
+          "persisted": 9936,
+          "backlog": 2379
+        },
+        {
+          "elapsed_s": 25.14,
+          "acknowledged": 12561,
+          "persisted": 10073,
+          "backlog": 2488
+        },
+        {
+          "elapsed_s": 25.642,
+          "acknowledged": 12817,
+          "persisted": 10210,
+          "backlog": 2607
+        },
+        {
+          "elapsed_s": 26.144,
+          "acknowledged": 13069,
+          "persisted": 10373,
+          "backlog": 2696
+        },
+        {
+          "elapsed_s": 26.646,
+          "acknowledged": 13321,
+          "persisted": 10524,
+          "backlog": 2797
+        },
+        {
+          "elapsed_s": 27.148,
+          "acknowledged": 13571,
+          "persisted": 10632,
+          "backlog": 2939
+        },
+        {
+          "elapsed_s": 27.65,
+          "acknowledged": 13823,
+          "persisted": 10754,
+          "backlog": 3069
+        },
+        {
+          "elapsed_s": 27.651,
+          "acknowledged": 13825,
+          "persisted": 10755,
+          "backlog": 3070
+        },
+        {
+          "elapsed_s": 27.663,
+          "acknowledged": 13825,
+          "persisted": 10757,
+          "backlog": 3068
+        },
+        {
+          "elapsed_s": 28.165,
+          "acknowledged": 13825,
+          "persisted": 10904,
+          "backlog": 2921
+        },
+        {
+          "elapsed_s": 28.667,
+          "acknowledged": 13825,
+          "persisted": 11064,
+          "backlog": 2761
+        },
+        {
+          "elapsed_s": 29.169,
+          "acknowledged": 13825,
+          "persisted": 11179,
+          "backlog": 2646
+        },
+        {
+          "elapsed_s": 29.671,
+          "acknowledged": 13825,
+          "persisted": 11321,
+          "backlog": 2504
+        },
+        {
+          "elapsed_s": 30.173,
+          "acknowledged": 13825,
+          "persisted": 11469,
+          "backlog": 2356
+        },
+        {
+          "elapsed_s": 30.675,
+          "acknowledged": 13825,
+          "persisted": 11612,
+          "backlog": 2213
+        },
+        {
+          "elapsed_s": 31.177,
+          "acknowledged": 13825,
+          "persisted": 11761,
+          "backlog": 2064
+        },
+        {
+          "elapsed_s": 31.679,
+          "acknowledged": 13825,
+          "persisted": 11893,
+          "backlog": 1932
+        },
+        {
+          "elapsed_s": 32.181,
+          "acknowledged": 13825,
+          "persisted": 12037,
+          "backlog": 1788
+        },
+        {
+          "elapsed_s": 32.683,
+          "acknowledged": 13825,
+          "persisted": 12163,
+          "backlog": 1662
+        },
+        {
+          "elapsed_s": 33.185,
+          "acknowledged": 13825,
+          "persisted": 12300,
+          "backlog": 1525
+        },
+        {
+          "elapsed_s": 33.687,
+          "acknowledged": 13825,
+          "persisted": 12416,
+          "backlog": 1409
+        },
+        {
+          "elapsed_s": 34.191,
+          "acknowledged": 13825,
+          "persisted": 12556,
+          "backlog": 1269
+        },
+        {
+          "elapsed_s": 34.692,
+          "acknowledged": 13825,
+          "persisted": 12679,
+          "backlog": 1146
+        },
+        {
+          "elapsed_s": 35.194,
+          "acknowledged": 13825,
+          "persisted": 12811,
+          "backlog": 1014
+        },
+        {
+          "elapsed_s": 35.696,
+          "acknowledged": 13825,
+          "persisted": 12940,
+          "backlog": 885
+        },
+        {
+          "elapsed_s": 36.197,
+          "acknowledged": 13825,
+          "persisted": 13035,
+          "backlog": 790
+        },
+        {
+          "elapsed_s": 36.698,
+          "acknowledged": 13825,
+          "persisted": 13150,
+          "backlog": 675
+        },
+        {
+          "elapsed_s": 37.202,
+          "acknowledged": 13825,
+          "persisted": 13242,
+          "backlog": 583
+        },
+        {
+          "elapsed_s": 37.703,
+          "acknowledged": 13825,
+          "persisted": 13242,
+          "backlog": 583
+        },
+        {
+          "elapsed_s": 38.21,
+          "acknowledged": 13825,
+          "persisted": 13250,
+          "backlog": 575
+        },
+        {
+          "elapsed_s": 38.715,
+          "acknowledged": 13825,
+          "persisted": 13353,
+          "backlog": 472
+        },
+        {
+          "elapsed_s": 39.217,
+          "acknowledged": 13825,
+          "persisted": 13458,
+          "backlog": 367
+        },
+        {
+          "elapsed_s": 39.72,
+          "acknowledged": 13825,
+          "persisted": 13567,
+          "backlog": 258
+        },
+        {
+          "elapsed_s": 40.221,
+          "acknowledged": 13825,
+          "persisted": 13650,
+          "backlog": 175
+        },
+        {
+          "elapsed_s": 40.723,
+          "acknowledged": 13825,
+          "persisted": 13676,
+          "backlog": 149
+        },
+        {
+          "elapsed_s": 41.224,
+          "acknowledged": 13825,
+          "persisted": 13792,
+          "backlog": 33
+        },
+        {
+          "elapsed_s": 41.726,
+          "acknowledged": 13825,
+          "persisted": 13825,
+          "backlog": 0
+        }
+      ],
+      "monitoring": "on",
+      "measurement_note": "Durable latency includes up to ~0.5s observer polling plus query scheduling; insertion clock is not commit time. Kafka controls excluded from event counters.",
+      "resources": [
+        {
+          "elapsed_s": 1.6053045000880957,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "6.40%",
+              "MemUsage": "30.53MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.32%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "24.66%",
+              "MemUsage": "30.21MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "22.81%",
+              "MemUsage": "29.96MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "6.78%",
+              "MemUsage": "77.5MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "6.38%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.28%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "41.26%",
+              "MemUsage": "105.2MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "18.13%",
+              "MemUsage": "525.3MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 5.7098663749638945,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "0.83%",
+              "MemUsage": "30.52MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.06%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "24.61%",
+              "MemUsage": "30.47MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "20.35%",
+              "MemUsage": "29.96MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "6.20%",
+              "MemUsage": "78.58MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.19%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "52.08%",
+              "MemUsage": "109.9MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "118.03%",
+              "MemUsage": "616.4MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 9.830910000018775,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "0.61%",
+              "MemUsage": "30.54MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.44%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "21.22%",
+              "MemUsage": "30.23MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "25.50%",
+              "MemUsage": "29.96MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "6.43%",
+              "MemUsage": "78.93MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.16%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.08%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "66.32%",
+              "MemUsage": "114.7MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "18.68%",
+              "MemUsage": "537.3MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 12.956834375159815,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "5.33%",
+              "MemUsage": "30.53MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.06%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "23.53%",
+              "MemUsage": "30.35MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "18.68%",
+              "MemUsage": "30.2MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "9.45%",
+              "MemUsage": "80.11MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.01%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.13%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.37%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "67.57%",
+              "MemUsage": "117.2MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "14.36%",
+              "MemUsage": "536.8MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 17.062635499984026,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "0.92%",
+              "MemUsage": "30.53MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "1.40%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "16.18%",
+              "MemUsage": "30.96MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "15.79%",
+              "MemUsage": "30.02MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "6.48%",
+              "MemUsage": "81.12MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.22%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "67.72%",
+              "MemUsage": "121MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "38.36%",
+              "MemUsage": "581.4MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 21.190923833986744,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.13%",
+              "MemUsage": "30.52MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.08%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "14.73%",
+              "MemUsage": "31.63MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "14.95%",
+              "MemUsage": "30.4MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "4.59%",
+              "MemUsage": "81.33MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.24%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "75.57%",
+              "MemUsage": "124.2MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "13.68%",
+              "MemUsage": "540.3MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 25.30314433411695,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "0.98%",
+              "MemUsage": "30.53MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.03%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "13.67%",
+              "MemUsage": "32.01MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "18.03%",
+              "MemUsage": "30.92MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "4.79%",
+              "MemUsage": "81.52MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.11%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.10%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "78.96%",
+              "MemUsage": "127.4MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "10.81%",
+              "MemUsage": "532.6MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 29.432693417184055,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "0.83%",
+              "MemUsage": "30.53MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.07%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "20.85%",
+              "MemUsage": "32.39MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "11.83%",
+              "MemUsage": "31.31MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "0.55%",
+              "MemUsage": "81.88MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "1.51%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.07%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "77.66%",
+              "MemUsage": "129.3MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "5.40%",
+              "MemUsage": "532.2MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 33.4914850841742,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "5.34%",
+              "MemUsage": "30.53MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.04%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "20.71%",
+              "MemUsage": "32.14MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "6.36%",
+              "MemUsage": "31.31MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "5.84%",
+              "MemUsage": "82.09MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.11%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.42%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "76.61%",
+              "MemUsage": "132.2MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "4.86%",
+              "MemUsage": "532.2MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 37.59402154199779,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.07%",
+              "MemUsage": "30.53MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.02%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "14.40%",
+              "MemUsage": "32.75MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "0.05%",
+              "MemUsage": "32.76MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "0.73%",
+              "MemUsage": "82.25MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "5.04%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.13%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "75.88%",
+              "MemUsage": "133.8MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "3.23%",
+              "MemUsage": "532.2MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 41.41888591716997,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.45%",
+              "MemUsage": "30.53MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.10%",
+              "MemUsage": "10.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "8.92%",
+              "MemUsage": "32.75MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "0.32%",
+              "MemUsage": "32.76MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "0.55%",
+              "MemUsage": "82.32MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.16%",
+              "MemUsage": "136.3MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "41.80%",
+              "MemUsage": "135.1MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "3.33%",
+              "MemUsage": "532.2MiB / 768MiB"
+            }
+          ]
+        }
+      ],
+      "injected_fault": null
+    },
+    {
+      "status": "passed",
+      "run_id": "benchmark-cc2618bd86734b00b946e41ba4cc875c",
+      "config": {
+        "rate": 20,
+        "seconds": 3,
+        "hosts": 8,
+        "pattern": "benign",
+        "workers": 2,
+        "seed": 53,
+        "profile": "disk-calibration"
+      },
+      "input_mode": "synthetic_fixture",
+      "planned": 60,
+      "attempted": 60,
+      "kafka_acknowledged": 60,
+      "unique_persisted": 60,
+      "publication_s": 2.951282000998617,
+      "total_to_completion_s": 3.4621700839998084,
+      "drain_after_publication_s": 0.5041829170004348,
+      "acknowledged_events_per_s": 20.330148044035766,
+      "durable_events_per_s_including_drain": 17.33017111934681,
+      "peak_acknowledged_backlog": 10,
+      "target_completed": true,
+      "early_stop_reason": null,
+      "warmup_s": 2,
+      "ingestion_to_durable_observation": {
+        "samples": 20,
+        "p50_s": 0.152269,
+        "p95_s": 0.503388,
+        "p99_s": 0.553421
+      },
+      "ingestion_to_insertion_lower_bound": {
+        "samples": 20,
+        "p50_s": 0.008047,
+        "p95_s": 0.009467,
+        "p99_s": 0.009752
+      },
+      "durable_alerts": 0,
+      "durable_alert_effects_per_s": 0.0,
+      "database_bytes_before": 103675571,
+      "database_bytes_after": 103798451,
+      "alert_effects": [],
+      "content_sha256": "373c0ea4790ecda408dd0487105e3cfcff6b65d746ecce377e1c40b74627c2a0",
+      "samples": [
+        {
+          "elapsed_s": 0.002,
+          "acknowledged": 0,
+          "persisted": 0,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 0.552,
+          "acknowledged": 11,
+          "persisted": 1,
+          "backlog": 10
+        },
+        {
+          "elapsed_s": 1.104,
+          "acknowledged": 22,
+          "persisted": 22,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 1.652,
+          "acknowledged": 33,
+          "persisted": 33,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.202,
+          "acknowledged": 44,
+          "persisted": 44,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.754,
+          "acknowledged": 55,
+          "persisted": 55,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 2.952,
+          "acknowledged": 60,
+          "persisted": 59,
+          "backlog": 1
+        },
+        {
+          "elapsed_s": 2.958,
+          "acknowledged": 60,
+          "persisted": 60,
+          "backlog": 0
+        },
+        {
+          "elapsed_s": 3.46,
+          "acknowledged": 60,
+          "persisted": 60,
+          "backlog": 0
+        }
+      ],
+      "monitoring": "on",
+      "measurement_note": "Durable latency includes up to ~0.5s observer polling plus query scheduling; insertion clock is not commit time. Kafka controls excluded from event counters.",
+      "resources": [
+        {
+          "elapsed_s": 1.73012641700916,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.73%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.20%",
+              "MemUsage": "10.61MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "3.72%",
+              "MemUsage": "30.6MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "9.07%",
+              "MemUsage": "32.77MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "1.94%",
+              "MemUsage": "76.93MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "26.45MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.36%",
+              "MemUsage": "136.4MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.53MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "9.64%",
+              "MemUsage": "135.3MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "6.63%",
+              "MemUsage": "532.2MiB / 768MiB"
+            }
+          ]
+        },
+        {
+          "elapsed_s": 5.837430082960054,
+          "services": [
+            {
+              "Name": "tracehawk-publisher-1",
+              "CPUPerc": "1.77%",
+              "MemUsage": "30.5MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-collector-1",
+              "CPUPerc": "0.05%",
+              "MemUsage": "10.61MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-detector-1",
+              "CPUPerc": "4.92%",
+              "MemUsage": "30.6MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-detector-b-1",
+              "CPUPerc": "0.15%",
+              "MemUsage": "32.77MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-api-1",
+              "CPUPerc": "10.26%",
+              "MemUsage": "50.13MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-console-1",
+              "CPUPerc": "0.02%",
+              "MemUsage": "26.46MiB / 128MiB"
+            },
+            {
+              "Name": "tracehawk-grafana-1",
+              "CPUPerc": "0.29%",
+              "MemUsage": "136.4MiB / 256MiB"
+            },
+            {
+              "Name": "tracehawk-prometheus-1",
+              "CPUPerc": "0.00%",
+              "MemUsage": "31.52MiB / 192MiB"
+            },
+            {
+              "Name": "tracehawk-postgres-1",
+              "CPUPerc": "4.80%",
+              "MemUsage": "133.3MiB / 384MiB"
+            },
+            {
+              "Name": "tracehawk-kafka-1",
+              "CPUPerc": "2.42%",
+              "MemUsage": "532.2MiB / 768MiB"
+            }
+          ]
+        }
+      ],
+      "injected_fault": null
+    }
+  ],
+  "docker_profile": "10 CPUs; 8321515520 bytes; Docker 29.6.1; aarch64",
+  "disk_calibration": {
+    "before_bytes": 103675571,
+    "after_bytes": 103798451,
+    "delta_bytes": 122880,
+    "events": 60,
+    "note": "Whole database growth over one short calibration; includes background health writes. Not per-event storage cost."
+  }
+}

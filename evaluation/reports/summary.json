@@ -1,0 +1,160 @@
+{
+  "version": "evaluation-v1",
+  "scope": "Frozen synthetic sensitivity/counterexample corpus; not representative real-world accuracy.",
+  "captures": 28,
+  "held_out_captures": 12,
+  "held_out_host_hours": 0.5,
+  "benign_alerts": 2,
+  "suppressed_alerts": 1,
+  "rules": [
+    {
+      "family": "vertical_tcp_scan",
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.5,
+      "missed_captures": [
+        "heldout-slow-scan"
+      ],
+      "false_positive_captures": [],
+      "implemented": true
+    },
+    {
+      "family": "failed_tcp_connections",
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "missed_captures": [],
+      "false_positive_captures": [
+        "heldout-outage"
+      ],
+      "implemented": true
+    },
+    {
+      "family": "dns_nxdomain_burst",
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "missed_captures": [],
+      "false_positive_captures": [
+        "heldout-benign-nx"
+      ],
+      "implemented": true
+    },
+    {
+      "family": "known_indicator",
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "missed_captures": [],
+      "false_positive_captures": [],
+      "implemented": true
+    },
+    {
+      "family": "horizontal_scan",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0,
+      "missed_captures": [
+        "heldout-horizontal"
+      ],
+      "false_positive_captures": [],
+      "implemented": false
+    }
+  ],
+  "model": {
+    "default_enabled": false,
+    "train_windows": 50,
+    "validation_windows": 30,
+    "held_out_windows": 60,
+    "source_episode_metrics": {
+      "rules": {
+        "tp": 4,
+        "fp": 2,
+        "fn": 2,
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666
+      },
+      "ml": {
+        "tp": 1,
+        "fp": 1,
+        "fn": 5,
+        "precision": 0.5,
+        "recall": 0.16666666666666666
+      },
+      "combined": {
+        "tp": 4,
+        "fp": 2,
+        "fn": 2,
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666
+      }
+    },
+    "new_true_positive_captures": [],
+    "recommendation": "keep offline; insufficient representative evidence for production promotion"
+  },
+  "short_trials": [
+    {
+      "workers": 1,
+      "sources": 1,
+      "repeats": 2,
+      "offered_events_per_s": 40,
+      "duration_s": 12,
+      "mean_durable_events_per_s": 38.404630615036275,
+      "max_p95_durable_observation_s": 0.523156,
+      "events_per_trial": 480
+    },
+    {
+      "workers": 1,
+      "sources": 32,
+      "repeats": 2,
+      "offered_events_per_s": 40,
+      "duration_s": 12,
+      "mean_durable_events_per_s": 38.3987286158103,
+      "max_p95_durable_observation_s": 0.502528,
+      "events_per_trial": 480
+    },
+    {
+      "workers": 2,
+      "sources": 1,
+      "repeats": 2,
+      "offered_events_per_s": 40,
+      "duration_s": 12,
+      "mean_durable_events_per_s": 38.4115443417835,
+      "max_p95_durable_observation_s": 0.503036,
+      "events_per_trial": 480
+    },
+    {
+      "workers": 2,
+      "sources": 32,
+      "repeats": 2,
+      "offered_events_per_s": 40,
+      "duration_s": 12,
+      "mean_durable_events_per_s": 38.425812011668015,
+      "max_p95_durable_observation_s": 0.50191,
+      "events_per_trial": 480
+    }
+  ],
+  "engineering_target": {
+    "rate": 500,
+    "seconds": 600,
+    "completed": false,
+    "early_stop_reason": "acknowledged backlog reached configured bound",
+    "actually_published_s": 27.651028553998913
+  },
+  "recovery_final_effect_parity": true,
+  "source_report_sha256": {
+    "rules": "06c091e6a96cf6504fd0a733e4d9c31e05fe8c52ccd445f1c85d3b36eb30fe23",
+    "ml": "2e07b92e2d517c739a00909ec4f2e12ffbbd22d6c869f46cc1f64ab519308945",
+    "benchmark": "3d324bd498efda765ebf30e2526c5f89ec584723de681dee97b31a75393ad99d"
+  }
+}

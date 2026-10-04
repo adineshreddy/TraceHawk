@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "version": "rules-v1",
+  "window_seconds": 60,
+  "step_seconds": 10,
+  "lateness_seconds": 30,
+  "episode_bucket_seconds": 300,
+  "vertical_tcp_scan": {
+    "enabled": true,
+    "min_distinct_ports": 20,
+    "severity": "high"
+  },
+  "failed_tcp_connections": {
+    "enabled": true,
+    "min_attempts": 20,
+    "min_failure_ratio": 0.8,
+    "failure_states": [
+      "S0",
+      "REJ"
+    ],
+    "severity": "medium"
+  },
+  "dns_nxdomain_burst": {
+    "enabled": true,
+    "min_responses": 30,
+    "min_nxdomain_ratio": 0.6,
+    "severity": "medium"
+  },
+  "known_indicator": {
+    "enabled": true,
+    "indicator_version": "demo-indicators-v1",
+    "severity": "high"
+  }
+}

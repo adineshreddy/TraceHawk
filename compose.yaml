@@ -1,0 +1,198 @@
+name: tracehawk
+services:
+  postgres:
+    image: postgres:17-alpine@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+    environment:
+      POSTGRES_DB: tracehawk
+      POSTGRES_USER: tracehawk
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run tools/setup_dev.py}
+    volumes: [database:/var/lib/postgresql/data]
+    networks: [core]
+    mem_limit: 384m
+    cpus: 1
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U tracehawk -d tracehawk]
+      interval: 3s
+      timeout: 3s
+      retries: 25
+    restart: unless-stopped
+  kafka:
+    image: apache/kafka:4.3.0@sha256:0be4c9eb3565733612d2836d65636fd611a219ebcf5b4162e5ac259ea0ecb907
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_HEAP_OPTS: -Xms128m -Xmx384m
+    volumes: [broker:/var/lib/kafka/data]
+    networks: [core]
+    mem_limit: 768m
+    cpus: 2
+    healthcheck:
+      test: [CMD-SHELL, '/opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --list >/dev/null']
+      interval: 10s
+      timeout: 10s
+      retries: 15
+    restart: unless-stopped
+  topics:
+    image: apache/kafka:4.3.0@sha256:0be4c9eb3565733612d2836d65636fd611a219ebcf5b4162e5ac259ea0ecb907
+    entrypoint: [/bin/sh, -c]
+    command:
+      - 'for topic in tracehawk.events.v1 tracehawk.alerts.v1 tracehawk.deadletters.v1; do /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic $$topic --partitions 3 --replication-factor 1 --config retention.ms=86400000 --config retention.bytes=268435456 || exit 1; done'
+    depends_on:
+      kafka: {condition: service_healthy}
+    networks: [core]
+    mem_limit: 384m
+  api:
+    image: tracehawk-backend:phase4
+    build: {context: ., dockerfile: services/backend/Dockerfile}
+    environment: &backend_env
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      INTERNAL_TOKEN: ${INTERNAL_TOKEN:?Run tools/setup_dev.py}
+      OPERATOR_PASSWORD: ${OPERATOR_PASSWORD:?Run tools/setup_dev.py}
+      ANALYST_PASSWORD: ${ANALYST_PASSWORD:?Run tools/setup_dev.py}
+      PUBLIC_ORIGIN: http://127.0.0.1:3100
+    depends_on:
+      postgres: {condition: service_healthy}
+    networks: [core]
+    mem_limit: 256m
+    cpus: 1
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8100/health/ready',timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 25
+    restart: unless-stopped
+  detector:
+    image: tracehawk-backend:phase4
+    build: {context: ., dockerfile: services/backend/Dockerfile}
+    command: [python, -m, tracehawk.detector]
+    environment:
+      <<: *backend_env
+      WORKER_ID: detector-a
+    depends_on:
+      api: {condition: service_healthy}
+      topics: {condition: service_completed_successfully}
+    networks: [core]
+    mem_limit: 256m
+    cpus: 1
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9100/health/ready',timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 25
+    restart: unless-stopped
+  detector-b:
+    image: tracehawk-backend:phase4
+    command: [python, -m, tracehawk.detector]
+    environment:
+      <<: *backend_env
+      WORKER_ID: detector-b
+    depends_on:
+      api: {condition: service_healthy}
+      topics: {condition: service_completed_successfully}
+    networks: [core]
+    mem_limit: 192m
+    cpus: 1
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9100/health/ready',timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 25
+    restart: unless-stopped
+  publisher:
+    image: tracehawk-backend:phase4
+    command: [python, -m, tracehawk.publisher]
+    environment: *backend_env
+    volumes: [publisher_state:/state]
+    depends_on:
+      api: {condition: service_healthy}
+      topics: {condition: service_completed_successfully}
+    networks: [core]
+    mem_limit: 128m
+    cpus: 1
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9100/health/live',timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 25
+    restart: unless-stopped
+  collector:
+    image: tracehawk-collector:phase4
+    build: {context: ., dockerfile: services/collector/Dockerfile}
+    environment:
+      INTERNAL_TOKEN: ${INTERNAL_TOKEN}
+      FAULT_AFTER_ACK: ${FAULT_AFTER_ACK:-0}
+    volumes: [collector_state:/state]
+    depends_on:
+      api: {condition: service_healthy}
+      topics: {condition: service_completed_successfully}
+    networks: [core]
+    mem_limit: 128m
+    cpus: 1
+    healthcheck:
+      test: [CMD, /collector, --healthcheck]
+      interval: 5s
+      timeout: 5s
+      retries: 25
+    restart: unless-stopped
+  console:
+    image: tracehawk-console:phase6
+    build: {context: ., dockerfile: services/console/Dockerfile}
+    environment:
+      GRAFANA_URL: http://127.0.0.1:3101/d/tracehawk-operations
+    ports: ['127.0.0.1:3100:3100']
+    depends_on:
+      api: {condition: service_healthy}
+    networks: [core, public]
+    mem_limit: 128m
+    cpus: 1
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3100/health/live').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+  prometheus:
+    image: prom/prometheus:v3.5.0@sha256:63805ebb8d2b3920190daf1cb14a60871b16fd38bed42b857a3182bc621f4996
+    command: [--config.file=/etc/prometheus/prometheus.yml, --storage.tsdb.retention.time=24h, --storage.tsdb.retention.size=128MB]
+    volumes: [./infrastructure/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro, metrics:/prometheus]
+    networks: [core]
+    mem_limit: 192m
+    cpus: 1
+    restart: unless-stopped
+  grafana:
+    image: grafana/grafana:12.2.0@sha256:74144189b38447facf737dfd0f3906e42e0776212bf575dc3334c3609183adf7
+    environment:
+      GF_SECURITY_ADMIN_USER: operator
+      GF_SECURITY_ADMIN_PASSWORD: ${OPERATOR_PASSWORD}
+      GF_USERS_ALLOW_SIGN_UP: 'false'
+      GF_AUTH_ANONYMOUS_ENABLED: 'false'
+      GF_ANALYTICS_REPORTING_ENABLED: 'false'
+      GF_ANALYTICS_CHECK_FOR_UPDATES: 'false'
+    ports: ['127.0.0.1:3101:3000']
+    volumes: [./infrastructure/monitoring/grafana/provisioning:/etc/grafana/provisioning:ro, ./infrastructure/monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro, grafana:/var/lib/grafana]
+    networks: [core, public]
+    mem_limit: 256m
+    cpus: 1
+    restart: unless-stopped
+networks:
+  core: {internal: true}
+  public: {}
+volumes:
+  database: {}
+  broker: {}
+  collector_state: {}
+  publisher_state: {}
+  metrics: {}
+  grafana: {}

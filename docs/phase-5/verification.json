@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "phase": 5,
+  "checked_in_manifests": 51,
+  "checks": [
+    "server-side Kubernetes admission",
+    "restricted containers and private services",
+    "real Calico allowed/denied paths with DNS checks",
+    "108 events / six alerts; benign 17 / zero",
+    "loaded worker restart final-effect parity",
+    "PostgreSQL/Kafka pod replacement preserves effects",
+    "new kind node with retained run/evidence/login",
+    "post-recreation replay final-effect parity",
+    "four live metric scrapes and ten provisioned Grafana panels",
+    "Kubernetes-backed desktop/mobile browser rehearsal",
+    "deployment-specific dashboard link"
+  ],
+  "scope": "macOS ARM64 local kind / Kubernetes v1.35.0; Linux AMD64 CI configured but not executed remotely",
+  "application_images": "Same Compose/Kubernetes images; backend/collector phase4 unchanged, console phase5 adds runtime dashboard URL",
+  "next_phase": 6
+}

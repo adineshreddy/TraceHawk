@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "checks": {
+    "hardening": {
+      "restricted_containers_checked": 12,
+      "services_cluster_internal": true,
+      "workload_secret_rbac_denied": true,
+      "serviceaccount_token_unmounted": true
+    },
+    "network_policy": {
+      "api_to_database_allowed": true,
+      "api_to_kafka_denied": true,
+      "console_to_database_denied": true,
+      "foreign_namespace_spoofed_console_to_api_denied": true,
+      "enforcement": "Calico v3.33.0, real connection attempts"
+    },
+    "benign_17_events_zero_alerts": true,
+    "loaded_worker_restart_effect_parity": true,
+    "database_and_broker_pod_replacement_preserves_state": true,
+    "evaluation_summary": true,
+    "cluster_recreated_with_new_node_uid": true,
+    "host_retained_state_and_login_preserved": true,
+    "post_recreation_replay_effect_parity": true
+  },
+  "runs": {
+    "reference": "9ce8b4c21d8d410a9f44d054"
+  },
+  "reference": {
+    "events": 108,
+    "alerts": 6,
+    "receipts": 108,
+    "effect_sha256": "2507fb785fc62cb5a0446b21808cb158c15ba52f0fdc37b484bf9697bed3a2cf"
+  },
+  "cluster_recreation_tested": true,
+  "limits": "Single local kind node, one broker and database; host-mounted data retained. Not cloud deployment, HA, backup recovery or production capacity."
+}

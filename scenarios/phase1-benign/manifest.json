@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "benign-network-v1",
+  "capture_file": "benign-network.pcap",
+  "capture_sha256": "442c0df7da0cc369f861b2c09790934387d97a7267db90673872a6177d14edf5",
+  "input_mode": "controlled_pcap",
+  "packet_count": 22,
+  "time_start_us": 1791028846400000,
+  "time_end_us": 1791028855500000,
+  "provenance": "Original offline development fixture derived from successful DNS transactions and normal TCP connection in Phase 0 capture. No transmitted traffic.",
+  "license": "CC0-1.0",
+  "expected_telemetry": {
+    "connection_records": 9,
+    "dns_records": 8,
+    "tcp_normal": 1,
+    "dns_noerror": 8
+  },
+  "ground_truth": [],
+  "limitations": [
+    "Small development baseline; not an independent evaluation corpus."
+  ]
+}

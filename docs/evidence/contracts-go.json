@@ -1,0 +1,7 @@
+{
+  "format_assertions": true,
+  "library": "jsonschema/v6 v6.0.3",
+  "schema_cases": 28,
+  "schemas": 7,
+  "status": "passed"
+}

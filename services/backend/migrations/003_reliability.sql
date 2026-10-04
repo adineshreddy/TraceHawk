@@ -1,0 +1,12 @@
+ALTER TABLE partition_checkpoints ADD COLUMN owner_id text;
+ALTER TABLE partition_checkpoints ADD COLUMN owner_seen_at timestamptz;
+ALTER TABLE partition_checkpoints ADD COLUMN broker_high bigint NOT NULL DEFAULT 0;
+ALTER TABLE outbox ADD COLUMN created_at timestamptz NOT NULL DEFAULT now();
+ALTER TABLE deadletters ADD COLUMN record_sha256 text;
+ALTER TABLE deadletters ADD COLUMN record_bytes int;
+ALTER TABLE deadletters ADD COLUMN created_at timestamptz NOT NULL DEFAULT now();
+ALTER TABLE deadletters ADD COLUMN delivered_at timestamptz;
+ALTER TABLE deadletters ADD COLUMN reviewed_at timestamptz;
+ALTER TABLE deadletters ADD COLUMN review_reason text;
+CREATE INDEX pending_alert_delivery ON outbox(created_at,update_id) WHERE delivered_at IS NULL;
+CREATE INDEX pending_deadletter_delivery ON deadletters(created_at) WHERE delivered_at IS NULL;

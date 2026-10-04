@@ -1,0 +1,19 @@
+{
+  "scenario_id": "v2-held-out-outage-01",
+  "split": "held-out",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packets; pinned Zeek 8.0.10; no network transmission.",
+  "generator_seed": 81067,
+  "time_start_us": 1791115200000000,
+  "time_end_us": 1791115500000000,
+  "folder": "evaluation/corpus/v2-held-out-outage-01",
+  "source_ip": "203.0.113.87",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "50fa1fe48241a72784ed6a036f9decdb23d17037a71f6cf43ca7f9291216ed4a",
+  "log_hashes": {
+    "conn": "8e675dd63a19171592ba322d4204cc2546fd22152a3b9981155501cfe9fed1b6",
+    "dns": "2113855987fa4557aad80a24b200792398f87fc78560dbae7eb169ef450e1b57"
+  },
+  "total": 195
+}

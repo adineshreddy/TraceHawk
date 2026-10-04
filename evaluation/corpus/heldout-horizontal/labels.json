@@ -1,0 +1,14 @@
+{
+  "episodes": [
+    {
+      "detector_id": "horizontal_scan",
+      "source_ip": "192.0.2.87",
+      "destination_ip": null,
+      "start_us": 1791028801000000,
+      "end_us": 1791028821420000
+    }
+  ],
+  "policies": [],
+  "context": "horizontal",
+  "benign_explanation": null
+}

@@ -1,0 +1,6 @@
+{
+  "context": "outage",
+  "policies": [],
+  "benign_explanation": "Declared authorized maintenance or stale DNS, statistically confusable with attacks.",
+  "episodes": []
+}

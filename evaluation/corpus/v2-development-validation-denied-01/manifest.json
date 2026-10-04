@@ -1,0 +1,19 @@
+{
+  "scenario_id": "v2-development-validation-denied-01",
+  "split": "development-validation",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packets; pinned Zeek 8.0.10; no network transmission.",
+  "generator_seed": 81057,
+  "time_start_us": 1791115200000000,
+  "time_end_us": 1791115500000000,
+  "folder": "evaluation/corpus/v2-development-validation-denied-01",
+  "source_ip": "203.0.113.77",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "4d864e8a2cbf376e9d96092326d9e7ffdb3f5c27ca991110d1519cf420db5e3b",
+  "log_hashes": {
+    "conn": "cea70f80e75f75620d915a1b0aad2a3c821b5fe4e1e54e89fbcb7e03c548bc91",
+    "dns": "fd48191f4c2ab735057af884d984a733f7f6c3267d12e2691e1ddad53f6e3cc9"
+  },
+  "total": 219
+}

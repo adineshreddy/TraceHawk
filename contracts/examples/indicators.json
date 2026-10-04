@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "version": "demo-indicators-v1",
+  "provenance": "Original fictional demo indicators; not a threat feed.",
+  "entries": [
+    {
+      "kind": "ip",
+      "value": "198.51.100.99",
+      "description": "Fictional indicator for exact-match testing"
+    },
+    {
+      "kind": "domain",
+      "value": "indicator.example.test",
+      "description": "Fictional domain for exact-match testing"
+    }
+  ]
+}

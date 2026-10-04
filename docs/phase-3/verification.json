@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "verified_at_utc": "2026-10-04T01:23:06.445121+00:00",
+  "environment": "macOS ARM64 host; Linux ARM64 Compose services",
+  "checks": {
+    "backend_unit_tests": 10,
+    "collector_go_tests": "passed",
+    "python_and_go_contract_parity": "7 schemas, 28 cases, 108 normalized Zeek records",
+    "runtime_openapi_surface": "27 matching public operations",
+    "fresh_migrations_and_checksum_protection": "../phase-2/migrations.json",
+    "phase_1_api_security_and_restart": "../phase-1/api-verification.json",
+    "collector_ack_before_checkpoint_crash": "../phase-1/collector-recovery.json",
+    "phase_2_detection_and_investigation": "../phase-2/integration.json",
+    "transaction_rollback": "transactions.json",
+    "detection_semantics": "semantics.json",
+    "distributed_recovery": "recovery.json",
+    "outbound_contracts": "delivery.json",
+    "saturated_outbox_admission": "backpressure.json",
+    "phase_1_browser": "../phase-1/browser-verification.json",
+    "phase_2_browser": "../phase-2/browser.json",
+    "phase_3_browser": "browser.json",
+    "console_typecheck_and_production_build": "passed"
+  },
+  "claims_excluded": [
+    "GitHub-hosted CI execution",
+    "end-to-end exactly-once output",
+    "high availability",
+    "large-load throughput",
+    "detection accuracy on a held-out corpus",
+    "Kubernetes/cloud deployment"
+  ]
+}

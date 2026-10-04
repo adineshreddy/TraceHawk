@@ -1,0 +1,19 @@
+{
+  "scenario_id": "heldout-web",
+  "split": "held-out",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packet construction; no network transmission. Pinned Zeek 8.0.10.",
+  "generator_seed": 4116,
+  "time_start_us": 1791028800000000,
+  "time_end_us": 1791029100000000,
+  "folder": "evaluation/corpus/heldout-web",
+  "source_ip": "192.0.2.76",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "f13b2b0b2d41f7b34587ed6eee2e1ca6fe111bc3018688e379952714b595e23a",
+  "log_hashes": {
+    "conn": "def3f0ae7b7895edf665f310f205d982688ddf6c092e76fa8878b34fc1163758",
+    "dns": "533f91cb1ab2cfe9c5398a099d5dc615a990295b5678458c6c937d37907d9795"
+  },
+  "total": 103
+}

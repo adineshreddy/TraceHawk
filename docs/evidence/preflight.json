@@ -1,0 +1,54 @@
+{
+  "checked_on": "2026-10-03",
+  "host": {
+    "system": "Darwin",
+    "architecture": "arm64",
+    "memory_bytes": 17179869184,
+    "cpus": 10,
+    "disk_free_bytes": 49465163776
+  },
+  "tools": {
+    "go": {
+      "available": true,
+      "version": "go version go1.26.0 darwin/arm64"
+    },
+    "python": {
+      "available": true,
+      "version": "Python 3.14.2"
+    },
+    "node": {
+      "available": true,
+      "version": "v25.6.1"
+    },
+    "docker": {
+      "available": true,
+      "version": "Docker version 29.6.1, build 8900f1d"
+    },
+    "compose": {
+      "available": true,
+      "version": "Docker Compose version v5.3.0"
+    },
+    "kubectl": {
+      "available": true,
+      "version": "{\n  \"clientVersion\": {\n    \"major\": \"1\",\n    \"minor\": \"36\",\n    \"gitVersion\": \"v1.36.1\",\n    \"gitCommit\": \"756939600b9a7180fc2df6550a4585b638875e67\",\n    \"gitTreeState\": \"clean\",\n    \"buildDate\": \"2026-05-12T09:54:35Z\",\n    \"goVersion\": \"go1.26.2\",\n    \"compiler\": \"gc\",\n    \"platform\": \"darwin/arm64\"\n  },\n  \"kustomizeVersion\": \"v5.8.1\"\n}"
+    },
+    "kind": {
+      "available": false,
+      "required_phase": 5
+    }
+  },
+  "ports": {
+    "3100": "available",
+    "8100": "available",
+    "9190": "available",
+    "3190": "available",
+    "19092": "available"
+  },
+  "docker": {
+    "architecture": "aarch64",
+    "cpus": 10,
+    "memory_bytes": 8321515520,
+    "running_containers": 1,
+    "running_containers_after_probes": 1
+  }
+}

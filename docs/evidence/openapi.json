@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "openapi": "3.1.0",
+  "paths": 24,
+  "embedded_schema_parity": true,
+  "validator": "openapi-spec-validator 0.9.0",
+  "note": "OpenAPI structure and canonical schemas; actual Phase 1 response parity is checked by tools/verify_phase1.py."
+}

@@ -1,0 +1,19 @@
+{
+  "scenario_id": "v2-held-out-horizontal-01",
+  "split": "held-out",
+  "input_mode": "controlled_pcap",
+  "license": "CC0-1.0",
+  "provenance": "Original offline synthetic packets; pinned Zeek 8.0.10; no network transmission.",
+  "generator_seed": 81075,
+  "time_start_us": 1791115200000000,
+  "time_end_us": 1791115500000000,
+  "folder": "evaluation/corpus/v2-held-out-horizontal-01",
+  "source_ip": "203.0.113.95",
+  "observed_host_hours": 0.08333333333333333,
+  "pcap_sha256": "0bb4df823f12b02f52f7cb03992a55540043c7f133a5d1122bc5330b6c37daa4",
+  "log_hashes": {
+    "conn": "2375a4bd27f3be815aafea2e2e28a09aabb89621747cbd0f8d0ca98012c57b5e",
+    "dns": "d7a47e49860c229ac45e7f356d73fcfe2aaaeebff82d6f1a105e3f3a11cb8e34"
+  },
+  "total": 192
+}

@@ -1,0 +1,13 @@
+{
+  "episodes": [],
+  "policies": [
+    {
+      "detector_id": "vertical_tcp_scan",
+      "source_ip": "192.0.2.79",
+      "destination_ip": "198.51.100.22",
+      "reason": "Explicit authorized asset inventory scan; policy known before replay."
+    }
+  ],
+  "context": "authorized",
+  "benign_explanation": "Authorized inventory scan."
+}

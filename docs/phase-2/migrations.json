@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "checks": [
+    "fresh 001 through 004 migrations",
+    "idempotent startup and seeds",
+    "applied checksum mismatch rejected"
+  ],
+  "isolated_database": true,
+  "application_data": "preserved"
+}

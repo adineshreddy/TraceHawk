@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "checks": [
+    "1000 pending updates prevent a source lease",
+    "collector reports paused admission",
+    "all saturation test rows rolled back"
+  ]
+}

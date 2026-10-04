@@ -1,0 +1,1 @@
+{"status": "passed", "checks": ["production SQL boundaries, distinct ports, protocol, null state and source grouping", "event/state/checkpoint rollback", "duplicate identity at new offset", "event at watermark excluded", "invalid completion quarantined", "alert/evidence/outbox/checkpoint finalization rollback"], "test_data": "rolled back"}

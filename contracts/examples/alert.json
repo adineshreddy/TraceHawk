@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "alert_id": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "scope_id": "demo-phase0",
+  "run_id": "phase0-v1",
+  "detector_id": "vertical_tcp_scan",
+  "rule_version": "rules-v1",
+  "indicator_version": null,
+  "severity": "high",
+  "status": "open",
+  "suppressed": false,
+  "suppression_id": null,
+  "source_ip": "192.0.2.10",
+  "destination_ip": "192.0.2.20",
+  "first_event_time_us": 1791028801010000,
+  "last_event_time_us": 1791028824010000,
+  "window_start_us": 1791028770000000,
+  "window_end_us": 1791028830000000,
+  "episode_bucket_start_us": 1791028800000000,
+  "created_at_us": 1791028890000000,
+  "updated_at_us": 1791028890000000,
+  "explanation": "24 distinct destination ports observed; threshold is 20 in 60 seconds.",
+  "explanation_version": "explain-v1",
+  "observed": {
+    "distinct_ports": 24
+  },
+  "thresholds": {
+    "min_distinct_ports": 20,
+    "window_seconds": 60
+  },
+  "evidence_event_ids": [
+    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  ],
+  "evidence_total_count": 24,
+  "evidence_truncated": true
+}

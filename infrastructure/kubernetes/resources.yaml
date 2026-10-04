@@ -1,0 +1,2108 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tracehawk
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/enforce-version: v1.35
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: workload
+  namespace: tracehawk
+automountServiceAccountToken: false
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: runtime
+  namespace: tracehawk
+data:
+  DB_HOST: postgres
+  KAFKA_BROKERS: kafka:9092
+  PUBLIC_ORIGIN: http://127.0.0.1:3102
+  PYTHONDONTWRITEBYTECODE: '1'
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tracehawk-database
+  labels:
+    app.kubernetes.io/part-of: tracehawk
+spec:
+  capacity:
+    storage: 2Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: tracehawk-local
+  hostPath:
+    path: /tracehawk-data/database
+    type: Directory
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - tracehawk-control-plane
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: database
+  namespace: tracehawk
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: tracehawk-local
+  volumeName: tracehawk-database
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tracehawk-broker
+  labels:
+    app.kubernetes.io/part-of: tracehawk
+spec:
+  capacity:
+    storage: 2Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: tracehawk-local
+  hostPath:
+    path: /tracehawk-data/broker
+    type: Directory
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - tracehawk-control-plane
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: broker
+  namespace: tracehawk
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: tracehawk-local
+  volumeName: tracehawk-broker
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tracehawk-collector-state
+  labels:
+    app.kubernetes.io/part-of: tracehawk
+spec:
+  capacity:
+    storage: 2Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: tracehawk-local
+  hostPath:
+    path: /tracehawk-data/collector-state
+    type: Directory
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - tracehawk-control-plane
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: collector-state
+  namespace: tracehawk
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: tracehawk-local
+  volumeName: tracehawk-collector-state
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tracehawk-publisher-state
+  labels:
+    app.kubernetes.io/part-of: tracehawk
+spec:
+  capacity:
+    storage: 2Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: tracehawk-local
+  hostPath:
+    path: /tracehawk-data/publisher-state
+    type: Directory
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - tracehawk-control-plane
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: publisher-state
+  namespace: tracehawk
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: tracehawk-local
+  volumeName: tracehawk-publisher-state
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tracehawk-metrics
+  labels:
+    app.kubernetes.io/part-of: tracehawk
+spec:
+  capacity:
+    storage: 2Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: tracehawk-local
+  hostPath:
+    path: /tracehawk-data/metrics
+    type: Directory
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - tracehawk-control-plane
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: metrics
+  namespace: tracehawk
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: tracehawk-local
+  volumeName: tracehawk-metrics
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tracehawk-grafana-data
+  labels:
+    app.kubernetes.io/part-of: tracehawk
+spec:
+  capacity:
+    storage: 2Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: tracehawk-local
+  hostPath:
+    path: /tracehawk-data/grafana-data
+    type: Directory
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - tracehawk-control-plane
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grafana-data
+  namespace: tracehawk
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: tracehawk-local
+  volumeName: tracehawk-grafana-data
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: budget
+  namespace: tracehawk
+spec:
+  hard:
+    requests.cpu: '4'
+    requests.memory: 2Gi
+    limits.cpu: '12'
+    limits.memory: 3Gi
+    pods: '20'
+    persistentvolumeclaims: '6'
+    requests.storage: 12Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+  namespace: tracehawk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+        app.kubernetes.io/part-of: tracehawk
+    spec:
+      serviceAccountName: workload
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 35
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 70
+        runAsGroup: 70
+        fsGroup: 70
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: postgres
+        image: postgres:17-alpine@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 128Mi
+            cpu: 100m
+          limits:
+            memory: 384Mi
+            cpu: '1'
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        env:
+        - name: POSTGRES_DB
+          value: tracehawk
+        - name: POSTGRES_USER
+          value: tracehawk
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: runtime-secrets
+              key: POSTGRES_PASSWORD
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: temp
+          mountPath: /tmp
+        - name: database
+          mountPath: /var/lib/postgresql/data
+        - name: pg-socket
+          mountPath: /var/run/postgresql
+        readinessProbe: &id001
+          exec: &id002
+            command:
+            - pg_isready
+            - -U
+            - tracehawk
+            - -d
+            - tracehawk
+          periodSeconds: 10
+          timeoutSeconds: 8
+          failureThreshold: 3
+        livenessProbe: *id001
+        startupProbe:
+          exec: *id002
+          periodSeconds: 10
+          timeoutSeconds: 8
+          failureThreshold: 60
+      volumes:
+      - name: temp
+        emptyDir:
+          sizeLimit: 64Mi
+      - name: database
+        persistentVolumeClaim:
+          claimName: database
+      - name: pg-socket
+        emptyDir:
+          sizeLimit: 16Mi
+  serviceName: postgres
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: tracehawk
+spec:
+  type: ClusterIP
+  selector:
+    app: postgres
+  ports:
+  - port: 5432
+    targetPort: 5432
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: kafka
+  namespace: tracehawk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka
+  template:
+    metadata:
+      labels:
+        app: kafka
+        app.kubernetes.io/part-of: tracehawk
+    spec:
+      serviceAccountName: workload
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 35
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: kafka
+        image: apache/kafka:4.3.0@sha256:0be4c9eb3565733612d2836d65636fd611a219ebcf5b4162e5ac259ea0ecb907
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 384Mi
+            cpu: 250m
+          limits:
+            memory: 768Mi
+            cpu: '2'
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        env:
+        - name: KAFKA_NODE_ID
+          value: '1'
+        - name: KAFKA_PROCESS_ROLES
+          value: broker,controller
+        - name: KAFKA_LISTENERS
+          value: PLAINTEXT://:9092,CONTROLLER://:9093
+        - name: KAFKA_ADVERTISED_LISTENERS
+          value: PLAINTEXT://kafka:9092
+        - name: KAFKA_LISTENER_SECURITY_PROTOCOL_MAP
+          value: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+        - name: KAFKA_CONTROLLER_LISTENER_NAMES
+          value: CONTROLLER
+        - name: KAFKA_CONTROLLER_QUORUM_VOTERS
+          value: 1@kafka:9093
+        - name: KAFKA_INTER_BROKER_LISTENER_NAME
+          value: PLAINTEXT
+        - name: KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR
+          value: '1'
+        - name: KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR
+          value: '1'
+        - name: KAFKA_TRANSACTION_STATE_LOG_MIN_ISR
+          value: '1'
+        - name: KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS
+          value: '0'
+        - name: KAFKA_AUTO_CREATE_TOPICS_ENABLE
+          value: 'false'
+        - name: KAFKA_LOG_DIRS
+          value: /var/lib/kafka/data
+        - name: KAFKA_HEAP_OPTS
+          value: -Xms128m -Xmx384m
+        - name: CLUSTER_ID
+          value: MkU3OEVBNTcwNTJENDM2Qk
+        - name: LOG_DIR
+          value: /tmp/kafka-logs
+        - name: KAFKA_GC_LOG_OPTS
+          value: -Xlog:gc*:stdout:time
+        ports:
+        - containerPort: 9092
+        volumeMounts:
+        - name: temp
+          mountPath: /tmp
+        - name: broker
+          mountPath: /var/lib/kafka/data
+        - name: kafka-config
+          mountPath: /opt/kafka/config
+        readinessProbe:
+          exec:
+            command:
+            - /opt/kafka/bin/kafka-topics.sh
+            - --bootstrap-server
+            - kafka:9092
+            - --list
+          periodSeconds: 10
+          timeoutSeconds: 8
+          failureThreshold: 3
+        livenessProbe:
+          exec: &id001
+            command:
+            - bash
+            - -c
+            - kill -0 1
+          periodSeconds: 10
+          timeoutSeconds: 8
+          failureThreshold: 3
+        startupProbe:
+          exec: *id001
+          periodSeconds: 10
+          timeoutSeconds: 8
+          failureThreshold: 60
+      volumes:
+      - name: temp
+        emptyDir:
+          sizeLimit: 64Mi
+      - name: broker
+        persistentVolumeClaim:
+          claimName: broker
+      - name: kafka-config
+        emptyDir:
+          sizeLimit: 16Mi
+  serviceName: kafka
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka
+  namespace: tracehawk
+spec:
+  type: ClusterIP
+  clusterIP: None
+  publishNotReadyAddresses: true
+  selector:
+    app: kafka
+  ports:
+  - name: broker
+    port: 9092
+    targetPort: 9092
+  - name: controller
+    port: 9093
+    targetPort: 9093
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: tracehawk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+        app.kubernetes.io/part-of: tracehawk
+    spec:
+      serviceAccountName: workload
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 35
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: api
+        image: tracehawk-backend:phase4
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 96Mi
+            cpu: 100m
+          limits:
+            memory: 256Mi
+            cpu: '1'
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: runtime-secrets
+              key: POSTGRES_PASSWORD
+        - name: INTERNAL_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: runtime-secrets
+              key: INTERNAL_TOKEN
+        - name: OPERATOR_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: runtime-secrets
+              key: OPERATOR_PASSWORD
+        - name: ANALYST_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: runtime-secrets
+              key: ANALYST_PASSWORD
+        ports:
+        - containerPort: 8100
+        volumeMounts:
+        - name: temp
+          mountPath: /tmp
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 8100
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        livenessProbe:
+          httpGet: &id001
+            path: /health/live
+            port: 8100
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        startupProbe:
+          httpGet: *id001
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 60
+        envFrom:
+        - configMapRef:
+            name: runtime
+      volumes:
+      - name: temp
+        emptyDir:
+          sizeLimit: 64Mi
+      initContainers:
+      - name: wait-database
+        image: tracehawk-backend:phase4
+        imagePullPolicy: Never
+        command:
+        - python
+        - -c
+        - "import time;from tracehawk.core import db\nwhile True:\n try:\n  c=db();c.close();break\n\
+          \ except Exception:time.sleep(1)"
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: runtime-secrets
+              key: POSTGRES_PASSWORD
+        envFrom:
+        - configMapRef:
+            name: runtime
+        resources:
+          requests:
+            memory: 32Mi
+            cpu: 50m
+          limits:
+            memory: 128Mi
+            cpu: 500m
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+  strategy:
+    type: Recreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+  namespace: tracehawk
+spec:
+  type: ClusterIP
+  selector:
+    app: api
+  ports:
+  - port: 8100
+    targetPort: 8100
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: topics
+  namespace: tracehawk
+spec:
+  backoffLimit: 4
+  activeDeadlineSeconds: 600
+  template:
+    metadata:
+      labels:
+        app: topics
+    spec:
+      serviceAccountName: workload
+      automountServiceAccountToken: false
+      restartPolicy: OnFailure
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: topics
+        image: apache/kafka:4.3.0@sha256:0be4c9eb3565733612d2836d65636fd611a219ebcf5b4162e5ac259ea0ecb907
+        imagePullPolicy: Never
+        command:
+        - /bin/sh
+        - -c
+        args:
+        - until /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --list
+          >/dev/null 2>&1; do sleep 3; done; for topic in tracehawk.events.v1 tracehawk.alerts.v1
+          tracehawk.deadletters.v1; do /opt/kafka/bin/kafka-topics.sh --bootstrap-server
+          kafka:9092 --create --if-not-exists --topic $topic --partitions 3 --replication-factor
+          1 --config retention.ms=86400000 --config retention.bytes=268435456 || exit
+          1; done
+        resources:
+          requests:
+            memory: 128Mi
+            cpu: 100m
+          limits:
+            memory: 384Mi
+            cpu: '1'
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        volumeMounts:
+        - name: temp
+          mountPath: /tmp
+      volumes:
+      - name: temp
+        emptyDir:
+          sizeLimit: 64Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: detector
+  namespace: tracehawk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: detector
+  template:
+    metadata:
+      labels:
+        app: detector
+        app.kubernetes.io/part-of: tracehawk
+    spec:
+      serviceAccountName: workload
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 35
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: detector
+        image: tracehawk-backend:phase4
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 48Mi
+            cpu: 100m
+          limits:
+            memory: 256Mi
+            cpu: '1'
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: runtime-secrets
+              key: POSTGRES_PASSWORD
+        - name: WORKER_ID
+          value: detector-a
+        command:
+        - python
+        - -m
+        - tracehawk.detector
+        ports:
+        - containerPort: 9100
+        volumeMounts:
+        - name: temp
+          mountPath: /tmp
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 9100
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        livenessProbe:
+          httpGet: &id001
+            path: /health/live
+            port: 9100
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        startupProbe:
+          httpGet: *id001
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 60
+        envFrom:
+        - configMapRef:
+            name: runtime
+      volumes:
+      - name: temp
+        emptyDir:
+          sizeLimit: 64Mi
+  strategy:
+    type: Recreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: detector
+  namespace: tracehawk
+spec:
+  type: ClusterIP
+  selector:
+    app: detector
+  ports:
+  - port: 9100
+    targetPort: 9100
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: detector-b
+  namespace: tracehawk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: detector-b
+  template:
+    metadata:
+      labels:
+        app: detector-b
+        app.kubernetes.io/part-of: tracehawk
+    spec:
+      serviceAccountName: workload
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 35
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: detector-b
+        image: tracehawk-backend:phase4
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 48Mi
+            cpu: 100m
+          limits:
+            memory: 192Mi
+            cpu: '1'
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: runtime-secrets
+              key: POSTGRES_PASSWORD
+        - name: WORKER_ID
+          value: detector-b
+        command:
+        - python
+        - -m
+        - tracehawk.detector
+        ports:
+        - containerPort: 9100
+        volumeMounts:
+        - name: temp
+          mountPath: /tmp
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 9100
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        livenessProbe:
+          httpGet: &id001
+            path: /health/live
+            port: 9100
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        startupProbe:
+          httpGet: *id001
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 60
+        envFrom:
+        - configMapRef:
+            name: runtime
+      volumes:
+      - name: temp
+        emptyDir:
+          sizeLimit: 64Mi
+  strategy:
+    type: Recreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: detector-b
+  namespace: tracehawk
+spec:
+  type: ClusterIP
+  selector:
+    app: detector-b
+  ports:
+  - port: 9100
+    targetPort: 9100
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: publisher
+  namespace: tracehawk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: publisher
+  template:
+    metadata:
+      labels:
+        app: publisher
+        app.kubernetes.io/part-of: tracehawk
+    spec:
+      serviceAccountName: workload
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 35
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: publisher
+        image: tracehawk-backend:phase4
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 48Mi
+            cpu: 100m
+          limits:
+            memory: 128Mi
+            cpu: '1'
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: runtime-secrets
+              key: POSTGRES_PASSWORD
+        command:
+        - python
+        - -m
+        - tracehawk.publisher
+        ports:
+        - containerPort: 9100
+        volumeMounts:
+        - name: temp
+          mountPath: /tmp
+        - name: publisher-state
+          mountPath: /state
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 9100
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        livenessProbe:
+          httpGet: &id001
+            path: /health/live
+            port: 9100
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        startupProbe:
+          httpGet: *id001
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 60
+        envFrom:
+        - configMapRef:
+            name: runtime
+      volumes:
+      - name: temp
+        emptyDir:
+          sizeLimit: 64Mi
+      - name: publisher-state
+        persistentVolumeClaim:
+          claimName: publisher-state
+  strategy:
+    type: Recreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: publisher
+  namespace: tracehawk
+spec:
+  type: ClusterIP
+  selector:
+    app: publisher
+  ports:
+  - port: 9100
+    targetPort: 9100
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: collector
+  namespace: tracehawk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: collector
+  template:
+    metadata:
+      labels:
+        app: collector
+        app.kubernetes.io/part-of: tracehawk
+    spec:
+      serviceAccountName: workload
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 35
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: collector
+        image: tracehawk-collector:phase4
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 32Mi
+            cpu: 100m
+          limits:
+            memory: 128Mi
+            cpu: '1'
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        env:
+        - name: INTERNAL_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: runtime-secrets
+              key: INTERNAL_TOKEN
+        ports:
+        - containerPort: 9100
+        volumeMounts:
+        - name: temp
+          mountPath: /tmp
+        - name: collector-state
+          mountPath: /state
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 9100
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        livenessProbe:
+          httpGet: &id001
+            path: /health/live
+            port: 9100
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        startupProbe:
+          httpGet: *id001
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 60
+      volumes:
+      - name: temp
+        emptyDir:
+          sizeLimit: 64Mi
+      - name: collector-state
+        persistentVolumeClaim:
+          claimName: collector-state
+  strategy:
+    type: Recreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: collector
+  namespace: tracehawk
+spec:
+  type: ClusterIP
+  selector:
+    app: collector
+  ports:
+  - port: 9100
+    targetPort: 9100
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: console
+  namespace: tracehawk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: console
+  template:
+    metadata:
+      labels:
+        app: console
+        app.kubernetes.io/part-of: tracehawk
+    spec:
+      serviceAccountName: workload
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 35
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: console
+        image: tracehawk-console:phase6
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 48Mi
+            cpu: 100m
+          limits:
+            memory: 128Mi
+            cpu: '1'
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        env:
+        - name: GRAFANA_URL
+          value: http://127.0.0.1:3103/d/tracehawk-operations
+        ports:
+        - containerPort: 3100
+        volumeMounts:
+        - name: temp
+          mountPath: /tmp
+        readinessProbe:
+          httpGet:
+            path: /health/live
+            port: 3100
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        livenessProbe:
+          httpGet: &id001
+            path: /health/live
+            port: 3100
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        startupProbe:
+          httpGet: *id001
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 60
+      volumes:
+      - name: temp
+        emptyDir:
+          sizeLimit: 64Mi
+  strategy:
+    type: Recreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: console
+  namespace: tracehawk
+spec:
+  type: ClusterIP
+  selector:
+    app: console
+  ports:
+  - port: 3100
+    targetPort: 3100
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: monitoring
+  namespace: tracehawk
+data:
+  prometheus.yml: "global:\n  scrape_interval: 5s\n  scrape_timeout: 3s\nscrape_configs:\n\
+    \  - job_name: tracehawk\n    static_configs:\n      - targets: ['detector:9100',\
+    \ 'detector-b:9100', 'publisher:9100', 'collector:9100']\n"
+  datasources.yml: "apiVersion: 1\ndatasources:\n  - name: TraceHawk Prometheus\n\
+    \    uid: tracehawk-prometheus\n    type: prometheus\n    access: proxy\n    url:\
+    \ http://prometheus:9090\n    isDefault: true\n    editable: false\n"
+  dashboards.yml: "apiVersion: 1\nproviders:\n  - name: TraceHawk\n    folder: TraceHawk\n\
+    \    type: file\n    disableDeletion: true\n    editable: false\n    options:\n\
+    \      path: /var/lib/grafana/dashboards\n"
+  operations.json: "{\n  \"uid\": \"tracehawk-operations\",\n  \"title\": \"TraceHawk\
+    \ Operations\",\n  \"schemaVersion\": 41,\n  \"version\": 1,\n  \"refresh\": \"\
+    5s\",\n  \"time\": {\n    \"from\": \"now-15m\",\n    \"to\": \"now\"\n  },\n\
+    \  \"tags\": [\n    \"tracehawk\",\n    \"replay\"\n  ],\n  \"panels\": [\n  \
+    \  {\n      \"id\": 1,\n      \"title\": \"Pipeline readiness\",\n      \"type\"\
+    : \"stat\",\n      \"datasource\": {\n        \"type\": \"prometheus\",\n    \
+    \    \"uid\": \"tracehawk-prometheus\"\n      },\n      \"gridPos\": {\n     \
+    \   \"x\": 0,\n        \"y\": 0,\n        \"w\": 12,\n        \"h\": 8\n     \
+    \ },\n      \"targets\": [\n        {\n          \"refId\": \"A\",\n         \
+    \ \"expr\": \"tracehawk_pipeline_ready\",\n          \"legendFormat\": \"{{instance}}\
+    \ {{__name__}}\"\n        }\n      ]\n    },\n    {\n      \"id\": 2,\n      \"\
+    title\": \"Worker readiness\",\n      \"type\": \"stat\",\n      \"datasource\"\
+    : {\n        \"type\": \"prometheus\",\n        \"uid\": \"tracehawk-prometheus\"\
+    \n      },\n      \"gridPos\": {\n        \"x\": 12,\n        \"y\": 0,\n    \
+    \    \"w\": 12,\n        \"h\": 8\n      },\n      \"targets\": [\n        {\n\
+    \          \"refId\": \"A\",\n          \"expr\": \"tracehawk_worker_ready\",\n\
+    \          \"legendFormat\": \"{{instance}} {{__name__}}\"\n        }\n      ]\n\
+    \    },\n    {\n      \"id\": 3,\n      \"title\": \"Assigned partitions\",\n\
+    \      \"type\": \"stat\",\n      \"datasource\": {\n        \"type\": \"prometheus\"\
+    ,\n        \"uid\": \"tracehawk-prometheus\"\n      },\n      \"gridPos\": {\n\
+    \        \"x\": 0,\n        \"y\": 8,\n        \"w\": 12,\n        \"h\": 8\n\
+    \      },\n      \"targets\": [\n        {\n          \"refId\": \"A\",\n    \
+    \      \"expr\": \"tracehawk_assigned_partitions\",\n          \"legendFormat\"\
+    : \"{{instance}} {{__name__}}\"\n        }\n      ]\n    },\n    {\n      \"id\"\
+    : 4,\n      \"title\": \"Event lag by worker\",\n      \"type\": \"timeseries\"\
+    ,\n      \"datasource\": {\n        \"type\": \"prometheus\",\n        \"uid\"\
+    : \"tracehawk-prometheus\"\n      },\n      \"gridPos\": {\n        \"x\": 12,\n\
+    \        \"y\": 8,\n        \"w\": 12,\n        \"h\": 8\n      },\n      \"targets\"\
+    : [\n        {\n          \"refId\": \"A\",\n          \"expr\": \"tracehawk_partition_lag\"\
+    ,\n          \"legendFormat\": \"{{instance}} {{__name__}}\"\n        }\n    \
+    \  ]\n    },\n    {\n      \"id\": 5,\n      \"title\": \"Processed records /\
+    \ second\",\n      \"type\": \"timeseries\",\n      \"datasource\": {\n      \
+    \  \"type\": \"prometheus\",\n        \"uid\": \"tracehawk-prometheus\"\n    \
+    \  },\n      \"gridPos\": {\n        \"x\": 0,\n        \"y\": 16,\n        \"\
+    w\": 12,\n        \"h\": 8\n      },\n      \"targets\": [\n        {\n      \
+    \    \"refId\": \"A\",\n          \"expr\": \"rate(tracehawk_processed_records_total[1m])\"\
+    ,\n          \"legendFormat\": \"{{instance}} {{__name__}}\"\n        }\n    \
+    \  ]\n    },\n    {\n      \"id\": 6,\n      \"title\": \"Pending alert updates\"\
+    ,\n      \"type\": \"timeseries\",\n      \"datasource\": {\n        \"type\"\
+    : \"prometheus\",\n        \"uid\": \"tracehawk-prometheus\"\n      },\n     \
+    \ \"gridPos\": {\n        \"x\": 12,\n        \"y\": 16,\n        \"w\": 12,\n\
+    \        \"h\": 8\n      },\n      \"targets\": [\n        {\n          \"refId\"\
+    : \"A\",\n          \"expr\": \"tracehawk_pending_alert_updates\",\n         \
+    \ \"legendFormat\": \"{{instance}} {{__name__}}\"\n        }\n      ]\n    },\n\
+    \    {\n      \"id\": 7,\n      \"title\": \"Quarantine pending delivery / review\"\
+    ,\n      \"type\": \"timeseries\",\n      \"datasource\": {\n        \"type\"\
+    : \"prometheus\",\n        \"uid\": \"tracehawk-prometheus\"\n      },\n     \
+    \ \"gridPos\": {\n        \"x\": 0,\n        \"y\": 24,\n        \"w\": 12,\n\
+    \        \"h\": 8\n      },\n      \"targets\": [\n        {\n          \"refId\"\
+    : \"A\",\n          \"expr\": \"{__name__=~\\\"tracehawk_pending_deadletters|tracehawk_unreviewed_deadletters\\\
+    \"}\",\n          \"legendFormat\": \"{{instance}} {{__name__}}\"\n        }\n\
+    \      ]\n    },\n    {\n      \"id\": 8,\n      \"title\": \"Recovery and delivery\
+    \ errors\",\n      \"type\": \"timeseries\",\n      \"datasource\": {\n      \
+    \  \"type\": \"prometheus\",\n        \"uid\": \"tracehawk-prometheus\"\n    \
+    \  },\n      \"gridPos\": {\n        \"x\": 12,\n        \"y\": 24,\n        \"\
+    w\": 12,\n        \"h\": 8\n      },\n      \"targets\": [\n        {\n      \
+    \    \"refId\": \"A\",\n          \"expr\": \"{__name__=~\\\"tracehawk_recovery_errors_total|tracehawk_delivery_errors_total\\\
+    \"}\",\n          \"legendFormat\": \"{{instance}} {{__name__}}\"\n        }\n\
+    \      ]\n    },\n    {\n      \"id\": 9,\n      \"title\": \"Consumer assignments\"\
+    ,\n      \"type\": \"timeseries\",\n      \"datasource\": {\n        \"type\"\
+    : \"prometheus\",\n        \"uid\": \"tracehawk-prometheus\"\n      },\n     \
+    \ \"gridPos\": {\n        \"x\": 0,\n        \"y\": 32,\n        \"w\": 12,\n\
+    \        \"h\": 8\n      },\n      \"targets\": [\n        {\n          \"refId\"\
+    : \"A\",\n          \"expr\": \"tracehawk_rebalances_total\",\n          \"legendFormat\"\
+    : \"{{instance}} {{__name__}}\"\n        }\n      ]\n    },\n    {\n      \"id\"\
+    : 10,\n      \"title\": \"Delivered alert updates / second\",\n      \"type\"\
+    : \"timeseries\",\n      \"datasource\": {\n        \"type\": \"prometheus\",\n\
+    \        \"uid\": \"tracehawk-prometheus\"\n      },\n      \"gridPos\": {\n \
+    \       \"x\": 12,\n        \"y\": 32,\n        \"w\": 12,\n        \"h\": 8\n\
+    \      },\n      \"targets\": [\n        {\n          \"refId\": \"A\",\n    \
+    \      \"expr\": \"rate(tracehawk_delivered_alert_updates_total[1m])\",\n    \
+    \      \"legendFormat\": \"{{instance}} {{__name__}}\"\n        }\n      ]\n \
+    \   }\n  ]\n}"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+  namespace: tracehawk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+        app.kubernetes.io/part-of: tracehawk
+    spec:
+      serviceAccountName: workload
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 35
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534
+        runAsGroup: 65534
+        fsGroup: 65534
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: prometheus
+        image: prom/prometheus:v3.5.0@sha256:63805ebb8d2b3920190daf1cb14a60871b16fd38bed42b857a3182bc621f4996
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 100m
+          limits:
+            memory: 192Mi
+            cpu: 500m
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        env: []
+        command:
+        - /bin/prometheus
+        - --config.file=/etc/prometheus/prometheus.yml
+        - --storage.tsdb.retention.time=24h
+        - --storage.tsdb.retention.size=128MB
+        ports:
+        - containerPort: 9090
+        volumeMounts:
+        - name: temp
+          mountPath: /tmp
+        - name: metrics
+          mountPath: /prometheus
+        - name: config
+          mountPath: /etc/prometheus/prometheus.yml
+          subPath: prometheus.yml
+          readOnly: true
+        readinessProbe:
+          httpGet:
+            path: /-/ready
+            port: 9090
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        livenessProbe:
+          httpGet: &id001
+            path: /-/healthy
+            port: 9090
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        startupProbe:
+          httpGet: *id001
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 60
+      volumes:
+      - name: temp
+        emptyDir:
+          sizeLimit: 64Mi
+      - name: metrics
+        persistentVolumeClaim:
+          claimName: metrics
+      - name: config
+        configMap:
+          name: monitoring
+  strategy:
+    type: Recreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus
+  namespace: tracehawk
+spec:
+  type: ClusterIP
+  selector:
+    app: prometheus
+  ports:
+  - port: 9090
+    targetPort: 9090
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  namespace: tracehawk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+        app.kubernetes.io/part-of: tracehawk
+    spec:
+      serviceAccountName: workload
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 35
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 472
+        runAsGroup: 472
+        fsGroup: 472
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: grafana
+        image: grafana/grafana:12.2.0@sha256:74144189b38447facf737dfd0f3906e42e0776212bf575dc3334c3609183adf7
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 96Mi
+            cpu: 100m
+          limits:
+            memory: 256Mi
+            cpu: 500m
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        env:
+        - name: GF_SECURITY_ADMIN_USER
+          value: operator
+        - name: GF_USERS_ALLOW_SIGN_UP
+          value: 'false'
+        - name: GF_AUTH_ANONYMOUS_ENABLED
+          value: 'false'
+        - name: GF_ANALYTICS_REPORTING_ENABLED
+          value: 'false'
+        - name: GF_ANALYTICS_CHECK_FOR_UPDATES
+          value: 'false'
+        - name: GF_PLUGINS_PREINSTALL_DISABLED
+          value: 'true'
+        - name: GF_PLUGINS_PUBLIC_KEY_RETRIEVAL_DISABLED
+          value: 'true'
+        - name: GF_SECURITY_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: runtime-secrets
+              key: OPERATOR_PASSWORD
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+        - name: temp
+          mountPath: /tmp
+        - name: grafana-data
+          mountPath: /var/lib/grafana
+        - name: config
+          mountPath: /etc/grafana/provisioning/datasources/tracehawk.yml
+          subPath: datasources.yml
+          readOnly: true
+        - name: config
+          mountPath: /etc/grafana/provisioning/dashboards/tracehawk.yml
+          subPath: dashboards.yml
+          readOnly: true
+        - name: config
+          mountPath: /var/lib/grafana/dashboards/operations.json
+          subPath: operations.json
+          readOnly: true
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: 3000
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        livenessProbe:
+          httpGet: &id001
+            path: /api/health
+            port: 3000
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        startupProbe:
+          httpGet: *id001
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 60
+      volumes:
+      - name: temp
+        emptyDir:
+          sizeLimit: 64Mi
+      - name: grafana-data
+        persistentVolumeClaim:
+          claimName: grafana-data
+      - name: config
+        configMap:
+          name: monitoring
+  strategy:
+    type: Recreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: tracehawk
+spec:
+  type: ClusterIP
+  selector:
+    app: grafana
+  ports:
+  - port: 3000
+    targetPort: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny
+  namespace: tracehawk
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: dns
+  namespace: tracehawk
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: kube-system
+      podSelector:
+        matchLabels:
+          k8s-app: kube-dns
+    ports:
+    - protocol: UDP
+      port: 53
+    - protocol: TCP
+      port: 53
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-api
+  namespace: tracehawk
+spec:
+  podSelector:
+    matchLabels:
+      app: api
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: console
+    ports:
+    - protocol: TCP
+      port: 8100
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: collector
+    ports:
+    - protocol: TCP
+      port: 8100
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: postgres
+    ports:
+    - protocol: TCP
+      port: 5432
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-collector
+  namespace: tracehawk
+spec:
+  podSelector:
+    matchLabels:
+      app: collector
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: prometheus
+    ports:
+    - protocol: TCP
+      port: 9100
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: api
+    ports:
+    - protocol: TCP
+      port: 8100
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: kafka
+    ports:
+    - protocol: TCP
+      port: 9092
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-console
+  namespace: tracehawk
+spec:
+  podSelector:
+    matchLabels:
+      app: console
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress: []
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: api
+    ports:
+    - protocol: TCP
+      port: 8100
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-detector
+  namespace: tracehawk
+spec:
+  podSelector:
+    matchLabels:
+      app: detector
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: prometheus
+    ports:
+    - protocol: TCP
+      port: 9100
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: postgres
+    ports:
+    - protocol: TCP
+      port: 5432
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: kafka
+    ports:
+    - protocol: TCP
+      port: 9092
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-detector-b
+  namespace: tracehawk
+spec:
+  podSelector:
+    matchLabels:
+      app: detector-b
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: prometheus
+    ports:
+    - protocol: TCP
+      port: 9100
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: postgres
+    ports:
+    - protocol: TCP
+      port: 5432
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: kafka
+    ports:
+    - protocol: TCP
+      port: 9092
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-grafana
+  namespace: tracehawk
+spec:
+  podSelector:
+    matchLabels:
+      app: grafana
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress: []
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: prometheus
+    ports:
+    - protocol: TCP
+      port: 9090
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-kafka
+  namespace: tracehawk
+spec:
+  podSelector:
+    matchLabels:
+      app: kafka
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: collector
+    ports:
+    - protocol: TCP
+      port: 9092
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: detector
+    ports:
+    - protocol: TCP
+      port: 9092
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: detector-b
+    ports:
+    - protocol: TCP
+      port: 9092
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: publisher
+    ports:
+    - protocol: TCP
+      port: 9092
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: topics
+    ports:
+    - protocol: TCP
+      port: 9092
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: kafka
+    ports:
+    - protocol: TCP
+      port: 9092
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: kafka
+    ports:
+    - protocol: TCP
+      port: 9093
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: kafka
+    ports:
+    - protocol: TCP
+      port: 9092
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: kafka
+    ports:
+    - protocol: TCP
+      port: 9093
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-postgres
+  namespace: tracehawk
+spec:
+  podSelector:
+    matchLabels:
+      app: postgres
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: api
+    ports:
+    - protocol: TCP
+      port: 5432
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: detector
+    ports:
+    - protocol: TCP
+      port: 5432
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: detector-b
+    ports:
+    - protocol: TCP
+      port: 5432
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: publisher
+    ports:
+    - protocol: TCP
+      port: 5432
+  egress: []
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-prometheus
+  namespace: tracehawk
+spec:
+  podSelector:
+    matchLabels:
+      app: prometheus
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: grafana
+    ports:
+    - protocol: TCP
+      port: 9090
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: collector
+    ports:
+    - protocol: TCP
+      port: 9100
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: detector
+    ports:
+    - protocol: TCP
+      port: 9100
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: detector-b
+    ports:
+    - protocol: TCP
+      port: 9100
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: publisher
+    ports:
+    - protocol: TCP
+      port: 9100
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-publisher
+  namespace: tracehawk
+spec:
+  podSelector:
+    matchLabels:
+      app: publisher
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: prometheus
+    ports:
+    - protocol: TCP
+      port: 9100
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: postgres
+    ports:
+    - protocol: TCP
+      port: 5432
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: kafka
+    ports:
+    - protocol: TCP
+      port: 9092
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-topics
+  namespace: tracehawk
+spec:
+  podSelector:
+    matchLabels:
+      app: topics
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress: []
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: tracehawk
+      podSelector:
+        matchLabels:
+          app: kafka
+    ports:
+    - protocol: TCP
+      port: 9092

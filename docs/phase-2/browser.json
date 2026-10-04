@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "browser": "Chromium / Playwright 1.63.0",
+  "checks": [
+    "four-detector replay with six persisted alerts",
+    "API-backed filtering",
+    "DNS window measurements and timeline",
+    "disposition with escaped reason",
+    "host drill-down and event pagination",
+    "create immutable rule snapshot",
+    "fictional indicator inspection",
+    "atomic pre-replay suppression",
+    "retained suppressed evidence",
+    "suppression audit creation",
+    "mobile width",
+    "analyst permissions"
+  ],
+  "page_errors": []
+}

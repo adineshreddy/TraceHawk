@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "scrape_targets": 4,
+  "all_targets_up": true,
+  "grafana_authenticated": true,
+  "provisioned_panels": 10,
+  "datasource_healthy": true
+}

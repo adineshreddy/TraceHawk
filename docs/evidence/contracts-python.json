@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "schemas": 7,
+  "schema_cases": 28,
+  "semantic_negative_cases": [
+    "event:event_time_us",
+    "event:published_at_us",
+    "alert:last_event_time_us",
+    "alert:suppressed",
+    "suppression:expires_at_us"
+  ],
+  "actual_zeek_normalized_records": 108,
+  "limitations": [
+    "Go parity covers JSON Schema including formats; service-level semantic enforcement is required in Phase 1."
+  ]
+}
