@@ -25,6 +25,8 @@ Choose **Replay → Controlled scan + DNS traffic → phase2-rules-v1 → 10× �
 
 [Recorded walkthrough](docs/phase-6/tracehawk-demo.webm) · [Five-minute narration script](docs/phase-6/demo-script.md) · [Setup, demo and reset runbook](docs/phase-6/README.md)
 
+**[v1.0.0 release and demo download](https://github.com/adineshreddy/TraceHawk/releases/tag/v1.0.0)** · [Verified remote CI runs](docs/phase-6/ci.json)
+
 ## What it does
 
 - Four configurable detectors: vertical TCP scans, repeated failed TCP connections, DNS NXDOMAIN bursts and exact fictional indicators.

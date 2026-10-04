@@ -18,6 +18,8 @@ Open http://127.0.0.1:3100 and sign in as `operator` using the generated passwor
 
 [Five-minute narration script](demo-script.md) · [Implemented architecture](architecture.md) · [Project resume bullets](resume-bullets.md) · [Recorded screen walkthrough](tracehawk-demo.webm) · [Two consecutive rehearsal results](rehearsals.json)
 
+Published repository: [adineshreddy/TraceHawk](https://github.com/adineshreddy/TraceHawk). Both GitHub workflows passed on the same implementation commit: [Compose pipeline](https://github.com/adineshreddy/TraceHawk/actions/runs/37215862790), [Kubernetes deployment/recovery](https://github.com/adineshreddy/TraceHawk/actions/runs/37215862883). See [release verification](ci.json), [generated remote Kubernetes results](remote-kubernetes.json) and [local saved-cluster resume verification](kubernetes-resume.json). These supersede the historical “CI pending” notes in earlier phase guides.
+
 The video is silent and captured from real running services; authentication occurs before recording. It is a compact screen walkthrough, with a separate five-minute narration script. It does not demonstrate live packet capture or cloud deployment. The UI Evaluation page displays the frozen v1 evaluation; the [separate ML v2 report](../../evaluation/experiments/ml-v2/REPORT.md) documents the follow-up experiment.
 
 To stop the local demo without deleting data:

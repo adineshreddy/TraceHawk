@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "repository": "https://github.com/adineshreddy/TraceHawk",
+  "tested_implementation_commit": "a92e7900d3ce73de0b3081e4618469a48beadeac",
+  "workflows": [
+    {
+      "conclusion": "success",
+      "headSha": "a92e7900d3ce73de0b3081e4618469a48beadeac",
+      "status": "completed",
+      "updatedAt": "2026-10-04T16:24:54Z",
+      "url": "https://github.com/adineshreddy/TraceHawk/actions/runs/37215862790",
+      "workflowName": "TraceHawk detection, investigation and recovery"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "a92e7900d3ce73de0b3081e4618469a48beadeac",
+      "status": "completed",
+      "updatedAt": "2026-10-04T16:18:38Z",
+      "url": "https://github.com/adineshreddy/TraceHawk/actions/runs/37215862883",
+      "workflowName": "TraceHawk Kubernetes deployment and recovery"
+    }
+  ],
+  "local": {
+    "backend_tests_passed": 15,
+    "contracts_passed": true,
+    "one_command_startup_passed": true,
+    "two_consecutive_fresh_scope_rehearsals": true,
+    "private_paths_excluded": true,
+    "fresh_public_clone_corpus_integrity_passed": true,
+    "kubernetes_resume_and_recovery_passed": true,
+    "compose_restored": true
+  },
+  "video": {
+    "file": "tracehawk-demo.webm",
+    "sha256": "0882022abf925409cf9dbb5a08e1062000494ad41aa362c5f8b7a300fa48942d",
+    "duration_s": 91.6,
+    "width": 1440,
+    "height": 1000
+  },
+  "remote_evidence": {
+    "remote-kubernetes.json": "2e61aac69e950ac5363aec32d1cad7e031d56a144e68ca8575173339d799c038",
+    "remote-kubernetes-browser.json": "884c755559e8e952d0bf4cb6a423138ebf9811ec7e008e3744ec10b7d6ef562c",
+    "remote-kubernetes-monitoring.json": "d9481015c86e4955003c94d66065ffd339c5adc4005b19f906d61ec72e07dcbe",
+    "remote-rehearsals.json": "58c96910870b60ff9e3bdd19a89d32d92f1589b182818f382b529e89278927c1"
+  },
+  "notes": [
+    "Both workflows passed on the same implementation commit. The following publication commit changes only README/plan/phase-6 presentation evidence.",
+    "Earlier phase CI-pending notes record historical local evidence; these public CI runs supersede them.",
+    "Video is a silent automated walkthrough; human narration is optional."
+  ]
+}
