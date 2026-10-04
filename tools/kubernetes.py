@@ -110,6 +110,26 @@ def load_images():
                 stdout=subprocess.DEVNULL,
                 timeout=300,
             )
+            # CRI normalizes tag+digest references to repository@digest. Keep
+            # that alias so kubelet finds the exact object without another pull.
+            tagged, digest = canonical.split("@", 1)
+            normalized = tagged.rsplit(":", 1)[0] + "@" + digest
+            run(
+                [
+                    "docker",
+                    "exec",
+                    NODE,
+                    "ctr",
+                    "-n",
+                    "k8s.io",
+                    "images",
+                    "tag",
+                    "--force",
+                    canonical,
+                    normalized,
+                ],
+                stdout=subprocess.DEVNULL,
+            )
             print("Pulled pinned", image.split("@")[0], flush=True)
             continue
         if subprocess.run(
